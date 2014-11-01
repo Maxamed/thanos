@@ -2,7 +2,10 @@
 	"folders":
 	[
 		{
-			"path": "/www/home/wwwroot/sites/thanos"
+			"path": "_less"
+		},
+		{
+			"path": "/Users/dtigraphics/Git/thanos"
 		}
 	]
 }
