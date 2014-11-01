@@ -50,18 +50,21 @@ function printPosts() {
     foreach ($posts as $u) {
         
         $post = truncate($u['posts']);
-        echo "  <li><a href=post.php?SingleId={$u['id']}>Post: {$post}<span> -  - ID:{$u['id']}</span><span>Category:{$u['category']}</span><p><aa href=functions.php?SingleId={$u['id']}>Report Spam</a></p></li>";
+        echo "  <li><a href=post.php?SingleId={$u['id']}>Post: {$post}<span> -  - ID:{$u['id']}</span><span>Category:{$u['category']}</span><p><a href=functions.php?SpamId={$u['id']}>Report Spam</a></p></li>";
     }
 }
 
 //  TODO  Spam
 
-// function spam($Postid){
-//     $x = intval($Postid);  
-//     global $db;
-//     $db->where ("id", $x); 
-// }
-
+if(isset($_SERVER['SpamId']))
+    { 
+echo "eee";
+        // function spam($Postid){
+        //     $x = intval($Postid);  
+        //     global $db;
+        //     $db->where ("id", $x); 
+        // }
+}
 // Truncate Posts
 
 function truncate($string,$length=200,$append="&hellip;") {
