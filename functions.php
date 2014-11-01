@@ -56,11 +56,11 @@ function printPosts() {
 
 //  TODO  Spam
 
-function spam($Postid){
-    $x = intval($Postid);  
-    global $db;
-    $db->where ("id", $x); 
-}
+// function spam($Postid){
+//     $x = intval($Postid);  
+//     global $db;
+//     $db->where ("id", $x); 
+// }
 
 // Truncate Posts
 
