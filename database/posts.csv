@@ -1,0 +1,4 @@
+id,"posts",views,comment_id,"category","username","createdat",status,"hashtag"
+1,"I'm a #Superfreak a superfreak, watch it baby girl! #coolDude",NULL,NULL,"FMYLIFE","BLUE","2014-11-11 18:54:12",1,"Superfreak,coolDude"
+2,"Testing another #superfreak post , cause this is #raw baby",NULL,NULL,"FMYLIFE","CLOUDS","2014-11-11 18:54:34",1,"superfreak,raw"
+3,"I'm getting a random #name #raw shit",NULL,NULL,"FMYLIFE","CONCRETE","2014-11-11 18:55:00",1,"name,raw"
