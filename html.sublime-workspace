@@ -4,34 +4,454 @@
 		"selected_items":
 		[
 			[
-				"backg",
-				"background-color"
+				"comm",
+				"comment:root	rootComment"
 			],
 			[
-				"s",
-				"style"
+				"text",
+				"text-align"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"com",
+				"comment:root	rootComment"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"co",
+				"comment:section	sectionComment"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"comme",
+				"comment:section	sectionComment"
+			],
+			[
+				"coe",
+				"comment:section	sectionComment"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"commen",
+				"comment:block	blockComment"
+			],
+			[
+				"c",
+				"comment:block	blockComment"
+			],
+			[
+				"li",
+				"line-height"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"tet",
+				"text-decoration"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"comment",
+				"comment:section	sectionComment"
+			],
+			[
+				"newV",
+				"newVersion"
+			],
+			[
+				"js",
+				"jsDir"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"css",
+				"cssDir"
+			],
+			[
+				"b",
+				"bannerTemplate"
+			],
+			[
+				"_",
+				"_globalConfig"
+			],
+			[
+				"p",
+				"pkg"
+			],
+			[
+				"na",
+				"name"
+			],
+			[
+				"glo",
+				"_globalConfig"
+			],
+			[
+				"le",
+				"lessDir"
+			],
+			[
+				"cs",
+				"cssDir"
+			],
+			[
+				"segment",
+				"segment-area"
+			],
+			[
+				"label",
+				"label-text"
+			],
+			[
+				"is",
+				"is_lead_heading"
+			],
+			[
+				"if-",
+				"if-panel-footer"
+			],
+			[
+				"if-panel",
+				"if-panel-header"
+			],
+			[
+				"tablet",
+				"tabletMin"
+			],
+			[
+				"deskt",
+				"desktopMin"
+			],
+			[
+				"panel",
+				"panelInfoBackground"
+			],
+			[
+				"no-",
+				"no-flexbox"
+			],
+			[
+				"card-",
+				"card-control"
+			],
+			[
+				"card",
+				"card-control"
+			],
+			[
+				"fieldset",
+				"fieldsetBorder"
+			],
+			[
+				"lig",
+				"lighten"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"blockquote",
+				"blockquoteBorderWidth"
+			],
+			[
+				"base",
+				"baseGutter"
+			],
+			[
+				"blockquotePadding",
+				"blockquotePaddingWidth"
+			],
+			[
+				"blockquoteBorder",
+				"blockquoteBorderWidth"
+			],
+			[
+				"blockquo",
+				"blockquotePadding"
+			],
+			[
+				"block",
+				"blockquoteQuotationFont"
+			],
+			[
+				"citation",
+				"citationGlyph"
+			],
+			[
+				"data",
+				"data-glyph-before"
+			],
+			[
+				"dark",
+				"darkGrey"
+			],
+			[
+				"box",
+				"boxShadow"
+			],
+			[
+				"field",
+				"fieldBorderColour"
+			],
+			[
+				"fieldBore",
+				"fieldBorderWidth"
+			],
+			[
+				"light",
+				"lightGrey"
+			],
+			[
+				"sppl",
+				"splitComplementaryA"
+			],
+			[
+				"prim",
+				"primaryColour"
+			],
+			[
+				"click",
+				"clickListener"
+			],
+			[
+				"pager",
+				"pagerCustom"
+			],
+			[
+				"sli",
+				"slider"
+			],
+			[
+				"slider",
+				"slideContainer"
+			],
+			[
+				"slidr",
+				"slideContainer"
+			],
+			[
+				"portfolio",
+				"portfolioGallery"
+			],
+			[
+				"pre",
+				"preloadImages"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "html.sublime-project",
+			"settings":
+			{
+				"buffer_size": 73,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 124,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 387.0,
+		"height": 267.0,
 		"selected_items":
 		[
 			[
-				"ins",
+				"wr",
+				"Emmet: Wrap With Abbreviation"
+			],
+			[
+				"wrap",
+				"Emmet: Wrap With Abbreviation"
+			],
+			[
+				"wrp",
+				"Emmet: Wrap With Abbreviation"
+			],
+			[
+				"wra",
+				"Emmet: Wrap With Abbreviation"
+			],
+			[
+				"emm",
+				"Emmet: Wrap With Abbreviation"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: sectionComment"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"git st",
+				"Git: Status"
+			],
+			[
+				"git ch",
+				"Git: Checkout"
+			],
+			[
+				"git co",
+				"Git: Commit"
+			],
+			[
+				"git pu",
+				"Git: Pull"
+			],
+			[
+				"git che",
+				"Git: Checkout"
+			],
+			[
+				"git ",
+				"Git: Diff"
+			],
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"gt st",
+				"Git: Status"
+			],
+			[
+				"gt ch",
+				"Git: Checkout"
+			],
+			[
+				"git",
+				"Git: Checkout"
+			],
+			[
+				"emmet",
+				"Emmet: Wrap With Abbreviation"
+			],
+			[
+				"git statu",
+				"Git: Status"
+			],
+			[
+				"git sta",
+				"Git: Status"
+			],
+			[
+				"git pul",
+				"Git: Pull"
+			],
+			[
+				"git d",
+				"Git: Diff"
+			],
+			[
+				"GIT ",
+				"Git: Checkout"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git check",
+				"Git: Checkout"
+			],
+			[
+				"git  che",
+				"Git: Checkout"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"GIT sts",
+				"Git: Stash"
+			],
+			[
+				"pacvk",
+				"Package Control: Remove Package"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"pa",
+				"Package Control: List Packages"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"pacl",
+				"Package Control: Install Package"
+			],
+			[
+				"p",
 				"Package Control: Install Package"
 			]
 		],
-		"width": 449.0
+		"width": 575.0
 	},
 	"console":
 	{
-		"height": 126.0
+		"height": 125.0
 	},
 	"distraction_free":
 	{
@@ -44,16 +464,134 @@
 	},
 	"file_history":
 	[
-		"/www/home/wwwroot/sites/thanos/js/app.js",
-		"/www/home/wwwroot/sites/thanos/stylesheets/layout.css",
-		"/www/home/wwwroot/sites/thanos/index.html",
-		"/www/home/wwwroot/sites/thanos/tpl.html",
-		"/www/home/wwwroot/sites/thanos/js/jquery.js",
-		"/www/home/wwwroot/sites/html/css/foundation.css",
-		"/www/home/wwwroot/sites/html/index.tmpl",
-		"/www/home/wwwroot/sites/html/index.html",
-		"/www/home/wwwroot/sites/html/robots.txt",
-		"/www/home/wwwroot/sites/html/humans.txt"
+		"/Users/dtigraphics/Git/thanos/database/posts_view.csv",
+		"/Users/dtigraphics/Git/thanos/MysqliDb.php",
+		"/Users/dtigraphics/Git/thanos/_less/thanos.less",
+		"/Users/dtigraphics/Git/thanos/Gruntfile.js",
+		"/Users/dtigraphics/Git/thanos/package.json",
+		"/Users/dtigraphics/Git/thanos/README.md",
+		"/Users/dtigraphics/Git/thanos/html.sublime-project",
+		"/Users/dtigraphics/Git/thanos/.gitignore",
+		"/Users/dtigraphics/Git/thanos/stylesheets/thanos.css",
+		"/Applications/AMPPS/www/template/_themes/site/Gruntfile.js",
+		"/Applications/AMPPS/www/template/_themes/site/partials/_analytics.html",
+		"/Applications/AMPPS/www/template/_themes/site/partials/_article_listing.html",
+		"/Applications/AMPPS/www/template/_themes/site/partials/_article.html",
+		"/Applications/AMPPS/www/template/_themes/site/partials/_doc_head.html",
+		"/Applications/AMPPS/www/template/_themes/site/partials/_article_listing__condensed.html",
+		"/Applications/AMPPS/www/template/_themes/site/partials/_contact_form.html",
+		"/Applications/AMPPS/www/template/_themes/site/partials/_doc_foot.html",
+		"/Applications/AMPPS/www/template/_themes/site/assets/svg/icons.svg",
+		"/Applications/AMPPS/www/template/_themes/site/partials/_nav.html",
+		"/Applications/AMPPS/www/template/_themes/site/partials/_header.html",
+		"/Applications/AMPPS/www/template/_themes/site/layouts/default.html",
+		"/Applications/AMPPS/www/template/_themes/site/templates/default.html",
+		"/Applications/AMPPS/www/template/_themes/site/templates/contact.html",
+		"/Applications/AMPPS/www/template/_content/02-blog/2013-01-06-base-elements.md",
+		"/Applications/AMPPS/www/template/_themes/site/_less/mixins.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/base/_debug.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/base/_headings.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/base/_lists.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/base/_tables.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/components/_buttons.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/components/_forms.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/components/_grid.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/components/_media.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/components/_pagination.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/components/_panels.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/components/_tables.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/layouts/_default.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/site.less",
+		"/Applications/AMPPS/www/template/_themes/site/assets/svg/icons.min.svg",
+		"/Applications/AMPPS/www/template/_themes/site/assets/IcoMoon/sprite/sprite.svg",
+		"/Applications/AMPPS/www/template/_themes/site/assets/IcoMoon/sprites/sprites.svg",
+		"/Applications/AMPPS/www/template/_themes/site/assets/IcoMoon/SVG/addressBook.svg",
+		"/Applications/AMPPS/www/template/_themes/site/assets/IcoMoon/svgdefs.svg",
+		"/Applications/AMPPS/www/template/_config/fieldsets/social.yaml",
+		"/Applications/AMPPS/www/template/_content/__globals.md",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_base.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_components.less",
+		"/Applications/AMPPS/www/template/_themes/site/templates/post.html",
+		"/Applications/AMPPS/www/template/_themes/site/_less/base/_links.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/base/_misc.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/components/_icons.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_theme.less",
+		"/Applications/AMPPS/www/template/_themes/site/partials/_meta.html",
+		"/Applications/AMPPS/www/template/_themes/site/theme.yaml",
+		"/Applications/AMPPS/www/template/_themes/site/_less/settings.less",
+		"/Applications/AMPPS/www/template/.htaccess",
+		"/Applications/AMPPS/www/template/_config/settings.yaml",
+		"/Applications/AMPPS/www/template/_config/fieldsets/post.yaml",
+		"/Applications/AMPPS/www/template/_themes/site/_less/variables.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/mixin_utility.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_utility.less",
+		"/Applications/AMPPS/www/template/admin/routes.php",
+		"/Applications/AMPPS/www/template/_add-ons/globes/hooks.globes.php",
+		"/Applications/AMPPS/www/template/_themes/site/templates/404.html",
+		"/Applications/AMPPS/www/template/_add-ons/globes/templates/globes-overview.php",
+		"/Applications/AMPPS/www/template/_add-ons/globes/translations/en.globes.yaml",
+		"/Applications/AMPPS/www/template/_add-ons/globes/tasks.globes.php",
+		"/Applications/AMPPS/www/template/admin/.htaccess",
+		"/Applications/AMPPS/www/template/_themes/site/templates/page.html",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_layouts.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_grid.less",
+		"/Applications/AMPPS/www/template/_themes/site/assets/IcoMoon/Less Framework.json",
+		"/Applications/AMPPS/www/template/_themes/site/assets/IcoMoon/sprites/sprites.html",
+		"/Applications/AMPPS/www/template/_themes/site/assets/IcoMoon/sprites/sprites.png",
+		"/Applications/AMPPS/www/template/_themes/site/assets/IcoMoon/sprites/sprites.css",
+		"/Applications/AMPPS/www/template/_add-ons/svgi/README.md",
+		"/Applications/AMPPS/www/template/_logs/site_2014-09-15.log",
+		"/Applications/AMPPS/www/template/.gitignore",
+		"/Applications/AMPPS/www/template/_config/fieldsets/meta.yaml",
+		"/Applications/AMPPS/www/template/_config/routes.yaml",
+		"/Applications/AMPPS/www/template/_config/globals.yaml",
+		"/Applications/AMPPS/www/template/_themes/site/layouts/2Col_Featured.html",
+		"/Applications/AMPPS/www/template/_config/fieldsets/page.yaml",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_c_tables.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_c_forms.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_c_panels.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_c_media.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_reset.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/components/_button.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_c_text.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_c_button.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/base/_misc",
+		"/Applications/AMPPS/www/template/_themes/site/_less/base/_headings",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_typography.less",
+		"/Applications/AMPPS/www/template/_content/page.md",
+		"/Applications/AMPPS/www/template/_add-ons/raven/tasks.raven.php",
+		"/Applications/AMPPS/www/template/_add-ons/raven/examples/form.html",
+		"/Applications/AMPPS/www/template/_add-ons/raven/pi.raven.php",
+		"/Applications/AMPPS/www/template/_add-ons/raven/raven.yaml",
+		"/Applications/AMPPS/www/template/_config/environments/dev.yaml",
+		"/Applications/AMPPS/www/template/_content/03-contact/page.md",
+		"/Applications/AMPPS/www/template/_add-ons/index.html",
+		"/Applications/AMPPS/www/template/_themes/site/partials/_footer.html",
+		"/Applications/AMPPS/www/template/_themes/site/partials/_article_listing_condensed.html",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_c_lists.less",
+		"/Applications/AMPPS/www/template/_themes/site/layouts/sitemap.html",
+		"/Applications/AMPPS/www/template/_config/fieldsets/no_content.yaml",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_c_pagination.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_components_pagination.less",
+		"/Applications/AMPPS/www/template/_themes/site/_less/_components_text.less",
+		"/Applications/AMPPS/www/template/_themes/site/assets/css/dev/site.prefixed.css",
+		"/Applications/AMPPS/www/template/_themes/site/assets/css/tmp/site.css",
+		"/Applications/AMPPS/www/template/_themes/site/assets/js/dev/site-bundle.js",
+		"/Applications/AMPPS/www/template/_themes/site/package.json",
+		"/Applications/AMPPS/www/template/CHANGELOG.md",
+		"/Applications/AMPPS/www/template/CHANGLOG.md",
+		"/Applications/AMPPS/www/template/_themes/site/assets/js/site.js",
+		"/Applications/AMPPS/www/template/_themes/site/assets/js/legacy-ie.js",
+		"/Applications/AMPPS/www/template/_themes/site/assets/js/.jshint-report.js",
+		"/Applications/AMPPS/www/template/_themes/site/CHANGELOG.md",
+		"/Applications/AMPPS/www/template/_config/fieldsets/gallery.yaml",
+		"/Applications/AMPPS/www/template/_content/sitemap.md",
+		"/Applications/AMPPS/www/template/_themes/site/layouts/feed.html",
+		"/Applications/AMPPS/www/template/_themes/site/assets/css/dist/site.prefixed.min-v0.2.0.css",
+		"/Applications/AMPPS/www/template/_themes/site/assets/js/dev/site.js",
+		"/Applications/AMPPS/www/template/_themes/site/assets/js/legacy-ie-bundle.js",
+		"/Applications/AMPPS/www/template/_themes/site/assets/js/dev/legacy-ie-bundle.js",
+		"/Applications/AMPPS/www/template/_themes/site/bower_components/selectivizr/selectivizr.js"
 	],
 	"find":
 	{
@@ -64,6 +602,21 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"/Applications/AMPPS/www/template/_themes/site/partials",
+			"/Applications/AMPPS/www/template/_themes/site",
+			"/Applications/AMPPS/www/template/_themes/site/_less",
+			"/Applications/AMPPS/www/template/_add-ons/globes",
+			"/Applications/AMPPS/www/template",
+			"/Applications/AMPPS/www/template/_themes/site/_less",
+			"/Applications/AMPPS/www/template/_themes/site/partials",
+			"/Applications/AMPPS/www/template/_themes/basic/partials",
+			"/Applications/AMPPS/www/template/_app",
+			"/Applications/AMPPS/www/template/_app/core",
+			"/Applications/AMPPS/www/template/_app",
+			"/Applications/AMPPS/www/template/_app/core",
+			"/Users/dtigraphics/Dropbox/!DEV/!Frameworks/inspireFramework/stylus",
+			"/Users/dtigraphics/Dropbox/!DEV/!Frameworks/inspireFramework",
+			"/Users/dtigraphics/Dropbox/!DEV/!Frameworks/inspireFramework/stylus"
 		]
 	},
 	"find_state":
@@ -71,12 +624,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"@media only screen",
-			"HotelListResponse",
-			"column",
-			"face",
-			"<section class=\"content\">",
-			"post-content"
+			"__>",
+			"<!__",
+			"--",
+			"use",
+			"file",
+			"site",
+			"\"\n",
+			"outline:",
+			"title",
+			"*/",
+			"/*",
+			"border:",
+			"_scaleFactor",
+			"_button_theme__default_background",
+			"pos",
+			"cookie",
+			"$setting",
+			"$global",
+			"?=",
+			"icon-",
+			"coe",
+			"icon-",
+			".gitignore",
+			"border",
+			"site_desc",
+			"global",
+			"@_media",
+			"media",
+			"medai",
+			"posAbsVerticalCentre",
+			"centreVertical",
+			"_active",
+			"__active",
+			"row data",
+			"display",
+			"invalid",
+			"@_gutter",
+			"--centred",
+			"MediaEmbedded",
+			"Media",
+			"aspect\naspect\naspect\naspect\naspect\naspect",
+			"a--a",
+			"apect",
+			"ct-\nct-\nct-\nct-\nct-",
+			"u-as",
+			".rhythmCalc(\n  @scale;\n  @context: @_base_font_px;\n)",
+			".lineHeightCalc",
+			"lineHeight",
+			"rhythm",
+			"line-height",
+			"rhythm",
+			"@text",
+			"@_link",
+			"propCalc",
+			"grid",
+			"_component",
+			"@base_unit",
+			"_px;null",
+			"@context;@props",
+			"@props",
+			";\n  @_do_not_convert_below_threshold:null",
+			"  @_do_not_convert_below_threshold:null\n",
+			";@convThreshold",
+			"apsect",
+			"base_",
+			"apsectRatio",
+			"499px",
+			"@lineHeight",
+			"lineHeightCalc",
+			"base_unit",
+			".Row",
+			"Row-",
+			":hover",
+			":hoer",
+			"test",
+			"linkBlock",
+			" *",
+			"link",
+			"hiddenVisually",
+			"watch",
+			"change",
+			"clean",
+			"SEO Title Used By Google",
+			"site.",
+			"site.js",
+			"dev/",
+			"less",
+			"import",
+			"import:",
+			"import",
+			"replace",
+			"<!--[if gte IE 8]><!-->",
+			"basic",
+			"%><%=",
+			"theme",
+			"uglify",
+			"globalVars",
+			"{# end #}",
+			"end",
+			"ob_start",
+			"meta",
+			"fetch_param",
+			"fetchP",
+			"fetch_param",
+			"$panel",
+			"hidden",
+			"vendor(",
+			"vendorProp",
+			"codeblockBackground",
+			"codeblock",
+			"defined",
+			"$darkGrey",
+			"$primaryColour",
+			"$text",
+			"inspireFramework/",
+			"blue",
+			"class=\"panel",
+			"table",
+			"flex",
+			"blockquoteQuotationGlyphFont",
+			"citeColour",
+			"codeblockCaptionBackground",
+			"margin-bottom",
+			"extend",
+			"util",
+			"backgroun",
+			": ",
+			"@"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -84,6 +759,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"__"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -96,12 +772,64 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "html.sublime-project",
+					"settings":
+					{
+						"buffer_size": 73,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17,
+								17
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 124,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								74,
+								82
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -130,13 +858,29 @@
 		]
 	},
 	"menu_visible": true,
-	"output.sftp":
+	"output.exec":
 	{
-		"height": 100.0
+		"height": 94.0
+	},
+	"output.git-checkout":
+	{
+		"height": 94.0
+	},
+	"output.git-commit":
+	{
+		"height": 94.0
+	},
+	"output.git-pull":
+	{
+		"height": 94.0
+	},
+	"output.git-push":
+	{
+		"height": 94.0
 	},
 	"replace":
 	{
-		"height": 42.0
+		"height": 0.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -149,16 +893,20 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/Users/dtigraphics/Git/Grid/stylus/grid.stylus.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
-	"show_minimap": false,
+	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 183.0,
+	"side_bar_width": 358.0,
 	"status_bar_visible": true
 }
