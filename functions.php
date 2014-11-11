@@ -12,12 +12,17 @@ require_once("MysqliDb.php");
 
 if(isset($_POST['submit']))
     { 
- 
-         $data = array(
+        //random username from colors
+        $usr = rand(1, 31);
+        $db->where ("id", $usr); 
+        $u = $db->getOne("names"); 
+
+        $data = array(
             'posts' => $_POST['post'], 
             'hashtag'=> gethashtags($_POST['post']),
             'category' => $_POST['category'], 
             'status'=> 1,
+            'username'=> $u['name'],
             'createdat' => $db->now()
         );
 
@@ -53,7 +58,7 @@ function SinglePost($Postid) {
     $db->where ("id", $t); 
     $u = $db->getOne("posts"); 
 
-    echo "  <li>Post: {$u['posts']}<span> -  - ID:{$u['id']}</span><span>Category:{$u['category']}</span><p><a href=functions.php?SpamId={$u['id']}>Report Spam</a></p></li>";
+    echo "  <li>{$u['username']} Said : {$u['posts']}<span> -  - ID:{$u['id']}</span><span>Category:{$u['category']}</span><p><a href=functions.php?SpamId={$u['id']}>Report Spam</a></p></li>";
    
    
 }
@@ -68,7 +73,7 @@ function printPosts() {
     foreach ($posts as $u) {
         $hashPost = convertHashtags($u['posts']);
         $post = truncate($hashPost );
-        echo "  <li>Post: {$post} <a href=post.php?SingleId={$u['id']}><br><span>ID:{$u['id']}</span> - <span>Category: {$u['category']}</span><p><a href=functions.php?SpamId={$u['id']}>Report Spam</a></p></li>";
+        echo "  <li>{$u['username']} Said : {$post} <a href=post.php?SingleId={$u['id']}><br><span>ID:{$u['id']}</span> - <span>Category: {$u['category']}</span><p><a href=functions.php?SpamId={$u['id']}>Report Spam</a></p><hr></li>";
     }
 }
 
@@ -97,7 +102,7 @@ function convertHashtags($str){
     return($str);
 }
 
-//Pocess hashtags
+//Pocess hashtags when user clicks on hashtag
 
 if(isset($_GET['tag'])){
     $r = $_GET["tag"];
@@ -112,13 +117,13 @@ if(isset($_GET['tag'])){
             foreach ($posts as $u) {
                 $hashPost = convertHashtags($u['posts']);
                 $post = truncate($hashPost );
-                echo "  <li>Post: {$post} <a href=post.php?SingleId={$u['id']}><br><span>ID:{$u['id']}</span> - <span>Category: {$u['category']}</span><p><a href=functions.php?SpamId={$u['id']}>Report Spam</a></p></li>";
+                echo "  <li>{$u['username']} Said : {$post} <a href=post.php?SingleId={$u['id']}><br><span>ID:{$u['id']}</span> - <span>Category: {$u['category']}</span><p><a href=functions.php?SpamId={$u['id']}>Report Spam</a></p></li>";
             }
     }
 
  
 }
-//  Spam
+//  Flag Spam
 
 if(isset($_GET['SpamId']))
     { 
