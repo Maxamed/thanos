@@ -19,11 +19,20 @@ if(isset($_POST['submit']))
             'status'=> 1,
             'createdat' => $db->now()
         );
-  
+
        
         $id = $db->insert('posts', $data);
-        header ("Location: index.php");
 
+        $dataX = array(
+            'remote_address' => $_SERVER['REMOTE_ADDR'], 
+            'post_id' => $id, 
+            'httpx_forward'=> $_SERVER['HTTP_X_FORWARDED_FOR']
+        );        
+
+        $idx = $db->insert('users', $dataX);
+      
+        header ("Location: index.php");
+        exit;
 
     } 
 
@@ -32,12 +41,20 @@ if(isset($_POST['submit']))
 //Print Signle Post
  
 function SinglePost($Postid) { 
-    $t = intval($Postid);  
+
     global $db;
+    //TODO sort out number of views
+    // $data = array(
+    //     'views' => 13
+    // );
+    // $db->update("posts",$data);
+    $t = intval($Postid);  
     $db->where ("id", $t); 
     $u = $db->getOne("posts"); 
-    echo "  <li>Post: {$u['posts']}<span> -  - ID:{$u['id']}</span><span>Category:{$u['category']}</span></li>";
-    
+
+    echo "  <li>Post: {$u['posts']}<span> -  - ID:{$u['id']}</span><span>Category:{$u['category']}</span><p><a href=functions.php?SpamId={$u['id']}>Report Spam</a></p></li>";
+   
+   
 }
  
 //Print all posts
@@ -56,14 +73,20 @@ function printPosts() {
 
 //  TODO  Spam
 
-if(isset($_SERVER['SpamId']))
+if(isset($_GET['SpamId']))
     { 
-echo "eee";
-        // function spam($Postid){
-        //     $x = intval($Postid);  
-        //     global $db;
-        //     $db->where ("id", $x); 
-        // }
+
+      $xSpam = array(
+            'user_ip' => $_SERVER['REMOTE_ADDR'], 
+            'post_id' => $_GET['SpamId'], 
+            'timestamp' => $db->now()
+        );
+
+        $id = $db->insert("spam" , $xSpam);
+      
+       header ("Location: index.php");
+       exit;
+    
 }
 // Truncate Posts
 

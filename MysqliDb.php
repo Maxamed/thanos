@@ -1,16 +1,5 @@
 <?php
-/**
- * MysqliDb Class
- *
- * @category  Database Access
- * @package   MysqliDb
- * @author    Jeffery Way <jeffrey@jeffrey-way.com>
- * @author    Josh Campbell <jcampbell@ajillion.com>
- * @author    Alexander V. Butenko <a.butenka@gmail.com>
- * @copyright Copyright (c) 2010
- * @license   http://opensource.org/licenses/gpl-3.0.html GNU Public License
- * @version   2.0
- **/
+
 class MysqliDb
 {
     /**
