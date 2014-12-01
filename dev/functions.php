@@ -78,7 +78,6 @@ function printPosts() {
     }
 }
 
-
 //Strip and store Hashtag function
  
 function gethashtags($text)
