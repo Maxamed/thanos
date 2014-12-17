@@ -18,5 +18,15 @@ $app->get("/post/:id", function ($id) use ($app) {
     echo json_encode($s);
 });
 
+//view comments
+$app->get("/post/:id/comments", function ($id) use ($app) {
+    $s = allComments($id); 
+    $app->response()->header("Content-Type", "application/json");
+    echo json_encode($s);
+});
+
+ 
+
+
 $app->run();
 ?>

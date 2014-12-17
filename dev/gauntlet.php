@@ -14,6 +14,7 @@ function sPost($id){
         $arrPosts[] = array(
             "id" => $u['id'],
             "username" => $u['username'],
+            "comments" => $u['comments'],
             "post" => $u['posts'],
             "category" => $u['category']
             );
@@ -34,6 +35,7 @@ function allPosts() {
 
             "id" => $u['id'],
             "username" => $u['username'],
+            "comments" => $u['comments'],
             "post" => $post,
             "category" => $u['category']
 
@@ -44,5 +46,28 @@ function allPosts() {
     return $allPosts;
 }
 
+function allComments($id) {
 
+    global $db;
+    $t = intval($id);  
+    $db->where ("postid", $t); 
+    $comments = $db->get("comments");
+
+    $allComms = array();
+
+    foreach ($comments as $u) {
+
+        $allComms[] = array(
+
+            "id" => $u['id'], 
+            "comment" => $u['comment'],
+            "timestamp" => $u['timestamp']
+
+
+            );
+
+    }
+    return $allComms;
+
+}
  ?>

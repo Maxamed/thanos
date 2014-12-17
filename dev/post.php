@@ -51,14 +51,22 @@
  
 	       <?php
 	       	if(isset($_REQUEST['SingleId'])){
+	       		$postid =  $_REQUEST["SingleId"] ;
+	       		SinglePost($postid);
+	       		printComments($postid);
 
-	       		SinglePost($_REQUEST['SingleId']);
-
-	       	}else{
-	       		echo 'fuck you, How did you get here?';
 	       	}
-
 	       ?>
+
+
+	<form action="functions.php" method="post" id='commentSubmit'>
+	  <label for="exampleMessage">Comment</label>
+	  <textarea class="u-full-width" placeholder="Hi Dave …" name="comment"></textarea>
+	  <input type="hidden" name="postid" value="<?php echo $postid  ?>">
+	  <input class="button-primary" type="submit" value="Submit"  name="commentSubmit">
+	</form>
+
+
 
 	       
 		</div>  
