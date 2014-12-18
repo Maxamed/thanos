@@ -1,0 +1,75 @@
+/** @define Icon */
+:root {
+  --icon-width: 1rem;
+  --icon-height: var(--icon-width);
+}
+
+/* ===
+ * Icon Definitions
+ * 
+ * Generate Here: http://icomoon.io load assets/icoMoon/Thanos.json 
+ * to modify the set
+ *
+ * Available Icons:
+ * 
+ * success
+ * exit
+ * help
+ * remove--outline
+ * info
+ * info--outline
+ * newWindow
+ * search
+ * settings
+ * thumbDown
+ * thumbUp
+ * view--list
+ * view--grid
+ * warning
+ * pause
+ * pause--outline
+ * play
+ * play--outline
+ * comments
+ * add
+ * add--outline
+ * notAvailable
+ * loading
+ * menu
+ * media--video
+ * media--image
+ * tag
+ * email
+ * remove
+ * collapse
+ * expand
+ * share
+ * checkbox
+ * checkbox--checked
+ * radioButton
+ * radioButton--checked 
+ *
+ * Usage:
+ * 
+ * <svg class="Icon Icon-iconName">
+ *   <use xlink:href="#Icon-NAMEOFICON" />
+ * </svg>
+ ============ */
+
+/* Hide embedded SVG File */
+body > svg {display: none;}
+
+/* SVG-supporting Browsers  */
+.svg svg[class*="Icon"] {
+  display: inline-block;
+  fill: currentcolor; 
+  height: 1.5em;
+  vertical-align: middle;
+  width: 1.5em;
+}
+/* Hide SVG from old browsers */
+.no-svg svg {
+  display: none;
+  visibility: hidden;
+}
+

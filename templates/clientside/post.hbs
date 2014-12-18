@@ -1,0 +1,23 @@
+<article class="Post">
+  {{!-- Output if Post has title --}}
+  <{{#if post.headingLevel}}{{else}}h3{{/if}} class="Post-title H5">
+    {{post.author}} said:
+  </{{#if post.headingLevel}}{{else}}h3{{/if}}>  
+  <div class="Post-content">
+    {{{post.content}}}
+  </div>
+  <footer class="Post-footer">
+    {{#if post.timestamp}}Posted on <time datetime="{{post.machineDate}}">{{post.humanDate}}</time>.{{/if}}
+    {{#if post.categories}}
+      {{> categories}}
+    {{/if}}
+    {{#if post.commentCount}}
+      {{post.commentsCount}}
+    {{/if}}
+  </footer>
+</article>
+{{#if showComments}}
+<section role="region" class="PostComments">
+  {{> post.comments}}
+</section>
+{{/if}}

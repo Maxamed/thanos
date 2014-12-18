@@ -1,0 +1,86 @@
+/** define Button */
+
+:root {
+  --Button-border-colour: currentColor;
+  --Button-border-style: solid;
+  --Button-border-width: 0.0625rem; /* 1px */
+  --Button-color: inherit;
+  --Button-disabled-opacity: 0.6;
+  --Button-font: inherit;
+  --Button-padding: calc(var(--custom-gutter-width) / 4);
+  --Button-padding--bordered: calc(var(--custom-gutter-width) / 4 - var(--Button-border-width));
+  --Button-min-width: calc(var(--custom-gutter-width) * 1.5); /* 36px */
+  --Button-min-height: var(--Button-min-width);
+  /* Colour Vars */
+}
+
+/* ==========================================================================
+   Custom Button Styles
+   ========================================================================== */
+
+/**
+ * Short description using Doxygen-style comment format
+ *
+ * This creates a simple button. Extend with Themes and states below
+ *
+ * Example HTML
+ *
+ * <button type="submit" class="Button">
+ *   Content of Button
+ * </button>
+ *
+ * 1. Corrects inability to style clickable `input` types in iOS.
+ * 2. Inherit text color from ancestor.
+ * 3. Inherit font styles from ancestor.
+ * 4. Normalize `line-height`. For `input`, it can't be changed from `normal` in Firefox 4+.
+ * 5. Prevent button text from being selectable.
+ *
+ */
+.Button {
+  -webkit-appearance: none; /* 1 */
+  background: transparent;
+  color: var(--Button-color); /* 2 */
+  cursor: pointer;
+  display: inline-block;
+  font: var(--Button-font); /* 3 */
+  line-height: normal; /* 4 */
+  margin: 0;
+  min-height: var(--Button-min-height);
+  min-width: var(--Button-min-width);
+  padding: var(--Button-padding);
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none; /* 5 */
+  white-space: nowrap; 
+}
+/**
+ * Remove excess padding in Firefox
+ */
+.Button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+
+/* ==========================================================================
+   Button Theme Modifiers
+   ========================================================================== */
+
+
+/* Theme Colours
+   ========================================================================== */   
+
+/* Theme UI States
+   ========================================================================== */
+
+
+/* Outlines and Borders
+   ========================================================================== */ 
+.Button-outline {
+  border-style: solid;
+  border-width: var(--Button-border-width);
+  padding: var(--Button-padding--bordered);
+}
+
+

@@ -1,0 +1,24 @@
+{{!-- Create Post --}}
+<form action="/create-post" method="POST" class="NewPost">
+  <fieldset>
+    <legend>Speak Your Mind</legend>
+    <label for="postTitle" class="Label">
+      <span class="Label-text"></span>
+      <input 
+       type="text" 
+       name="postTitle" 
+       id="postTitle" 
+       value="{{{newPost.title}}}"
+       />
+    </label>
+    <label for="postContent" class="Label">
+      <span class="Label-text">Post</span>
+      <textarea name="postContent" id="postContent">{{{newPost.content}}}</textarea>
+    </label>
+    <label class="Label">
+      <span class="Label-text" for="postCategory">Select Category</span>
+      {{> post.category}}
+    </label>
+    <button type="submit" class="Button Button">Share Some Shit</button>
+  </fieldset>
+</form>

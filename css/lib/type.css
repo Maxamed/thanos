@@ -1,0 +1,89 @@
+/** @define Type */
+
+:root {
+  --type-copy-size: var(--custom-font-size); /* 16px */
+  --type-copy-size--small: 0.8125rem; /* (13px / 16) */
+  --type-copy-size--display: 5.4375rem; /* 1.618 to the power of 3.5 * ceil(87px / 16) */
+  --type-copy-size--h1: 4.25rem; /* 1.618 to the power of 3 * ceil(68px / 16) */
+  --type-copy-size--h2: 2.625rem; /* 1.618 to the power of 2, ceil() * (42px / 16) */
+  --type-copy-size--h3: 2.0625rem; /* 1.618 to the power of 1.5, ceil() * (33px / 16) */
+  --type-copy-size--h4: 1.625rem; /* 1.618 * 16px, ceil() * (26px / 16) */ 
+  --type-copy-size--h5: var(--custom-font-size); /* (16px / 16) */
+  --type-copy-size--h6: var(--type-copy-size--small); /* (13px / 16) */
+}
+/**
+ * Short description using Doxygen-style comment format
+ *
+ * Example HTML
+ *
+ * <hx
+ *
+ * TODO: wraps after 80 chars, indent lines with 2 spaces
+ *
+ */
+ 
+.HDisplay {
+  font-size: var(--type-copy-size--display); 
+  line-height: 1.10344827;
+  margin: 0 0 var(--custom-gutter-width); /* 0 0 24px */
+}
+h1, 
+.H1 {
+  font-size: var(--type-copy-size--h1);
+  line-height: 1.05882352; /* 72px */
+  margin: 0 0 var(--custom-gutter-width); /* 0 0 24px */
+}
+h2, 
+.H2 {
+  font-size: var(--type-copy-size--h2);
+  line-height: 1.14285714; /* 48px */
+  margin: calc(var(--custom-gutter-width) * 2) 0 var(--custom-gutter-width); /* 48px 0 24px */
+}
+h3, 
+.H3 {
+  font-size: var(--type-copy-size--h3);
+  line-height: 1.454545454; /* 48px */
+  margin: calc(var(--custom-gutter-width) * 2) 0 var(--custom-gutter-width); /* 48px 0 24px */
+}
+h4, 
+.H4 {
+  font-size: var(--type-copy-size--h4);
+  line-height: 1.84615384;
+  margin-bottom: var(--custom-gutter-width); /* 24px */
+}
+h5, 
+.H5,
+dt {
+  font-size: var(--type-copy-size--h5);
+  line-height: inherit;
+  margin: 0;
+}
+h6, 
+.H6 {
+  font-size: var(--type-copy-size--h6);
+  line-height: 1.84615384615385; /* 18px */
+  margin: 0 0 .25rem; /* 6px */
+}
+small, 
+.Copy--small {
+  font-size: var(--type-copy-size--small);
+  line-height: 1.84615384615385;
+}
+
+
+/* Blockquote
+   ========================================================================== */
+.Quote {
+  border-left: var(--custom-border-width--medium) solid var(--base-colour-beta);
+  margin: var(--custom-gutter-width);
+  padding-left: calc(var(--custom-gutter-width) * 1.5 - var(--custom-border-width--medium));
+}
+.Quote-author {
+  color: var(--base-colour-beta);
+  font-style: normal;
+  font-weight: bold;
+  margin-top: var(--custom-gutter-width);
+}
+.Quote-author:before {
+  content: '-- ';
+}

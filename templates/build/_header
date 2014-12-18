@@ -1,0 +1,10 @@
+<header class="SiteBanner Grid" role="banner">
+  <a href="" class="SiteBanner-logo Grid-cell">Logo</a>
+  <nav class="SiteBanner-nav Grid-cell">
+    <ul>
+      <li class="Grid-cell"><a href="">Link</a></li>
+      <li class="Grid-cell"><a href="">Link</a></li>
+      <li class="Grid-cell"><a href="">Link</a></li>
+    </ul>
+  </nav>
+</header>

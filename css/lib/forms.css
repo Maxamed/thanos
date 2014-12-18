@@ -1,0 +1,44 @@
+/** @define Form */
+
+:root {
+  --Form-border-width: .0625rem;
+  --Form-border-radius: ;
+  --Form-padding-x: calc(var(--custom-gutter-width) / 2 - var(--Form-border-width));
+  --Form-padding-y: calc(var(--custom-gutter-width) / 4 - var(--Form-border-width));
+}
+
+/* ==========================================================================
+   Form Definitions
+   ========================================================================== */
+input:not([type="checkbox"]),
+input:not([type="radio"]),
+textarea,
+select {
+  box-sizing: border-box;
+  border: var(--Form-border-width) solid currentColor;
+  line-height: var(--custom-line-height);
+  padding: var(--Form-padding-y) var(--Form-padding-x);
+  width: 100%;
+}
+
+
+/* Input Box Shapes
+ * 
+ * TODO: move these styles to global "shapes.css" file
+   ========================================================================== */
+.Input--pill {
+  border-radius: var(--custom-border-radius--pill);
+}
+.Input--pillRight {
+  border-radius: var(--custom-border-radius--pillRight);
+}
+.Input--pillLeft {
+  border-radius: var(--custom-border-radius--pillLeft);
+}
+
+/* ==========================================================================
+   Field Groups
+   ========================================================================== */
+.Fieldgroup {}
+
+.Fieldgroup--inline {}

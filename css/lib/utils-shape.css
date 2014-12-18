@@ -1,0 +1,33 @@
+
+/* ==========================================================================
+   Shape Utilities
+   ========================================================================== */
+
+/* Pills and Rounded Shapes
+   ========================================================================== */
+
+/**
+ * Create Pill shape using border-radius
+ *
+ * The first sentence of the long description starts here
+ *
+ * Example HTML:
+ *
+ * <button class="u-shapePill">
+ *   Content
+ * </button>
+ *
+ */
+.u-shapePill {
+  border-radius: var(--custom-border-radius--pill);
+}
+.u-shapePill--right {
+  border-radius: var(--custom-border-radius--pillRight)
+}
+.u-shapePill--left {
+  border-radius: var(--custom-border-radius--pillLeft)
+}
+/* Rounded corners */
+.u-shapeRounded {
+  border-radius: var(--custom-border-radius)
+}
