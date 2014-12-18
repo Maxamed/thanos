@@ -2,10 +2,10 @@
 	"folders":
 	[
 		{
-			"path": ""
+			"path": "/Applications/AMPPS/www/thanos"
 		},
 		{
-			"path": "/Applications/AMPPS/www/thanos"
+			"path": "/www/home/wwwroot/sites/thanos"
 		}
 	]
 }
