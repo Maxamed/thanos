@@ -51,7 +51,7 @@
 
 
 <form action="functions.php" method="post">
-	
+	<input type="hidden" name="_METHOD" value="PUT">
 	<div>
 		<label for="textarea">Post:</label>
 		<textarea cols="40" rows="8" name="post" id="post"></textarea>
@@ -69,6 +69,7 @@
 	    <input type="submit" value="submit" name="submit"/>
     </div>
 </form>
+
  
 	       
 

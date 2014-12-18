@@ -1,4 +1,7 @@
 <?php
+
+//This will be replaced by endpoints api, we might use it to write to API
+
 require_once("MysqliDb.php");
 
 
@@ -43,9 +46,32 @@ if(isset($_POST['submit']))
 
     } 
 
+//submit comment
+if(isset($_POST['commentSubmit']))
+{ 
 
+            $data = array(
+                'comment' => $_POST['comment'], 
+                'postid'=> $_POST['postid'], 
+                'remote_address' => $_SERVER['REMOTE_ADDR'], 
+                'timestamp' => $db->now()
+            );
+
+            $commCount = array(
+                'comments' => $db->inc()   
+            );
+
+            $id = $db->insert('comments', $data); 
+            
+            $t = intval($_POST['postid']);  
+            $db->where("id", $t); 
+            $db->update("posts",$commCount);
+            
+            header ("Location: index.php");
+            exit;
+}
  
-//Print Signle Post
+//Print Single Post
  
 function SinglePost($Postid) { 
 
@@ -63,7 +89,21 @@ function SinglePost($Postid) {
    
    
 }
- 
+
+//Print all comments
+
+
+function printComments($Postid) {  
+    global $db; 
+    $t = intval($Postid);  
+    $db->where ("postid", $t); 
+    $comments = $db->get("comments");
+    foreach ($comments as $u) { 
+        echo "  <li>Tourist Said : {$u['comment']} </li>";
+    }
+}
+
+
 //Print all posts
 
 
@@ -74,10 +114,9 @@ function printPosts() {
     foreach ($posts as $u) {
         $hashPost = convertHashtags($u['posts']);
         $post = truncate($hashPost );
-        echo "  <li>{$u['username']} Said : {$post} <a href=post.php?SingleId={$u['id']}><br><span>ID:{$u['id']}</span> - <span>Category: {$u['category']}</span><p><a href=functions.php?SpamId={$u['id']}>Report Spam</a></p><hr></li>";
+        echo "  <li>{$u['username']} Said : {$post} <a href=post.php?SingleId={$u['id']}><br><span>ID:{$u['id']}</span> - <span>Category: {$u['category']}</span><p><a href=functions.php?SpamId={$u['id']}>Report Spam</a></p>comments({$u['comments']})<hr></li>";
     }
 }
-
 
 //Strip and store Hashtag function
  
