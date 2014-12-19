@@ -1,25 +1,3 @@
-# ************************************************************
-# Sequel Pro SQL dump
-# Version 4096
-#
-# http://www.sequelpro.com/
-# http://code.google.com/p/sequel-pro/
-#
-# Host: localhost (MySQL 5.6.21)
-# Database: thanos
-# Generation Time: 2014-11-11 20:36:24 +0000
-# ************************************************************
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
 # Dump of table comments
 # ------------------------------------------------------------
 
@@ -27,12 +5,25 @@ DROP TABLE IF EXISTS `comments`;
 
 CREATE TABLE `comments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `posts_id` int(11) DEFAULT NULL,
-  `comment` int(11) DEFAULT NULL,
+  `postid` int(11) DEFAULT NULL,
+  `comment` longtext,
   `timestamp` datetime DEFAULT NULL,
+  `remote_address` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
+LOCK TABLES `comments` WRITE;
+/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+
+INSERT INTO `comments` (`id`, `postid`, `comment`, `timestamp`, `remote_address`)
+VALUES
+	(1,1,'testing 1','2014-12-17 14:30:45','127.0.0.1'),
+	(2,1,'BAAAAAAAAAA','2014-12-17 14:43:04','127.0.0.1'),
+	(3,2,'you not freak you are an idiot','2014-12-17 14:43:18','127.0.0.1'),
+	(4,1,'blah','2014-12-18 20:20:13','127.0.0.1');
+
+/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table names
@@ -45,7 +36,7 @@ CREATE TABLE `names` (
   `name` char(100) DEFAULT NULL,
   `value` char(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 LOCK TABLES `names` WRITE;
 /*!40000 ALTER TABLE `names` DISABLE KEYS */;
@@ -97,23 +88,24 @@ CREATE TABLE `posts` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `posts` longtext,
   `views` int(200) DEFAULT NULL,
-  `comment_id` int(100) DEFAULT NULL,
+  `comments` int(100) DEFAULT '0',
   `category` char(200) DEFAULT NULL,
   `username` char(200) DEFAULT NULL,
   `createdat` datetime DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL,
   `hashtag` longtext,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
 
-INSERT INTO `posts` (`id`, `posts`, `views`, `comment_id`, `category`, `username`, `createdat`, `status`, `hashtag`)
+INSERT INTO `posts` (`id`, `posts`, `views`, `comments`, `category`, `username`, `createdat`, `status`, `hashtag`)
 VALUES
-	(1,'I\'m a #Superfreak a superfreak, watch it baby girl! #coolDude',NULL,NULL,'FMYLIFE','BLUE','2014-11-11 18:54:12',1,'Superfreak,coolDude'),
-	(2,'Testing another #superfreak post , cause this is #raw baby',NULL,NULL,'FMYLIFE','CLOUDS','2014-11-11 18:54:34',1,'superfreak,raw'),
-	(3,'I\'m getting a random #name #raw shit',NULL,NULL,'FMYLIFE','CONCRETE','2014-11-11 18:55:00',1,'name,raw');
+	(1,'testing',NULL,3,'FMYLIFE','SUN-FLOWER','2014-12-17 14:30:29',1,''),
+	(2,'I\'m Superfreak, yeah baby #superFreak',NULL,1,'justcase','BLUE','2014-12-17 14:42:33',1,'superFreak'),
+	(3,'Adding another post #sexystuff yeaah hun',NULL,0,'FMYLIFE','SUN-FLOWER','2014-12-17 14:42:48',1,'sexystuff'),
+	(4,'eee',NULL,0,'FMYLIFE','WET-ASPHALT','2014-12-19 09:26:10',1,'');
 
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -132,8 +124,17 @@ CREATE TABLE `spam` (
   `comments` longtext,
   `actioned` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
+LOCK TABLES `spam` WRITE;
+/*!40000 ALTER TABLE `spam` DISABLE KEYS */;
+
+INSERT INTO `spam` (`id`, `post_id`, `user_ip`, `timestamp`, `comments`, `actioned`)
+VALUES
+	(1,1,'127.0.0.1','2014-12-18 20:20:21',NULL,NULL);
+
+/*!40000 ALTER TABLE `spam` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table users
@@ -147,7 +148,7 @@ CREATE TABLE `users` (
   `post_id` int(11) DEFAULT NULL,
   `httpx_forward` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
@@ -156,7 +157,8 @@ INSERT INTO `users` (`id`, `remote_address`, `post_id`, `httpx_forward`)
 VALUES
 	(1,'127.0.0.1',1,NULL),
 	(2,'127.0.0.1',2,NULL),
-	(3,'127.0.0.1',3,NULL);
+	(3,'127.0.0.1',3,NULL),
+	(4,'127.0.0.1',4,NULL);
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
