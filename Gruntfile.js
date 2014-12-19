@@ -8,7 +8,7 @@
       cssDir: 'css/',
       jsDir: 'js/',
       iconsDir: 'assets/icoMoon/SVG/',
-      templateDir: 'templates/clientside/'
+      templateDir: 'temptpl/'
     };
 
     // Project configuration.
@@ -97,8 +97,16 @@
       handlebars: {
         compile: {
           files: {
-            "<%= _globalConfig.jsDir %>lib/_templates.js": ['<%= _globalConfig.templateDir %>*.hbs']
-          }
+            // "<%= _globalConfig.jsDir %>lib/_templates.js": ['<%= _globalConfig.templateDir %>*.hbs']
+            "<%= _globalConfig.jsDir %>temptpl.js": ['<%= _globalConfig.templateDir %>*.hbs']
+          },
+        options: {
+            namespace: 'Handlebars.templates',
+            processName: function(filePath) {
+                var pieces = filePath.split("/");
+                return pieces[pieces.length - 1].replace('.hbs', ''); 
+                }
+        }
         }
       },
       watch: {

@@ -3,7 +3,6 @@ require_once("gauntlet.php");
 require 'lib/Slim/Slim.php';
 \Slim\Slim::registerAutoloader(); 
 $app = new \Slim\Slim(); 
-
 //view all posts 
 $app->get("/posts", function () use ($app) {
     $posts = allPosts();
