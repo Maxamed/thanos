@@ -125,7 +125,7 @@
           tasks: ['svgstore','svgmin']
         },
         hbs: {
-          files: ['<%= _globalConfig.templateDir %>*.hbs'],
+          files: ['<%= _globalConfig.templateDir %>/*.hbs'],
           tasks: ['handlebars']
         }
         // js: {
