@@ -1,30 +1,44 @@
 var App = (function () {
 
+  var singlePostURL = "http://thanos.pandora.dev/app/endpoints.php/post/"
+  ,allPostsCall 
+  ,doSingleView
+  ,doAllView
+  ,getSinglePost;
   
-  var jsonCall = function( req ) { $.when( $.ajax( req ) ).done(doView); };
+   allPostsCall = function( req ) { $.when( $.ajax( req ) ).done(doAllView); };
 
-  var doView = function(jsonObj){
-        console.log(jsonObj);
-
+   doAllView = function(jsonObj){ 
         var template = Handlebars.templates.postlist(jsonObj);
-        $('#postList').html(template);
+        $('#postList').html(template); 
+  }
 
-console.log(template)
+   getSinglePost = function( postID ) { $.when( $.ajax( singlePostURL+postID ) ).done(doSingleView); };
 
-
+   doSingleView = function(jsonObj){ 
+    console.log(jsonObj)
+        $('#postList').empty();
+        var template = Handlebars.templates.singlePost(jsonObj);
+        $('#singlePost').html(template); console.log(template)
   }
  
+
+
   return {
 
-    getData: function( bar ) {
-  
-  
-      jsonCall(bar);
- 
-    }
+    getAllPosts: function( req ) { allPostsCall(req);},
+    getSinglePost:function(postID){ getSinglePost(postID);}
   };
  
 })();
 
-App.getData("http://thanos.pandora.dev/app/endpoints.php/posts");
+App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
+
+
+
+$(document.body).on('click','a#singlePost',function(){ 
+  
+  App.getSinglePost( $(this).data("postid") );
+
+});
  

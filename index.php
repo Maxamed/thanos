@@ -52,14 +52,14 @@
 
 				</div>
 
-<!-- 
-			<ul>
-			<?php printPosts();  ?>
+		</div>  
+		<div class="sixteen columns"> <h3>Single Post</h3>
+		<div id="singlePost"> 
 
-			</ul>
-	       
 
-	        -->
+
+		</div>
+
 		</div>  
 
 	</div><!-- container -->
