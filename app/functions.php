@@ -14,7 +14,7 @@ require_once("MysqliDb.php");
 
 // submit posts
 
-if(isset($_POST['submit']))
+if(isset($_POST['post']))
     { 
         //random username from colors
         $usr = rand(1, 31);
@@ -41,8 +41,7 @@ if(isset($_POST['submit']))
 
         $idx = $db->insert('users', $dataX);
       
-        header ("Location: index.php");
-        exit;
+        
 
     } 
 

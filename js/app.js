@@ -35,10 +35,24 @@ var App = (function () {
 App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
 
 
-
+//view single post
 $(document.body).on('click','a#singlePost',function(){ 
   
   App.getSinglePost( $(this).data("postid") );
 
 });
+//submit post
+$(document).ready(function(){
+  $("#submitPost").click(function(e){
+      e.preventDefault();
+    $.ajax({type: "POST",
+            url: "app/functions.php",
+            data: { post: $("#post").val(),category: $("#category").val()  },
+            success:function(result){
+              console.log('done'); // do nice animation
+    }});
+  });
+});
+
+
  

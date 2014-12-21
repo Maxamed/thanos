@@ -22,8 +22,7 @@
 		<div class="sixteen columns"> <h3>Add post</h3>
 
 
-<form action="app/functions.php" method="post">
-	<input type="hidden" name="_METHOD" value="PUT">
+<form action="#" method="post"> 
 	<div>
 		<label for="textarea">Post:</label>
 		<textarea cols="40" rows="8" name="post" id="post"></textarea>
@@ -38,7 +37,7 @@
 		</select>
 	</div> 
 	<div>
-	    <input type="submit" value="submit" name="submit"/>
+	    <input type="submit" value="submit" name="submit" id='submitPost'/>
     </div>
 </form>
 
