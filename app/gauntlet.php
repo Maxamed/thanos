@@ -19,7 +19,8 @@ function sPost($id){
                 "id"        => $u['id'],
                 "username"  => $u['username'],
                 "post"      => $u['posts'],
-                "category"  => $u['category']
+                "category"  => $u['category'],
+                "timestamp"  => $u['createdat']
                 ),
         "comments"  => array()
     );
@@ -49,15 +50,17 @@ function allPosts() {
     $allPosts = array();
 
     foreach ($posts as $u) {
+        
         $hashPost = convertHashtags($u['posts']);
         $post = truncate($hashPost); 
         $allPosts[] = array(
 
             "id" => $u['id'],
             "username" => $u['username'],
-            "comments" => $u['comments'],
+            "commcount" => $u['comments'],
             "post" => $post,
-            "category" => $u['category']
+            "category" => $u['category'],
+            "timestamp"  => $u['createdat']
 
 
             );
