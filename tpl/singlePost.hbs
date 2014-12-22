@@ -1,0 +1,26 @@
+<article class="Post">
+  <header class="Post-header">
+    <h3 class="Post-title H5">{{username}} Said:</h3>
+  </header>
+  <div class="Post-content">
+    {{{post}}}
+    <hr/>
+    <p><strong>Category:</strong> {{category}}</p>
+    <a href="post/{{id}}" class="Post-link u-posAbsolute"><span class="u-hiddenVisually"></span></a>
+  </div>
+  <footer class="Post-footer">
+    Posted on <time datetime="{{post.machineDate}}">{{post.humanDate}}</time>.
+    <ul>
+      <li><a href="">
+        
+      </a></li>
+      <li><a href="">
+        
+      </a></li>
+      <li><a href="">
+        
+      </a></li>
+      <li><a href="functions.php?SpamId={{id}}">Report Spam</a></li>
+    </ul>  
+  </footer>
+</article>

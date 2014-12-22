@@ -3,9 +3,6 @@
 	[
 		{
 			"path": "/Applications/AMPPS/www/thanos"
-		},
-		{
-			"path": "/www/home/wwwroot/sites/thanos"
 		}
 	]
 }

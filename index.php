@@ -1,74 +1,147 @@
- 
 <?php require_once("app/functions.php");?>
-<!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<!doctype html>
+<html lang="en_GB">
 <head>
- 
+	<meta charset="UTF-8">
+	<title>Index</title>
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script src="/js/vendor.js"></script>
+  <link rel="stylesheet" href="css/thanos-suit.dev.css">
+  <!-- Favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"> 
 </head>
-<body>
-
-
-
+<body class="Site">
+	<?php include("img/svg-icons.min.svg");?>
+	<header class="Site-banner" role="banner">
+		<div class="Container">
+			<!-- Menu Toggle -->
+			<a href="#siteNav" aria-controls="siteNav" 
+				 aria-expanded="false" 
+				 aria-label="Toggle navigation" 
+				 class="Button Button-secondary" 
+				 role="button" 
+				 type="button">
+				<svg class="Icon">
+					<use xlink:href="#Icon-menu" />
+				</svg>  
+			</a>
+			<a class="Site-logo" href="">Thanos</a>
+			
+			<form action="" class="SiteSearch Grid Grid--withGutter" method="POST">
+				<fieldset class="FieldGroup FieldGroup--inline Grid-cell u-size6of12">
+					<legend class="u-hiddenVisually">Search for Posts</legend>
+					<ul class="Arrange Arrange--widthGutter">
+						<li class="Arrange-sizeFill">
+							<label for="siteSearch">            
+								<input type="search" placeholder="Find Posts" name="find_posts" id="siteSearch" class="FieldGroup-" />
+							</label>
+						</li>
+						<li class="Arrange-sizeFit">
+							<button type="submit" class="Button u-alignTop">
+								<svg class="Icon">
+									<use xlink:href="#Icon-search" />
+								</svg>
+							</button>
+						</li>
+					</ul>
+				</fieldset>  
+			</form>
+		</div>
+	</header>
 	<!-- Primary Page Layout
 	================================================== -->
 
-	<!-- Delete everything in this .container and get started on your own site! -->
+	<div class="Container">
+		<main class="Grid Grid--withGutter Grid--alignCenter" id="viewPage" role="main">
+			<div class="Grid-cell u-lg-size8of12">
+				<section id="postList">
+					<!-- Post List Here -->
+				</section>
+				<section id="singlePost">
+					<!-- Single Post Here -->
+				</section>
+				<form action="app/functions.php" method="post">
+					<fieldset class="Panel Panel-outline">
+						<legend>Create New Post</legend>
+						<input type="hidden" name="_METHOD" value="PUT">
+										
+						<label for="post" class="Input">
+							<span class="Input-label">What's on Your Mind?</span>
+							<textarea cols="40" rows="8" name="post" id="post"></textarea>
+						</label>
+						<label for="select-choice" class="Input">
+							<san class="Input-label">Post Category</san>
+							<select name="category" id="category">
+								<option value="FMYLIFE">F MY LIFE</option>
+								<option value="stwrldprbl">First World Problems</option>
+								<option value="justcase">Just Because</option>
+							</select>
+						</label>
+						
+						<button type="submit" name="submit" id="submit" class="Button u-sm-sizeFull">Publish Post</button>
+						
+					</fieldset>
+				</form>
+			</div>
+			<aside 
+			class="SiteInfo Grid-cell u-lg-size4of12"
+			id="siteNav" 
+			role="complementary">    
+			
+			<nav class="SiteNav Grid-cell" role="nav">
+				<hr class="u-hiddenVisually" />
+				<dl class="SiteNav-groups">
+					<dt class="SiteNav-categoryTitle">All Shouts</dt>
+					<dd class="SiteNav-categoryList">
+						<ul class="NavList">
+							<li class="Grid-cell"><a href="">Latest</a></li>
+							<li class="Grid-cell"><a href="">Random</a></li>
+							<li class="Grid-cell"><a href="">Best</a></li>
+							<li class="Grid-cell"><a href="">By Category</a>
+								<ul class="NavList ToggleContent">
+									<li><a href="">Category 1</a></li>
+									<li><a href="">Category 2</a></li>
+									<li><a href="">Category 3</a></li>
+									<li><a href="">Category 4</a></li>
+								</ul>
+							</li>
+						</ul>
+					</dd>
+					<dt class="SiteNav-categoryTitle">Category Name</dt>
+					<dd class="SiteNav-categoryList">
+						<ul>
+							<li class="Grid-cell"><a href="">Link</a></li>
+							<li class="Grid-cell"><a href="">Link</a></li>
+							<li class="Grid-cell"><a href="">Link</a></li>
+						</ul>
+					</dd>
+					<dt class="SiteNav-categoryTitle">Category Name</dt>
+					<dd class="SiteNav-categoryList">
+						<ul>
+							<li class="Grid-cell"><a href="">Link</a></li>
+							<li class="Grid-cell"><a href="">Link</a></li>
+							<li class="Grid-cell"><a href="">Link</a></li>
+						</ul>
+					</dd>
+				</dl>
+			</nav>
+		</aside>
+	</main>
+</div>
 
-	<div class="container">
-		<a id="nav-toggle" href="#"><span></span></a>
-		<div class="sixteen columns"> <h3>Add post</h3>
+<footer class="SiteFooter" role="contentinfo">
+	<!-- Footer
+	================================================ -->
+</footer>
 
-
-<form action="app/functions.php" method="post">
-	<input type="hidden" name="_METHOD" value="PUT">
-	<div>
-		<label for="textarea">Post:</label>
-		<textarea cols="40" rows="8" name="post" id="post"></textarea>
-	</div>
-	 
- 	<div>
-		<label for="select-choice">Select Category:</label>
-		<select name="category" id="category">
-			<option value="FMYLIFE">F MY LIFE</option>
-			<option value="stwrldprbl">First World Problems</option>
-			<option value="justcase">Just Because</option>
-		</select>
-	</div> 
-	<div>
-	    <input type="submit" value="submit" name="submit"/>
-    </div>
-</form>
-
- 
-	       
-
-	       
-		</div> <hr>
-		<div class="sixteen columns"> <h3>List of posts</h3>
-				<div id="postList">
-
-				</div>
-
-		</div>  
-		<div class="sixteen columns"> <h3>Single Post</h3>
-		<div id="singlePost"> 
-
-
-
-		</div>
-
-		</div>  
-
-	</div><!-- container -->
-
-<script src="/js/lib/handlebars.runtime.js"></script> 
-<script src="/js/temptpl.js"></script> 
-<script src="/js/vendor/jquery.js"></script> 
-<script src="/js/app.js"></script> 
+<script src="/js/app-bundle.js"></script> 
 <!-- End Document
-================================================== -->
+	================================================== -->
 </body>
 </html>

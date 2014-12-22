@@ -8,7 +8,7 @@
       cssDir: 'css/',
       jsDir: 'js/',
       iconsDir: 'assets/icoMoon/SVG/',
-      templateDir: 'temptpl/'
+      templateDir: 'tpl/'
     };
 
     // Project configuration.
@@ -43,14 +43,6 @@
           }
         }
       },
-      // Static Web Server
-      nodestatic: {
-        server: {
-          options: {
-            port: 9009
-          }
-        }
-      },
       svgmin: {
         options: {
           plugins: [
@@ -80,25 +72,21 @@
           },
         },
       },
-      // Less Compiler
-      less: {
-        options: {
-          ieCompat: true,
-          sourceMap: true,
-          sourceMapBasepath: '_less',
-          outputSourceFiles: true
+      concat: {
+        app: {
+          src: ['<%= _globalConfig.jsDir %>lib/*.js','<%= _globalConfig.jsDir %>app.js'],
+          dest: '<%= _globalConfig.jsDir %>/app-bundle.js',
         },
-        dev: {
-          files: {
-            '<%= _globalConfig.cssDir %><%= pkg.name %>.css': '<%= _globalConfig.lessDir %><%= pkg.name %>.less'
-          }
-        }
+        vendor: {
+          src: ['<%= _globalConfig.jsDir %>vendor/*.js'],
+          dest: '<%= _globalConfig.jsDir %>vendor.js',
+        },
+
       },
       handlebars: {
         compile: {
           files: {
-            // "<%= _globalConfig.jsDir %>lib/_templates.js": ['<%= _globalConfig.templateDir %>*.hbs']
-            "<%= _globalConfig.jsDir %>temptpl.js": ['<%= _globalConfig.templateDir %>*.hbs']
+            "<%= _globalConfig.jsDir %>lib/_templates.js": ['<%= _globalConfig.templateDir %>*.hbs']
           },
         options: {
             namespace: 'Handlebars.templates',
@@ -127,15 +115,11 @@
         hbs: {
           files: ['<%= _globalConfig.templateDir %>/*.hbs'],
           tasks: ['handlebars']
-        }
-        // js: {
-        //   files: ['<%= _globalConfig.jsDir %>**/*.js'],
-        //   tasks: ['import:dev']
-        // },
-        // svg: {
-        //   files: ['<%= _globalConfig.iconsDir %>*.svg'],
-        //   tasks: ['svgstore','svgmin']
-        // }
+        },
+        js: {
+          files: ['<%= _globalConfig.jsDir %>*.js','<%= _globalConfig.jsDir %>**/*.js'],
+          tasks: ['concat']
+        },
       },
     
     });
