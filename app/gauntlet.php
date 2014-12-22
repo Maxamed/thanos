@@ -6,20 +6,40 @@ $db = new Mysqlidb();
 if(!$db) die("Database error");
 
 function sPost($id){
-
+    $arrPosts =array();  
+    $posts = array();
     global $db;
-    $t = intval($id);  
+    $t = intval($id);
+
     $db->where ("id", $t); 
     $u = $db->getOne("posts"); 
-        $arrPosts[] = array(
-            "id" => $u['id'],
-            "username" => $u['username'],
-            "comments" => $u['comments'],
-            "post" => $u['posts'],
-            "category" => $u['category']
-            );
 
-        return $arrPosts;
+    $arrPosts[] = array(
+        "posts" => array(
+                "id"        => $u['id'],
+                "username"  => $u['username'],
+                "post"      => $u['posts'],
+                "category"  => $u['category']
+                ),
+        "comments"  => array()
+    );
+
+    $db->where ("postid", $t); 
+    $comments = $db->get("comments"); 
+
+    foreach ($comments as $x) {
+
+        $arrPosts['comments'][] = array( 
+            "id"        => $x['id'], 
+            "comment"   => $x['comment'],
+            "timestamp" => $x['timestamp']
+        );
+
+    }; 
+
+    return $arrPosts;
+
+ 
 }
 
 function allPosts() {  
@@ -30,7 +50,7 @@ function allPosts() {
 
     foreach ($posts as $u) {
         $hashPost = convertHashtags($u['posts']);
-        $post = truncate($hashPost ); 
+        $post = truncate($hashPost); 
         $allPosts[] = array(
 
             "id" => $u['id'],

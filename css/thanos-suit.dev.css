@@ -2970,7 +2970,8 @@ body {
   min-width: 54em;
 }
 
-/* Banner
+/* ==========================================================================
+   Banner
    ========================================================================== */
 
 .Site-banner {
@@ -2990,7 +2991,8 @@ body {
   }
 }
 
-/* Body
+/* ==========================================================================
+   Body
    ========================================================================== */
 
 /* Footer
@@ -3138,6 +3140,12 @@ select {
  *
  * Available Icons:
  * 
+ * facebook
+ * facebook--round
+ * twitter
+ * twitter--round
+ * time
+ * refresh
  * success
  * exit
  * help
@@ -3169,11 +3177,8 @@ select {
  * remove
  * collapse
  * expand
+ * person
  * share
- * checkbox
- * checkbox--checked
- * radioButton
- * radioButton--checked 
  *
  * Usage:
  * 

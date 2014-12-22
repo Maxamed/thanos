@@ -1,26 +1,46 @@
 <article class="Post">
   <header class="Post-header">
-    <h3 class="Post-title H5">{{username}} Said:</h3>
+    <h2 class="Post-title H5">{{0.posts.username}} Said:</h2>
   </header>
   <div class="Post-content">
-    {{{post}}}
-    <hr/>
+    {{{0.posts.post}}}
     <p><strong>Category:</strong> {{category}}</p>
-    <a href="post/{{id}}" class="Post-link u-posAbsolute"><span class="u-hiddenVisually"></span></a>
   </div>
-  <footer class="Post-footer">
-    Posted on <time datetime="{{post.machineDate}}">{{post.humanDate}}</time>.
+  <footer class="Post-meta">
+    Posted on <time datetime="{{0.post.posts.timestamp}}">{{0.posts.date}}</time>.
     <ul>
-      <li><a href="">
-        
-      </a></li>
-      <li><a href="">
-        
-      </a></li>
-      <li><a href="">
-        
+      <li>
+        <a href="">
+          <svg class="Icon Icon-favorite">
+            <use xlink:href="#Icon-favorite" />
+          </svg>
       </a></li>
       <li><a href="functions.php?SpamId={{id}}">Report Spam</a></li>
     </ul>  
   </footer>
 </article>
+<section role="region" class="Comments">
+  <header class="Comments-header">
+    <h3>Comments</h3>
+    <a href="">Add Comment</a>
+  </header>
+  {{#each comments}}
+  <article class="Post-Comment">
+    <svg class="Icon Icon-person">
+      <use xlink:href="#Icon-person" />
+    </svg>
+   {{{comment}}} on {{timestamp}}
+ </article>
+{{/each}}
+</section>
+<section role="region">
+  <form action="#" method="post" id='commentSubmit'>
+    <fieldset>
+      <legend>Add a Comment</legend>
+      <label for="exampleMessage">Comment</label>
+      <textarea class="u-full-width" placeholder="Hi Dave …" name="comment"></textarea>
+      <input type="hidden" name="postid" value="{{0.posts.id}}">
+      <input class="button-primary" type="submit" value="Submit"  name="commentSubmit">
+    </fieldset>
+  </form>
+</section>

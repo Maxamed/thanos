@@ -56,38 +56,10 @@
 	</header>
 	<!-- Primary Page Layout
 	================================================== -->
-
 	<div class="Container">
 		<main class="Grid Grid--withGutter Grid--alignCenter" id="viewPage" role="main">
-			<div class="Grid-cell u-lg-size8of12">
-				<section id="postList">
-					<!-- Post List Here -->
-				</section>
-				<section id="singlePost">
-					<!-- Single Post Here -->
-				</section>
-				<form action="app/functions.php" method="post">
-					<fieldset class="Panel Panel-outline">
-						<legend>Create New Post</legend>
-						<input type="hidden" name="_METHOD" value="PUT">
-										
-						<label for="post" class="Input">
-							<span class="Input-label">What's on Your Mind?</span>
-							<textarea cols="40" rows="8" name="post" id="post"></textarea>
-						</label>
-						<label for="select-choice" class="Input">
-							<san class="Input-label">Post Category</san>
-							<select name="category" id="category">
-								<option value="FMYLIFE">F MY LIFE</option>
-								<option value="stwrldprbl">First World Problems</option>
-								<option value="justcase">Just Because</option>
-							</select>
-						</label>
-						
-						<button type="submit" name="submit" id="submit" class="Button u-sm-sizeFull">Publish Post</button>
-						
-					</fieldset>
-				</form>
+			<div class="Grid-cell u-lg-size8of12" id="pageView">
+				<!-- Page Views Here -->
 			</div>
 			<aside 
 			class="SiteInfo Grid-cell u-lg-size4of12"

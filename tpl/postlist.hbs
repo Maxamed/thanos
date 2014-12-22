@@ -1,2 +1,69 @@
-<ul>{{#each this}}<li> {{ username }} Said : {{{post}}} <a id="singlePost" herf="#" data-PostId="{{id}}"><br><span>{{id}}</span> - <span>Category: {{category}}</span><p><a href=functions.php?SpamId={{id}}>Report Spam</a></p>comments({{comments}})<hr></li>{{/each}}</ul> 
+<section role="region" class="Posts u-columnsHalf u-md-columnsFull">
+{{#each this}}
+  <article class="Post"> 
+    {{ username }} Said : 
+    <div class="Post-content">
+      {{{post}}}
+      <a href="{{id}}" data-PostId="{{id}}" class="Post-link u-posAbsolute">
+        <span class="u-hiddenVisually">View Post</span>
+      </a>
+    </div>
+    <span>Category: {{category}}</span><p>
+    <footer class="Post-meta">
+      <ul class="Copy--small">
+        <li class="u-inline">
+        {{#if comments}}
+          <svg class="Icon Icon-comments">
+            <use xlink:href="#Icon-comments" />
+          </svg>
+          {{comments}}<span class="u-hiddenVisually"> comments in this post</span>
+        {{else}}
+          No Comments,<a href="" data-PostId="{{id}}"> add one</a>
+        {{/if}}
+        </li>
+        <li class="u-inline">
+          <a href="#">
+            <svg class="Icon Icon-facebook">
+              <use xlink:href="#Icon-facebook" />
+            </svg>
+            <span class="u-hiddenVisually">Share on Facebook</span>
+          </a>
+        </li>
+        <li class="u-inline">
+          <a href="#">
+            <svg class="Icon Icon-twitter">
+              <use xlink:href="#Icon-twitter" />
+            </svg>
+            <span class="u-hiddenVisually">Share on Twitter</span>
+          </a>
+        </li>
+      </ul>  
+    </footer>
+  </article>
+{{/each}}
+</section>
+<section role="region">
+  <form action="app/functions.php" method="post">
+    <fieldset class="Panel Panel-outline">
+      <legend>Create New Post</legend>
+      <input type="hidden" name="_METHOD" value="PUT">
+              
+      <label for="post" class="Input">
+        <span class="Input-label">What's on Your Mind?</span>
+        <textarea cols="40" rows="8" name="post" id="post"></textarea>
+      </label>
+      <label for="select-choice" class="Input">
+        <san class="Input-label">Post Category</san>
+        <select name="category" id="category">
+          <option value="FMYLIFE">F MY LIFE</option>
+          <option value="stwrldprbl">First World Problems</option>
+          <option value="justcase">Just Because</option>
+        </select>
+      </label>
+      
+      <button type="submit" name="submit" id="submit" class="Button u-sm-sizeFull">Publish Post</button>
+      
+    </fieldset>
+  </form>
+</section>
 

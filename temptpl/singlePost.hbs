@@ -1,0 +1,17 @@
+ 
+<li> {{0.posts.username}} Said : {{0.posts.post}} <span> -  - ID:{{0.posts.id}}</span>-<span>Category:{{0.posts.category}}</span><p><a href=functions.php?SpamId={{0.posts.id}}>Report Spam</a></p></li>
+
+
+<ol>COMMENTS
+ {{#each comments}}
+ <li>A Tourist said: {{comment}} on {{timestamp}}</li>
+ {{/each}}
+</ol>
+ <HR>
+	<form action="#" method="post" id='commentSubmit'>
+	  <label for="exampleMessage">Comment</label>
+	  <textarea class="u-full-width" placeholder="Hi Dave …" name="comment"></textarea>
+	  <input type="hidden" name="postid" value="{{0.posts.id}}">
+	  <input class="button-primary" type="submit" value="Submit"  name="commentSubmit">
+	</form>
+ 

@@ -1,8 +1,8 @@
 <?php
-require_once ("classes/MysqliDb.php");
+require_once ("MysqliDb.php");
 error_reporting(E_ALL);
 
-$db = new Mysqlidb('localhost', 'root', 'bingo', 'thanos_test');
+$db = new Mysqlidb('localhost', 'root', 'bingo', 'thanos');
 if(!$db) die("Database error");
 
 $prefix = 't_';
