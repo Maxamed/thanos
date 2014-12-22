@@ -5,6 +5,9 @@ require_once("lib/helper.php");
 $db = new Mysqlidb();
 if(!$db) die("Database error");
 
+
+//print single post
+
 function sPost($id){
     $arrPosts =array();  
     $posts = array();
@@ -43,9 +46,12 @@ function sPost($id){
  
 }
 
+//print all posts
+
 function allPosts() {  
     global $db;
     $db->where ("status", true);
+    $db->orderBy("id","Desc");
     $posts = $db->get("posts");
     $allPosts = array();
 
@@ -68,6 +74,8 @@ function allPosts() {
     }
     return $allPosts;
 }
+
+//print all comments
 
 function allComments($id) {
 
@@ -93,4 +101,41 @@ function allComments($id) {
     return $allComms;
 
 }
+
+// search
+
+ function Search($r){
+    $results = array();
+    global $db;
+    $db->where("hashtag", Array ('LIKE' => '%'.$r.'%'));
+    $posts = $db->get("posts");
+    if ($db->count < 1) {
+        echo "Invalid insert count in LIKE: ".$db->count;
+        print_r ($posts);
+        echo $db->getLastQuery();
+        exit;
+    }else { 
+
+
+            foreach ($posts as $u) {
+                $hashPost = convertHashtags($u['posts']);
+                $post = truncate($hashPost );
+                $results[] = array(
+                    "id"        =>  $u['id'],
+                    "username"  =>  $u['username'], 
+                    "post"      =>  $post,
+                    "category"  =>  $u['category'],
+                    "timestamp" =>  $u['createdat'],
+                    "commcount" => $u['comments']
+                );
+            }
+
+            return $results;
+    }
+
+     
+     
+ }
+ 
+
  ?>

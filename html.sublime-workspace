@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"arrayp",
+				"array_push"
+			],
+			[
+				"a",
+				"allComments"
+			],
+			[
+				"get",
+				"getSinglePost"
+			],
+			[
+				"post",
+				"postlist"
+			],
+			[
+				"g",
+				"getData"
+			],
+			[
 				"functi",
 				"function"
 			],
@@ -72,27 +92,37 @@
 	},
 	"file_history":
 	[
+		"/www/home/wwwroot/sites/thanos/tpl/singlePost.hbs",
+		"/www/home/wwwroot/sites/thanos/app/gauntlet.php",
+		"/www/home/wwwroot/sites/thanos/app/functions.php",
+		"/www/home/wwwroot/sites/thanos/tpl/postlist.hbs",
+		"/www/home/wwwroot/sites/thanos/index.php",
+		"/www/home/wwwroot/sites/thanos/temptpl/singlePost.hbs",
+		"/www/home/wwwroot/sites/thanos/js/app.js",
+		"/www/home/wwwroot/sites/thanos/app/endpoints.php",
+		"/www/home/wwwroot/sites/thanos/temptpl/postlist.hbs",
+		"/www/home/wwwroot/sites/thanos/Gruntfile.js",
+		"/www/home/wwwroot/sites/thanos/js/temptpl.js",
+		"/www/home/wwwroot/sites/thanos/index.html",
 		"/www/home/wwwroot/sites/thanos/dev/gauntlet.php",
 		"/www/home/wwwroot/sites/thanos/dev/endpoints.php",
-		"/www/home/wwwroot/sites/thanos/dev/addPost.php",
+		"/www/home/wwwroot/sites/thanos/dev/post.php",
+		"/www/home/wwwroot/sites/thanos/dev/functions.php",
 		"/www/home/wwwroot/sites/thanos/dev/index.php",
+		"/www/home/wwwroot/sites/thanos/dev/addPost.php",
 		"/www/home/wwwroot/sites/thanos/dev/lib/helper.php",
 		"/www/home/wwwroot/sites/thanos/dev/indexSlim.php",
-		"/www/home/wwwroot/sites/thanos/dev/functions.php",
 		"/www/home/wwwroot/sites/thanos/dev/.htaccess",
 		"/Users/flawed/Downloads/codeguy-Slim-bc9297f/index.php",
 		"/www/home/wwwroot/sites/thanos/functions.php",
 		"/www/home/wwwroot/sites/thanos/post.php",
-		"/www/home/wwwroot/sites/thanos/index.php",
 		"/www/home/wwwroot/sites/thanos/MysqliDb.php",
 		"/www/home/wwwroot/sites/thanos/.htaccess",
 		"/www/home/wwwroot/sites/thanos/info.php",
 		"/www/home/wwwroot/sites/thanos/classes/functions.php",
 		"/www/home/wwwroot/sites/thanos/classes/MysqliDb.php",
-		"/www/home/wwwroot/sites/thanos/index.html",
 		"/www/home/wwwroot/sites/thanos/dbtest.php",
 		"/www/home/wwwroot/sites/thanos/classes/db.php",
-		"/www/home/wwwroot/sites/thanos/js/app.js",
 		"/www/home/wwwroot/sites/thanos/stylesheets/layout.css",
 		"/www/home/wwwroot/sites/thanos/tpl.html",
 		"/www/home/wwwroot/sites/thanos/js/jquery.js",
@@ -118,6 +148,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"handle",
 			"search",
 			"like",
 			"printUsers",

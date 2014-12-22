@@ -41,7 +41,8 @@ if(isset($_POST['post']))
 
         $idx = $db->insert('users', $dataX);
       
-        
+           header ("Location: ../index.php");
+            exit; 
 
     } 
 
