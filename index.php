@@ -33,7 +33,7 @@
 			</a>
 			<a class="Site-logo" href="">Thanos</a>
 			
-			<form action="" class="SiteSearch Grid Grid--withGutter" method="POST">
+			<form action="#" class="SiteSearch Grid Grid--withGutter" method="POST">
 				<fieldset class="FieldGroup FieldGroup--inline Grid-cell u-size6of12">
 					<legend class="u-hiddenVisually">Search for Posts</legend>
 					<ul class="Arrange Arrange--widthGutter">

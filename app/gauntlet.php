@@ -110,10 +110,10 @@ function allComments($id) {
     $db->where("hashtag", Array ('LIKE' => '%'.$r.'%'));
     $posts = $db->get("posts");
     if ($db->count < 1) {
-        echo "Invalid insert count in LIKE: ".$db->count;
-        print_r ($posts);
-        echo $db->getLastQuery();
-        exit;
+         $results[] = array(
+                "error"        =>  "null",
+                "error_detail"  =>  "couldn't find any results"
+            ); 
     }else { 
 
 
@@ -129,11 +129,9 @@ function allComments($id) {
                     "commcount" => $u['comments']
                 );
             }
+        }
 
-            return $results;
-    }
-
-     
+     return $results;
      
  }
  
