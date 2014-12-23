@@ -12,13 +12,13 @@
     <footer class="Post-meta">
       <ul class="Copy--small">
         <li class="u-inline">
-        {{#if comments}}
+        {{#if commcount}}
           <svg class="Icon Icon-comments">
             <use xlink:href="#Icon-comments" />
           </svg>
-          {{comments}}<span class="u-hiddenVisually"> comments in this post</span>
+          {{commcount}}<span class="u-hiddenVisually"> comments in this post</span>
         {{else}}
-          No Comments,<a href="" data-PostId="{{id}}"> add one</a>
+          No Comments,<a class="PostId" href="" data-PostId="{{id}}"> add one</a>
         {{/if}}
         </li>
         <li class="u-inline">

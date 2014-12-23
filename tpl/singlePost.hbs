@@ -4,7 +4,7 @@
   </header>
   <div class="Post-content">
     {{{0.posts.post}}}
-    <p><strong>Category:</strong> {{category}}</p>
+    <p><strong>Category:</strong> {{0.posts.category}}</p>
   </div>
   <footer class="Post-meta">
     Posted on <time datetime="{{0.post.posts.timestamp}}">{{0.posts.date}}</time>.
@@ -15,7 +15,7 @@
             <use xlink:href="#Icon-favorite" />
           </svg>
       </a></li>
-      <li><a href="functions.php?SpamId={{id}}">Report Spam</a></li>
+      <li><a href="functions.php?SpamId={{0.posts.id}}">Report Spam</a></li>
     </ul>  
   </footer>
 </article>

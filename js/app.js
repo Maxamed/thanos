@@ -9,7 +9,7 @@ var App = (function () {
   
   allPostsCall  = function( req ) { $.when( $.ajax( req ) ).done(doAllView); };
   getSinglePost = function( postID ) { $.when( $.ajax( singlePostURL+postID ) ).done(doSingleView); };
-  getSearch     = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doSingleView); }
+  getSearch     = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doAllView); }
 
   doAllView     = function(jsonObj){ 
         var template = Handlebars.templates.postlist(jsonObj);
@@ -36,8 +36,8 @@ var App = (function () {
 App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
 
 //view single post
-$(document.body).on('click','.Post-link',function(){ 
-  
+$(document.body).on('click','.PostId',function(e){ 
+  e.preventDefault();
   App.getSinglePost( $(this).data("postid") );
 
 });

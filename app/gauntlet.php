@@ -106,8 +106,9 @@ function allComments($id) {
 
  function Search($r){
     $results = array();
+    $allPosts =array(); 
     global $db;
-    $db->where("hashtag", Array ('LIKE' => '%'.$r.'%'));
+    $db->where("posts", Array ('LIKE' => '%'.$r.'%'));
     $posts = $db->get("posts");
     if ($db->count < 1) {
          $results[] = array(
@@ -117,21 +118,29 @@ function allComments($id) {
     }else { 
 
 
-            foreach ($posts as $u) {
-                $hashPost = convertHashtags($u['posts']);
-                $post = truncate($hashPost );
-                $results[] = array(
-                    "id"        =>  $u['id'],
-                    "username"  =>  $u['username'], 
-                    "post"      =>  $post,
-                    "category"  =>  $u['category'],
-                    "timestamp" =>  $u['createdat'],
-                    "commcount" => $u['comments']
+        foreach ($posts as $u) {
+
+
+            $hashPost = convertHashtags($u['posts']);
+            $post = truncate($hashPost); 
+            $allPosts[] = array(
+
+                "id" => $u['id'],
+                "username" => $u['username'],
+                "commcount" => $u['comments'],
+                "post" => $post,
+                "category" => $u['category'],
+                "timestamp"  => $u['createdat']
+
+
                 );
+
+
+
             }
         }
 
-     return $results;
+     return $allPosts;
      
  }
  
