@@ -54,6 +54,19 @@ $(document).ready(function(){
   });
 });
 
+//submit comment
+$(document).ready(function(){
+  $("#submitComment").click(function(e){
+      e.preventDefault();
+    $.ajax({type: "POST",
+            url: "app/functions.php",
+            data: { comment: $("#comment").val(),postid: $("#postid").val()  },
+            success:function(result){
+              console.log('done'); // do nice animation
+    }});
+  });
+});
+
 //submit search
 $( ".SiteSearch" ).submit(function( e ) {
   e.preventDefault();

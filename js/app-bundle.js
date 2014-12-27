@@ -150,7 +150,7 @@ this["Handlebars"]["templates"]["singlePost"] = Handlebars.template({"1":functio
   if (stack1 != null) { buffer += stack1; }
   return buffer + "</section>\n<section role=\"region\">\n  <form action=\"#\" method=\"post\" id='commentSubmit'>\n    <fieldset>\n      <legend>Add a Comment</legend>\n      <label for=\"exampleMessage\">Comment</label>\n      <textarea class=\"u-full-width\" placeholder=\"Hi Dave …\" name=\"comment\"></textarea>\n      <input type=\"hidden\" name=\"postid\" value=\""
     + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.id : stack1), depth0))
-    + "\">\n      <input class=\"button-primary\" type=\"submit\" value=\"Submit\"  name=\"commentSubmit\">\n    </fieldset>\n  </form>\n</section>";
+    + "\">\n      <input class=\"button-primary\" type=\"submit\" id=\"submitComment\" value=\"Submit\"  name=\"commentSubmit\">\n    </fieldset>\n  </form>\n</section>";
 },"useData":true});
 var App = (function () {
 
@@ -202,6 +202,19 @@ $(document).ready(function(){
     $.ajax({type: "POST",
             url: "app/functions.php",
             data: { post: $("#post").val(),category: $("#category").val()  },
+            success:function(result){
+              console.log('done'); // do nice animation
+    }});
+  });
+});
+
+//submit comment
+$(document).ready(function(){
+  $("#submitComment").click(function(e){
+      e.preventDefault();
+    $.ajax({type: "POST",
+            url: "app/functions.php",
+            data: { comment: $("#comment").val(),postid: $("#postid").val()  },
             success:function(result){
               console.log('done'); // do nice animation
     }});

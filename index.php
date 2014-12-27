@@ -17,6 +17,14 @@
   <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"> 
 </head>
 <body class="Site">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 	<?php include("img/svg-icons.min.svg");?>
 	<header class="Site-banner" role="banner">
 		<div class="Container">
@@ -106,12 +114,16 @@
 		</aside>
 	</main>
 </div>
-
+<div class="fb-like" data-href="http://thanos.pandora.dev/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+<a href="https://twitter.com/dewalf" class="twitter-follow-button" data-show-count="false">Follow @dewalf</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <footer class="SiteFooter" role="contentinfo">
 	<!-- Footer
 	================================================ -->
 </footer>
+<script>
 
+</script>
 <script src="/js/app-bundle.js"></script> 
 <!-- End Document
 	================================================== -->
