@@ -1,12 +1,10 @@
 <section role="region" class="Posts u-columnsHalf u-md-columnsFull">
 {{#each this}}
-  <article class="Post"> 
+  <article class="Post" data-posturl="/#/post/{{id}}"> 
     {{ username }} Said : 
     <div class="Post-content">
       {{{post}}}
-      <a href="{{id}}" data-PostId="{{id}}" class="Post-link u-posAbsolute">
-        <span class="u-hiddenVisually">View Post</span>
-      </a>
+      <a href="/#/post/{{id}}" > ........ </a>
     </div>
     <span>Category: {{category}}</span><p>
     <footer class="Post-meta">

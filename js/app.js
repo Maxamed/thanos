@@ -1,4 +1,4 @@
-var App = (function () {
+;var App = (function () {
 
   var singlePostURL = "http://thanos.pandora.dev/app/endpoints.php/post/"
   ,$viewContainer = $('#pageView')
@@ -83,6 +83,29 @@ $( ".SiteSearch" ).submit(function( e ) {
   }});
 
 });
+// handle routing
+
+(function() {
+ 
+    var app = Sammy('body');
+ 
+    $(document).ready(function() {
+        app.run('#/posts');
+        app.run('#/post/:id');
+    });
+
+    var app = Sammy.apps.body;
+ 
+    app.get('#/posts', function(context) {
+        console.log("You're in the Main route");
+        App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
+    });
+    app.get('#/post/:id', function() { 
+        App.getSinglePost( this.params['id'] );
+      });
+ 
+})();
+
 
 
 
