@@ -112,7 +112,7 @@
   data-width="450"
   data-show-faces="true">
 </div><a href="https://twitter.com/dewalf" class="twitter-follow-button" data-show-count="false">Follow @dewalf</a>
-<script>//!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <footer class="SiteFooter" role="contentinfo">
 	<!-- Footer
 	================================================ -->
@@ -125,31 +125,31 @@
 <script src="/js/app-bundle.js"></script> 
 <script>
  //facebook crap
-//  $(document).ready(function() {
-//   $.ajaxSetup({ cache: true });
-//   $.getScript('//connect.facebook.net/en_UK/all.js', function(){
+ $(document).ready(function() {
+  $.ajaxSetup({ cache: true });
+  $.getScript('//connect.facebook.net/en_UK/all.js', function(){
     
-//     	FB.init({appId: "823743447688023", status: true, cookie: true});
-//     	$('.posttofeed').on('click', function(){
-// 			    var obj = {
-// 				      method: 'feed',
-// 				      link: 'http://thanos.pandora.dev/',
-// 				      picture: 'http://fbrell.com/f8.jpg',
-// 				      name: 'test Dialogs',
-// 				      caption: 'blah',
-// 				      description: 'DialogsDialogsDialogsDialogsDialogs'
-// 				    };
+    	FB.init({appId: "823743447688023", status: true, cookie: true});
+    	$('.posttofeed').on('click', function(){
+			    var obj = {
+				      method: 'feed',
+				      link: $(this).data( "posturl" ),
+				      picture: 'http://fbrell.com/f8.jpg',
+				      name: 'test Dialogs',
+				      caption: 'blah',
+				      description: $(this).data( "post" )
+				    };
 
-// 			    function callback(response) {
-// 			      document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
-// 			    }
+			    function callback(response) {
+			      document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+			    }
 
-// 				    FB.ui(obj, callback);
-// 			  });
+				    FB.ui(obj, callback);
+			  });
     	
 
-//     });
-// })
+    });
+})
 </script>
 <!-- End Document
 	================================================== -->
