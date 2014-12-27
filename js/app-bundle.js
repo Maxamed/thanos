@@ -100,7 +100,7 @@ this["Handlebars"]["templates"]["postlist"] = Handlebars.template({"1":function(
     + "</span><p>\n    <footer class=\"Post-meta\">\n      <ul class=\"Copy--small\">\n        <li class=\"u-inline\">\n";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.commcount : depth0), {"name":"if","hash":{},"fn":this.program(2, data),"inverse":this.program(4, data),"data":data});
   if (stack1 != null) { buffer += stack1; }
-  buffer += "        </li>\n        <li class=\"u-inline\">\n          <a href=\"#\" data-posturl=\"/#/post/"
+  buffer += "        </li>\n        <li class=\"u-inline\">\n          <a href=\"#\" data-posturl=\"thanos.pandora.dev/#/post/"
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
     + "\" data-post=\"";
   stack1 = ((helper = (helper = helpers.post || (depth0 != null ? depth0.post : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"post","hash":{},"data":data}) : helper));
@@ -205,8 +205,9 @@ $(document.body).on('click','.PostId',function(e){
   App.getSinglePost( $(this).data("postid") );
 
 });
-//submit post
+
 $(document).ready(function(){
+  //submit post
   $("#submitPost").click(function(e){
       e.preventDefault();
     $.ajax({type: "POST",
@@ -216,10 +217,8 @@ $(document).ready(function(){
               console.log('done'); // do nice animation
     }});
   });
-});
 
-//submit comment
-$(document).ready(function(){
+  //submit comment
   $("#submitComment").click(function(e){
       e.preventDefault();
     $.ajax({type: "POST",
@@ -229,24 +228,57 @@ $(document).ready(function(){
               console.log('done'); // do nice animation
     }});
   });
+
+  //submit search
+  $( ".SiteSearch" ).submit(function( e ) {
+    e.preventDefault();
+
+    App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  $("#siteSearch").val() );
+
+    
+
+    $.ajax({type: "POST",
+            url: "http://thanos.pandora.dev/app/endpoints.php/posts/search/",
+            data: { post: $("#siteSearch").val() },
+            success:function(result){
+              console.log(result); // do nice animation
+    }});
+
+  });
+
+  //facebook crap
+
+  $.ajaxSetup({ cache: true });
+  $.getScript('//connect.facebook.net/en_UK/all.js', function(){
+    
+      FB.init({appId: "823743447688023", status: true, cookie: true});
+      $('.posttofeed').on('click', function(){
+        console.log('facebook feed');
+          var obj = {
+              method: 'feed',
+              link: $(this).data( "posturl" ),
+              picture: 'http://fbrell.com/f8.jpg',
+              name: 'test Dialogs',
+              caption: 'blah',
+              description: $(this).data( "post" )
+            };
+
+          function callback(response) {
+            document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+          }
+
+            FB.ui(obj, callback);
+        });
+      
+
+    });
+
+
 });
 
-//submit search
-$( ".SiteSearch" ).submit(function( e ) {
-  e.preventDefault();
 
-  App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  $("#siteSearch").val() );
 
-  
 
-  $.ajax({type: "POST",
-          url: "http://thanos.pandora.dev/app/endpoints.php/posts/search/",
-          data: { post: $("#siteSearch").val() },
-          success:function(result){
-            console.log(result); // do nice animation
-  }});
-
-});
 // handle routing
 
 (function() {
