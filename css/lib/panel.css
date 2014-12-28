@@ -8,7 +8,7 @@
   --Panel-border-style: solid;
   --Panel-border-radius: var(--custom-border-radius);
   --Panel-border: var(--Panel-border-width) var(--Panel-border-style) transparent;
-  --Panel-padding: var(--custom-gutter-width);
+  --Panel-padding: calc(var(--custom-gutter-width) / 2);
 }
 
 /* ==========================================================================
@@ -91,7 +91,7 @@
  * Panel Link
  *
  * A panel link creates a interactive target that covers the entire panel. 
- *   the link is accessible as it doens't physically wrap the content. Make sure and add 
+ *   the link is accessible as it doesn't physically wrap the content. Make sure and add 
  *
  * Example HTML:
  * 
@@ -104,8 +104,8 @@
   height: 100%;
   left: 0;
   position: absolute;
-  top: 0;
   right: 0;
+  top: 0;
   width: 100%;
 } 
 

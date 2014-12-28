@@ -8,36 +8,40 @@ this["Handlebars"]["templates"]["postComment"] = Handlebars.template({"compiler"
 
 
 this["Handlebars"]["templates"]["postlist"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
-  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "  <article class=\"Post\"> \n    "
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "  <article class=\"Post\" aria-labeledby=\"postHeading"
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\"> \n    <h3 class=\"Post-title H5\" id=\"postHeading"
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\">"
     + escapeExpression(((helper = (helper = helpers.username || (depth0 != null ? depth0.username : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"username","hash":{},"data":data}) : helper)))
-    + " Said : \n    <div class=\"Post-content\">\n      ";
+    + " Said:</h3>\n    <div class=\"Post-content\">\n      <p>";
   stack1 = ((helper = (helper = helpers.post || (depth0 != null ? depth0.post : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"post","hash":{},"data":data}) : helper));
   if (stack1 != null) { buffer += stack1; }
-  buffer += "\n      <a href=\""
+  buffer += "</p>\n      <p class=\"Post-comments u-posAbsolute\">\n";
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.comments : depth0), {"name":"if","hash":{},"fn":this.program(2, data),"inverse":this.program(4, data),"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  return buffer + "      </p>\n      <a href=\""
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
     + "\" data-PostId=\""
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
-    + "\" class=\"Post-link u-posAbsolute\">\n        <span class=\"u-hiddenVisually\">View Post</span>\n      </a>\n    </div>\n    <span>Category: "
+    + "\" class=\"Post-link u-posAbsolute u-block\">\n        <span class=\"u-hiddenVisually\">View Post</span>\n      </a>\n    </div>\n    <footer class=\"Post-meta\">\n      <ul class=\"u-alignMiddle\">\n        <li class=\"u-block\">\n          <span>Category: "
     + escapeExpression(((helper = (helper = helpers.category || (depth0 != null ? depth0.category : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"category","hash":{},"data":data}) : helper)))
-    + "</span><p>\n    <footer class=\"Post-meta\">\n      <ul class=\"Copy--small\">\n        <li class=\"u-inline\">\n";
-  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.comments : depth0), {"name":"if","hash":{},"fn":this.program(2, data),"inverse":this.program(4, data),"data":data});
-  if (stack1 != null) { buffer += stack1; }
-  return buffer + "        </li>\n        <li class=\"u-inline\">\n          <a href=\"#\">\n            <svg class=\"Icon Icon-facebook\">\n              <use xlink:href=\"#Icon-facebook\" />\n            </svg>\n            <span class=\"u-hiddenVisually\">Share on Facebook</span>\n          </a>\n        </li>\n        <li class=\"u-inline\">\n          <a href=\"#\">\n            <svg class=\"Icon Icon-twitter\">\n              <use xlink:href=\"#Icon-twitter\" />\n            </svg>\n            <span class=\"u-hiddenVisually\">Share on Twitter</span>\n          </a>\n        </li>\n      </ul>  \n    </footer>\n  </article>\n";
+    + "</span>\n        </li>\n        <li class=\"u-inline Copy--small\">\n          <a href=\"#\">\n            <svg class=\"Icon Icon-facebook\">\n              <use xlink:href=\"#Icon-facebook\" />\n            </svg>\n            <span class=\"u-hiddenVisually\">Share on Facebook</span>\n          </a>\n        </li>\n        <li class=\"u-inline Copy--small\">\n          <a href=\"#\">\n            <svg class=\"Icon Icon-twitter\">\n              <use xlink:href=\"#Icon-twitter\" />\n            </svg>\n            <span class=\"u-hiddenVisually\">Share on Twitter</span>\n          </a>\n        </li>\n      </ul>  \n    </footer>\n  </article>\n";
 },"2":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-  return "          <svg class=\"Icon Icon-comments\">\n            <use xlink:href=\"#Icon-comments\" />\n          </svg>\n          "
+  return "        <svg class=\"Icon Icon-comments\">\n          <use xlink:href=\"#Icon-comments\" />\n        </svg>\n        <span class=\"Post-commentsCount\">"
     + escapeExpression(((helper = (helper = helpers.comments || (depth0 != null ? depth0.comments : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"comments","hash":{},"data":data}) : helper)))
-    + "<span class=\"u-hiddenVisually\"> comments in this post</span>\n";
+    + "<span class=\"u-hiddenVisually\"> comments in this post</span></span>\n";
 },"4":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-  return "          No Comments,<a href=\"\" data-PostId=\""
+  return "        <a href=\"\" data-PostId=\""
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
-    + "\"> add one</a>\n";
+    + "\">Add Comment</a>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, buffer = "<section role=\"region\" class=\"Posts u-columnsHalf u-md-columnsFull\">\n";
+  var stack1, buffer = "<section role=\"region\" class=\"Posts Posts--list u-md-columnsFull u-columnsHalf\" aria-label=\"Latest Posts\">\n";
   stack1 = helpers.each.call(depth0, depth0, {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "</section>\n<section role=\"region\">\n  <form action=\"app/functions.php\" method=\"post\">\n    <fieldset class=\"Panel Panel-outline\">\n      <legend>Create New Post</legend>\n      <input type=\"hidden\" name=\"_METHOD\" value=\"PUT\">\n              \n      <label for=\"post\" class=\"Input\">\n        <span class=\"Input-label\">What's on Your Mind?</span>\n        <textarea cols=\"40\" rows=\"8\" name=\"post\" id=\"post\"></textarea>\n      </label>\n      <label for=\"select-choice\" class=\"Input\">\n        <san class=\"Input-label\">Post Category</san>\n        <select name=\"category\" id=\"category\">\n          <option value=\"FMYLIFE\">F MY LIFE</option>\n          <option value=\"stwrldprbl\">First World Problems</option>\n          <option value=\"justcase\">Just Because</option>\n        </select>\n      </label>\n      \n      <button type=\"submit\" name=\"submit\" id=\"submit\" class=\"Button u-sm-sizeFull\">Publish Post</button>\n      \n    </fieldset>\n  </form>\n</section>\n\n";
+  return buffer + "</section>\n<section role=\"region\">\n  <form action=\"app/functions.php\" method=\"post\">\n    <fieldset>\n      <legend id=\"createPostHeading\" class=\"H3\">Create New Post</legend>\n      <input type=\"hidden\" name=\"_METHOD\" value=\"PUT\">\n              \n      <label for=\"post\" class=\"Input\">\n        <span class=\"Input-label\">What's on Your Mind?</span>\n        <textarea cols=\"40\" rows=\"8\" name=\"post\" id=\"post\"></textarea>\n      </label>\n      <label for=\"select-choice\" class=\"Input\">\n        <span class=\"Input-label\">Post Category</span>\n        <select name=\"category\" id=\"category\">\n          <option value=\"FMYLIFE\">F MY LIFE</option>\n          <option value=\"stwrldprbl\">First World Problems</option>\n          <option value=\"justcase\">Just Because</option>\n        </select>\n      </label>\n      \n      <button type=\"submit\" name=\"submit\" id=\"submit\" class=\"Button u-sm-sizeFull\">Publish Post</button>\n      \n    </fieldset>\n  </form>\n</section>\n\n";
 },"useData":true});
 
 

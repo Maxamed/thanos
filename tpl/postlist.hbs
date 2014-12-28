@@ -1,27 +1,29 @@
-<section role="region" class="Posts u-columnsHalf u-md-columnsFull">
+<section role="region" class="Posts Posts--list u-md-columnsFull u-columnsHalf" aria-label="Latest Posts">
 {{#each this}}
-  <article class="Post"> 
-    {{ username }} Said : 
+  <article class="Post" aria-labeledby="postHeading{{id}}"> 
+    <h3 class="Post-title H5" id="postHeading{{id}}">{{ username }} Said:</h3>
     <div class="Post-content">
-      {{{post}}}
-      <a href="{{id}}" data-PostId="{{id}}" class="Post-link u-posAbsolute">
+      <p>{{{post}}}</p>
+      <p class="Post-comments u-posAbsolute">
+      {{#if comments}}
+        <svg class="Icon Icon-comments">
+          <use xlink:href="#Icon-comments" />
+        </svg>
+        <span class="Post-commentsCount">{{comments}}<span class="u-hiddenVisually"> comments in this post</span></span>
+      {{else}}
+        <a href="" data-PostId="{{id}}">Add Comment</a>
+      {{/if}}
+      </p>
+      <a href="{{id}}" data-PostId="{{id}}" class="Post-link u-posAbsolute u-block">
         <span class="u-hiddenVisually">View Post</span>
       </a>
     </div>
-    <span>Category: {{category}}</span><p>
     <footer class="Post-meta">
-      <ul class="Copy--small">
-        <li class="u-inline">
-        {{#if comments}}
-          <svg class="Icon Icon-comments">
-            <use xlink:href="#Icon-comments" />
-          </svg>
-          {{comments}}<span class="u-hiddenVisually"> comments in this post</span>
-        {{else}}
-          No Comments,<a href="" data-PostId="{{id}}"> add one</a>
-        {{/if}}
+      <ul class="u-alignMiddle">
+        <li class="u-block">
+          <span>Category: {{category}}</span>
         </li>
-        <li class="u-inline">
+        <li class="u-inline Copy--small">
           <a href="#">
             <svg class="Icon Icon-facebook">
               <use xlink:href="#Icon-facebook" />
@@ -29,7 +31,7 @@
             <span class="u-hiddenVisually">Share on Facebook</span>
           </a>
         </li>
-        <li class="u-inline">
+        <li class="u-inline Copy--small">
           <a href="#">
             <svg class="Icon Icon-twitter">
               <use xlink:href="#Icon-twitter" />
@@ -44,8 +46,8 @@
 </section>
 <section role="region">
   <form action="app/functions.php" method="post">
-    <fieldset class="Panel Panel-outline">
-      <legend>Create New Post</legend>
+    <fieldset>
+      <legend id="createPostHeading" class="H3">Create New Post</legend>
       <input type="hidden" name="_METHOD" value="PUT">
               
       <label for="post" class="Input">
@@ -53,7 +55,7 @@
         <textarea cols="40" rows="8" name="post" id="post"></textarea>
       </label>
       <label for="select-choice" class="Input">
-        <san class="Input-label">Post Category</san>
+        <span class="Input-label">Post Category</span>
         <select name="category" id="category">
           <option value="FMYLIFE">F MY LIFE</option>
           <option value="stwrldprbl">First World Problems</option>

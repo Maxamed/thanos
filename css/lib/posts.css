@@ -1,0 +1,77 @@
+/** @define Posts */
+:root {
+  --Post-padding: calc(var(--custom-gutter-width) / 2);
+}
+
+
+/* ==========================================================================
+   Individual Post Styles
+   ========================================================================== */
+.Post {
+  background: #fff; 
+  position: relative;
+  vertical-align: top;
+}
+.Post-title {
+  border-bottom: var(--custom-border-width) solid var(--base-colour-grey--36);
+}
+.Post-content {
+  margin-top: calc(var(--custom-gutter-width) / 2);
+  padding-right: 6em;
+}
+.Post-commentCount {
+  
+}
+.Post-link {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.Post-meta {
+  position: relative;
+}
+/* ==========================================================================
+   Post Listing Container
+   ========================================================================== */
+.Posts {  
+  background: var(--base-colour-grey);
+  padding: 0 var(--Post-padding) var(--Post-padding);
+}
+
+
+/* ==========================================================================
+   Post Inside of Listing
+   ========================================================================== */
+/**
+ * Short description using Doxygen-style comment format
+ *
+ * The first sentence of the long description starts here
+ *
+ * 1: stops items from spl
+ *
+ * TODO: wraps after 80 chars, indent lines with 2 spaces
+ *
+ */
+ 
+.Posts .Post {
+  border: var(--custom-border-width) solid var(--base-colour-grey--72);
+  display: inline-block; /* [1] */
+  margin-top: var(--Post-padding);
+  padding: var(--Post-padding);    
+  width: 100%;
+}
+
+/* UI States
+   ========================================================================== */
+.Posts .Post:hover, .Post:focus {
+  background: var(--base-colour-grey);
+}
+
+/* @media Rules 
+   ========================================================================== */
+
+

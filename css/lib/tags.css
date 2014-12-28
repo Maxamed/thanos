@@ -1,0 +1,41 @@
+/** @define Tag */
+:root {
+  --Tag-box-shadow-width: var(--custom-shadow-width);
+}
+
+.Tag {
+  border-radius: calc(var(--custom-border-radius) / 2);
+  display: inline-block;
+  padding: 0 calc(var(--custom-gutter-width) / 4);
+  position: relative;
+  z-index: 10;
+}
+
+/* Tags as Anchor */
+.Tag[href] {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Tag Themes
+   ========================================================================== */
+.Tag--default {
+  background: var(--base-colour-grey);
+  box-shadow: 0 0 var(--Tag-box-shadow-width) 0 var(--base-colour-grey);
+}
+.Tag--info {
+  background: var(--base-colour-alertInfo);
+  box-shadow: 0 0 var(--Tag-box-shadow-width) 0 var(--base-colour-alertInfo);
+}
+.Tag--success {
+  background: var(--base-colour-alertSuccess);
+  box-shadow: 0 0 var(--Tag-box-shadow-width) 0 var(--base-colour-alertSuccess);
+}
+.Tag--warn {
+  background: var(--base-colour-alertWarn);
+  box-shadow: 0 0 var(--Tag-box-shadow-width) 0 var(--base-colour-alertWarn);
+}
+.Tag--error {
+  background: var(--base-colour-alertError);
+  box-shadow: 0 0 var(--Tag-box-shadow-width) 0 var(--base-colour-alertError);
+}
