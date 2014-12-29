@@ -8,8 +8,8 @@
   </div>
   {{else}}
   {{!-- All is good - let's show some results --}}
-  <h2 class="SearchResults-title">Found {{resultsCount}} matching: <strong>"{{searchTerm}}"</strong></h2>
-    {{#each this}}
+  <h2 class="SearchResults-title">Found {{0.resultCount}} results matching: <strong>"{{0.searchTerm}}"</strong></h2>
+    {{#each results}}
     <article class="Post" aria-labeledby="postHeading{{id}}"> 
     <h3 class="Post-title H5" id="postHeading{{id}}">{{ username }} Said:</h3>
     <div class="Post-content">

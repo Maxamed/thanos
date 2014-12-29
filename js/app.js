@@ -71,23 +71,6 @@ $(document).ready(function(){
     }});
   });
 
-  //submit search
-  $(".SiteSearch").submit(function( e ) {
-    e.preventDefault();
-
-    App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  $("#siteSearch").val() );
-
-    
-
-    $.ajax({type: "POST",
-            url: "http://thanos.pandora.dev/app/endpoints.php/posts/search/",
-            data: { post: $("#siteSearch").val() },
-            success:function(result){
-              console.log(result); // do nice animation
-    }});
-
-  });
-
 
 
   $.ajaxSetup({ cache: true });
@@ -137,7 +120,11 @@ $(document).ready(function(){
     });
     app.get('#/post/:id', function() { 
         App.getSinglePost( this.params['id'] );
-      });
+    });
+    app.post('#/search', function() {   
+        App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  this.params['find_posts'] );
+        return false;
+    }); 
  
 })();
 

@@ -118,8 +118,7 @@ function allComments($id) {
     $allPosts =array(); 
     global $db;
     $db->where("posts", Array ('LIKE' => '%'.$r.'%'));
-    $posts = $db->get("posts");
-    if ($db->count < 1) {
+    if ($db->count = 0) {
          $results[] = array(
                 "error"        =>  "null",
                 "error_detail"  =>  "couldn't find any results"
@@ -127,13 +126,20 @@ function allComments($id) {
     }else { 
 
 
+        $posts = $db->get("posts");
+        $resultCount =  $db->count;
+        $allPosts[] = array(
+            "resultCount" => $resultCount,
+            "searchTerm" => $r,
+            "results" => array()
+        );
         foreach ($posts as $u) {
 
-        $datee = date('l jS \of F Y h:i:s A',strtotime($u['createdat']));
+            $datee = date('l jS \of F Y h:i:s A',strtotime($u['createdat']));
 
             $hashPost = convertHashtags($u['posts']);
             $post = truncate($hashPost); 
-            $allPosts[] = array(
+            $allPosts['results'][] = array(
 
                 "id" => $u['id'],
                 "username" => $u['username'],

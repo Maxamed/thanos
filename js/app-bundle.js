@@ -136,12 +136,12 @@ this["Handlebars"]["templates"]["postlist"] = Handlebars.template({"1":function(
 this["Handlebars"]["templates"]["searchResults"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
   return "  <div class=\"Panel Panel-outline Panel--alertError\">\n    Oh Shit!\n  </div>\n";
 },"3":function(depth0,helpers,partials,data) {
-  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "  <h2 class=\"SearchResults-title\">Found "
-    + escapeExpression(((helper = (helper = helpers.resultsCount || (depth0 != null ? depth0.resultsCount : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"resultsCount","hash":{},"data":data}) : helper)))
-    + " matching: <strong>\""
-    + escapeExpression(((helper = (helper = helpers.searchTerm || (depth0 != null ? depth0.searchTerm : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"searchTerm","hash":{},"data":data}) : helper)))
+  var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression, buffer = "  <h2 class=\"SearchResults-title\">Found "
+    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.resultCount : stack1), depth0))
+    + " results matching: <strong>\""
+    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.searchTerm : stack1), depth0))
     + "\"</strong></h2>\n";
-  stack1 = helpers.each.call(depth0, depth0, {"name":"each","hash":{},"fn":this.program(4, data),"inverse":this.noop,"data":data});
+  stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.results : depth0), {"name":"each","hash":{},"fn":this.program(4, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   return buffer;
 },"4":function(depth0,helpers,partials,data) {
@@ -276,23 +276,6 @@ $(document).ready(function(){
     }});
   });
 
-  //submit search
-  $(".SiteSearch").submit(function( e ) {
-    e.preventDefault();
-
-    App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  $("#siteSearch").val() );
-
-    
-
-    $.ajax({type: "POST",
-            url: "http://thanos.pandora.dev/app/endpoints.php/posts/search/",
-            data: { post: $("#siteSearch").val() },
-            success:function(result){
-              console.log(result); // do nice animation
-    }});
-
-  });
-
 
 
   $.ajaxSetup({ cache: true });
@@ -342,7 +325,11 @@ $(document).ready(function(){
     });
     app.get('#/post/:id', function() { 
         App.getSinglePost( this.params['id'] );
-      });
+    });
+    app.post('#/search', function() {   
+        App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  this.params['find_posts'] );
+        return false;
+    }); 
  
 })();
 
