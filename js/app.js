@@ -93,7 +93,7 @@ $(document).ready(function(){
   $.ajaxSetup({ cache: true });
   $.getScript('//connect.facebook.net/en_UK/all.js', function(){
     FB.init({appId: "823743447688023", status: true, cookie: true});
-    $(document).on('click',$("a[data-share='FB']"), function(){
+    $(document.body).on('click',"a[data-share='FB']", function(){
       console.log('facebook feed');
         var obj = {
             method: 'feed',
