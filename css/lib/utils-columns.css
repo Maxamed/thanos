@@ -18,7 +18,7 @@
  
 /* Target all u-columns... */
 [class*="columns"] {
-  column-gap: var(--custom-gutter-width);  
+  column-gap: calc(var(--custom-gutter-width) / 2);  
 }
 .u-columnsHalf {
   column-count: 2;

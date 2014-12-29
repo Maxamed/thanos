@@ -1,0 +1,119 @@
+/** @define Posts */
+:root {
+  --Post-padding: calc(var(--custom-gutter-width) / 2);
+}
+
+
+/* ==========================================================================
+   Individual Post Styles
+   ========================================================================== */
+.Post {
+  background: #fff; 
+  position: relative;
+  vertical-align: top;
+}
+/* Post Heading
+   ========================================================================== */
+.Post-heading {
+  border-bottom: var(--custom-border-width) solid var(--base-colour-grey--48);
+}
+.Post-title {
+  display: inline-block;
+  padding-bottom: calc(var(--custom-gutter-width) / 4 - var(--custom-border-width));
+  position: relative;
+}
+.Post-title:after {
+  background: currentColor;
+  bottom: -calc(var(--custom-border-width));
+  content: '';
+  display: block;
+  height: calc(var(--custom-border-width) * 2);
+  position: absolute;
+  width: 100%;
+}
+.Post-heading .Post-date {
+  font-size: 90%;
+  font-weight: normal;
+  color: var(--base-colour-grey--36);
+}
+/* Post Content
+   ========================================================================== */
+.Post-content {
+  margin-top: calc(var(--custom-gutter-width) / 2);
+  min-height: calc(var(--custom-gutter-width) * 2);
+  padding-right: 4em;
+}
+  .Post-comments {
+    right: 0;
+    margin: 0;
+    text-align: center;
+    top: 0;
+    /* border: 6px solid #415b6f; */
+    background-clip: padding-box;
+    color: var(--base-colour-beta);
+  }
+    .Post-commentsCountIcon {
+      font-size: 200%;      
+    }
+    .Post-commentsCount {
+      color: var(--base-colour-text);
+      display: block;
+      line-height: 2.5;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+.Post-link {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.Post-meta {
+  position: relative;
+}
+  .Post-metaShareLinks {margin: 0;}
+/* ==========================================================================
+   Post Listing Container
+   ========================================================================== */
+.Posts {  
+
+}
+
+
+/* ==========================================================================
+   Post Inside of Listing
+   ========================================================================== */
+/**
+ * Short description using Doxygen-style comment format
+ *
+ * The first sentence of the long description starts here
+ *
+ * 1: stops items from spl
+ *
+ * TODO: wraps after 80 chars, indent lines with 2 spaces
+ *
+ */
+ 
+.Posts .Post {
+  border: var(--custom-border-width) solid var(--base-colour-grey--72);
+  display: inline-block; /* [1] */
+  margin-top: var(--Post-padding);
+  padding: var(--Post-padding);    
+  width: 100%;
+}
+
+/* UI States
+   ========================================================================== */
+.Posts .Post:hover, .Post:focus {
+  background: var(--base-colour-grey);
+}
+
+/* @media Rules 
+   ========================================================================== */
+
+

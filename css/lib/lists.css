@@ -1,9 +1,0 @@
-/** @define Lists */
-:root {
-  --List-items-padding: var(--custom-gutter-width);
-}
-.List {}
-.List-item {
-  padding-left: var(--List-items-padding);
-}
-

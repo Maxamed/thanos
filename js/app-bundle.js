@@ -86,45 +86,86 @@ this["Handlebars"]["templates"]["postComment"] = Handlebars.template({"compiler"
 
 
 this["Handlebars"]["templates"]["postlist"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
-  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "  <article class=\"Post\" data-posturl=\"/#/post/"
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "  <article class=\"Post\" aria-labeledby=\"postHeading"
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
-    + "\"> \n    "
+    + "\"> \n    <heading class=\"Post-heading Arrange\">\n      <h3 class=\"Post-title u-textNoWrap H5\" id=\"postHeading"
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\">"
     + escapeExpression(((helper = (helper = helpers.username || (depth0 != null ? depth0.username : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"username","hash":{},"data":data}) : helper)))
-    + " Said : \n    <div class=\"Post-content\">\n      ";
+    + " Said:</h3>\n      <time \n        class=\"Post-date u-textRight Arrange-sizeFit\" \n        datetime=\""
+    + escapeExpression(((helpers.dateFormat || (depth0 && depth0.dateFormat) || helperMissing).call(depth0, (depth0 != null ? depth0.timestamp : depth0), {"name":"dateFormat","hash":{
+    'format': ("MMMM YYYY")
+  },"data":data})))
+    + "\">"
+    + escapeExpression(((helpers.dateFormat || (depth0 && depth0.dateFormat) || helperMissing).call(depth0, (depth0 != null ? depth0.timestamp : depth0), {"name":"dateFormat","hash":{
+    'format': ("LLLL")
+  },"data":data})))
+    + "</time>\n    </heading>\n    <div class=\"Post-content u-posRelative\">\n      <p aria-labelledby=\"postDate\">";
   stack1 = ((helper = (helper = helpers.post || (depth0 != null ? depth0.post : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"post","hash":{},"data":data}) : helper));
   if (stack1 != null) { buffer += stack1; }
-  buffer += "\n      <a href=\"/#/post/"
+  return buffer + "</p>\n      <div class=\"Post-comments u-posAbsolute\">\n        <svg class=\"Icon Icon-comments Post-commentsCountIcon\">\n          <use xlink:href=\"#Icon-comments\" />\n        </svg>\n        <span class=\"Post-commentsCount\">"
+    + escapeExpression(((helper = (helper = helpers.commcount || (depth0 != null ? depth0.commcount : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"commcount","hash":{},"data":data}) : helper)))
+    + "<span class=\"u-hiddenVisually\"> comments in this post</span></span>\n      </div>\n    </div>\n    <a href=\"/#/post/"
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
-    + "\" > ........ </a>\n    </div>\n    <span>Category: "
+    + "\" data-PostId=\""
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\" class=\"Post-link u-posAbsolute u-block\">\n      <span class=\"u-hiddenVisually\">View Entire Post</span>\n    </a>\n\n    <footer class=\"Post-meta\">\n      <ul class=\"u-alignMiddle Arrange\">\n        <li class=\"Arrange-sizeFit\">\n          <a href=\"#\" class=\"Copy--small Tag Tag--default\">"
     + escapeExpression(((helper = (helper = helpers.category || (depth0 != null ? depth0.category : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"category","hash":{},"data":data}) : helper)))
-    + "</span><p>\n    <footer class=\"Post-meta\">\n      <ul class=\"Copy--small\">\n        <li class=\"u-inline\">\n";
-  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.commcount : depth0), {"name":"if","hash":{},"fn":this.program(2, data),"inverse":this.program(4, data),"data":data});
-  if (stack1 != null) { buffer += stack1; }
-  buffer += "        </li>\n        <li class=\"u-inline\">\n          <a href=\"#\" data-posturl=\"thanos.pandora.dev/#/post/"
+    + "</a>\n        </li>\n        <li class=\"Post-metaShareLinks Copy--small u-textRight\">\n          <a href=\"#\" \n            data-share=\"FB\"\n            data-posturl=\"thanos.pandora.dev/#/post/"
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
-    + "\" data-post=\"";
-  stack1 = ((helper = (helper = helpers.post || (depth0 != null ? depth0.post : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"post","hash":{},"data":data}) : helper));
-  if (stack1 != null) { buffer += stack1; }
-  return buffer + "\" class=\"posttofeed\">\n            <svg class=\"Icon Icon-facebook\">\n              <use xlink:href=\"#Icon-facebook\" />\n            </svg>\n            <span class=\"u-hiddenVisually\">Share on Facebook</span>\n          </a>\n        </li>\n        <li class=\"u-inline\">\n          <a href=\"#\">\n            <svg class=\"Icon Icon-twitter\">\n              <use xlink:href=\"#Icon-twitter\" />\n            </svg>\n            <span class=\"u-hiddenVisually\">Share on Twitter</span>\n          </a>\n        </li>\n        <li class=\"u-inline\">\n        <time datetime=\""
+    + "\" \n            data-post=\""
+    + escapeExpression(((helper = (helper = helpers.post || (depth0 != null ? depth0.post : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"post","hash":{},"data":data}) : helper)))
+    + "\">\n            <svg class=\"Icon Icon-facebook\">\n              <use xlink:href=\"#Icon-facebook\" />\n            </svg>\n            <span class=\"u-hiddenVisually\">Share on Facebook</span>\n          </a>\n          <a href=\"#\"\n            data-share=\"twitter\"\n            data-posturl=\"thanos.pandora.dev/#/post/"
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\" \n            data-post=\""
+    + escapeExpression(((helper = (helper = helpers.post || (depth0 != null ? depth0.post : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"post","hash":{},"data":data}) : helper)))
+    + "\">\n            <svg class=\"Icon Icon-twitter\">\n              <use xlink:href=\"#Icon-twitter\" />\n            </svg>\n            <span class=\"u-hiddenVisually\">Share on Twitter</span>\n          </a>\n        </li>\n<<<<<<< HEAD\n        <li class=\"u-inline\">\n        <time datetime=\""
     + escapeExpression(((helper = (helper = helpers.machinetimestamp || (depth0 != null ? depth0.machinetimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"machinetimestamp","hash":{},"data":data}) : helper)))
     + "\">"
     + escapeExpression(((helper = (helper = helpers.humantimestamp || (depth0 != null ? depth0.humantimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"humantimestamp","hash":{},"data":data}) : helper)))
-    + "</time>\n        </li>\n      </ul>  \n    </footer>\n  </article>\n";
-},"2":function(depth0,helpers,partials,data) {
-  var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-  return "          <svg class=\"Icon Icon-comments\">\n            <use xlink:href=\"#Icon-comments\" />\n          </svg>\n          "
-    + escapeExpression(((helper = (helper = helpers.commcount || (depth0 != null ? depth0.commcount : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"commcount","hash":{},"data":data}) : helper)))
-    + "<span class=\"u-hiddenVisually\"> comments in this post</span>\n";
-},"4":function(depth0,helpers,partials,data) {
-  var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-  return "          No Comments,<a class=\"PostId\" href=\"\" data-PostId=\""
-    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
-    + "\"> add one</a>\n";
+    + "</time>\n        </li>\n=======\n>>>>>>> 241c228b31b7d8f4ed8b53cd3d4bd37eeb13c2c2\n      </ul>  \n    </footer>\n  </article>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, buffer = "<section role=\"region\" class=\"Posts u-columnsHalf u-md-columnsFull\">\n";
+  var stack1, buffer = "<section role=\"region\" class=\"Posts Posts--list u-md-columnsFull u-columnsHalf\" aria-label=\"Latest Posts\">\n";
   stack1 = helpers.each.call(depth0, depth0, {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "</section>\n<section role=\"region\">\n  <form action=\"app/functions.php\" method=\"post\">\n    <fieldset class=\"Panel Panel-outline\">\n      <legend>Create New Post</legend>\n      <input type=\"hidden\" name=\"_METHOD\" value=\"PUT\">\n              \n      <label for=\"post\" class=\"Input\">\n        <span class=\"Input-label\">What's on Your Mind?</span>\n        <textarea cols=\"40\" rows=\"8\" name=\"post\" id=\"post\"></textarea>\n      </label>\n      <label for=\"select-choice\" class=\"Input\">\n        <san class=\"Input-label\">Post Category</san>\n        <select name=\"category\" id=\"category\">\n          <option value=\"FMYLIFE\">F MY LIFE</option>\n          <option value=\"stwrldprbl\">First World Problems</option>\n          <option value=\"justcase\">Just Because</option>\n        </select>\n      </label>\n      \n      <button type=\"submit\" name=\"submit\" id=\"submit\" class=\"Button u-sm-sizeFull\">Publish Post</button>\n      \n    </fieldset>\n  </form>\n</section>\n\n";
+  return buffer + "</section>\n<section role=\"region\">\n  <form action=\"app/functions.php\" method=\"post\">\n    <fieldset>\n      <legend id=\"createPostHeading\" class=\"H3\">Create New Post</legend>\n      <input type=\"hidden\" name=\"_METHOD\" value=\"PUT\">\n              \n      <label for=\"post\" class=\"Input\">\n        <span class=\"Input-label\">What's on Your Mind?</span>\n        <textarea cols=\"40\" rows=\"8\" name=\"post\" id=\"post\"></textarea>\n      </label>\n      <label for=\"select-choice\" class=\"Input\">\n        <span class=\"Input-label\">Post Category</span>\n        <select name=\"category\" id=\"category\">\n          <option value=\"FMYLIFE\">F MY LIFE</option>\n          <option value=\"stwrldprbl\">First World Problems</option>\n          <option value=\"justcase\">Just Because</option>\n        </select>\n      </label>\n      \n      <button type=\"submit\" name=\"submit\" id=\"submit\" class=\"Button u-sm-sizeFull\">Publish Post</button>\n      \n    </fieldset>\n  </form>\n</section>\n\n";
+},"useData":true});
+
+
+
+this["Handlebars"]["templates"]["searchResults"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+  return "  <div class=\"Panel Panel-outline Panel--alertError\">\n    Oh Shit!\n  </div>\n";
+},"3":function(depth0,helpers,partials,data) {
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "  <h2 class=\"SearchResults-title\">Found "
+    + escapeExpression(((helper = (helper = helpers.resultsCount || (depth0 != null ? depth0.resultsCount : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"resultsCount","hash":{},"data":data}) : helper)))
+    + " matching: <strong>\""
+    + escapeExpression(((helper = (helper = helpers.searchTerm || (depth0 != null ? depth0.searchTerm : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"searchTerm","hash":{},"data":data}) : helper)))
+    + "\"</strong></h2>\n";
+  stack1 = helpers.each.call(depth0, depth0, {"name":"each","hash":{},"fn":this.program(4, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  return buffer;
+},"4":function(depth0,helpers,partials,data) {
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "    <article class=\"Post\" aria-labeledby=\"postHeading"
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\"> \n    <h3 class=\"Post-title H5\" id=\"postHeading"
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\">"
+    + escapeExpression(((helper = (helper = helpers.username || (depth0 != null ? depth0.username : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"username","hash":{},"data":data}) : helper)))
+    + " Said:</h3>\n    <div class=\"Post-content\">\n      <p>";
+  stack1 = ((helper = (helper = helpers.post || (depth0 != null ? depth0.post : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"post","hash":{},"data":data}) : helper));
+  if (stack1 != null) { buffer += stack1; }
+  return buffer + "</p>\n      <p class=\"Post-comments u-posAbsolute\">\n        <svg class=\"Icon Icon-comments\">\n          <use xlink:href=\"#Icon-comments\" />\n        </svg>\n        <span class=\"Post-commentsCount\">"
+    + escapeExpression(((helper = (helper = helpers.commcount || (depth0 != null ? depth0.commcount : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"commcount","hash":{},"data":data}) : helper)))
+    + "<span class=\"u-hiddenVisually\"> comments in this post</span></span>\n      </p>\n      <a href=\"/#/post/"
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\" data-PostId=\""
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\" class=\"Post-link u-posAbsolute u-block\">\n        <span class=\"u-hiddenVisually\">View Entire Post</span>\n      </a>\n    </div>\n  </article>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var stack1, buffer = "\n<section role=\"region\" class=\"Posts SearchResults\">\n";
+  stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 != null ? depth0.results : depth0)) != null ? stack1.error : stack1), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.program(3, data),"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  return buffer + "</section>";
 },"useData":true});
 
 
@@ -173,23 +214,29 @@ this["Handlebars"]["templates"]["singlePost"] = Handlebars.template({"1":functio
   
   allPostsCall  = function( req ) { $.when( $.ajax( req ) ).done(doAllView); };
   getSinglePost = function( postID ) { $.when( $.ajax( singlePostURL+postID ) ).done(doSingleView); };
-  getSearch     = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doAllView); }
+  getSearch     = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doSRPView); }
 
   doAllView     = function(jsonObj){ 
-        var template = Handlebars.templates.postlist(jsonObj);
-        $viewContainer.html(template); 
+    $viewContainer.empty();
+    var template = Handlebars.templates.postlist(jsonObj);
+    $viewContainer.html(template); 
+  }
+  doSRPView     = function(jsonObj){
+    console.log(jsonObj)
+    $viewContainer.empty();
+    var template = Handlebars.templates.searchResults(jsonObj);
+    $viewContainer.html(template);   
   }
   doSingleView  = function(jsonObj){ 
-    console.log(jsonObj)
-        $viewContainer.empty();
-        var template = Handlebars.templates.singlePost(jsonObj);
-        $viewContainer.html(template); console.log(template)
+    console.log(jsonObj);
+    $viewContainer.empty();
+    var template = Handlebars.templates.singlePost(jsonObj);
+    $viewContainer.html(template); console.log(template)
   }
  
 
 
   return {
-
     getAllPosts   : function( reqURL ) { allPostsCall(reqURL);},
     getSinglePost : function(postID){ getSinglePost(postID);},
     searchPosts   : function(reqURL,searchTerm){ getSearch(reqURL,searchTerm);}
@@ -209,7 +256,7 @@ $(document.body).on('click','.PostId',function(e){
 $(document).ready(function(){
   //submit post
   $("#submitPost").click(function(e){
-      e.preventDefault();
+    e.preventDefault();
     $.ajax({type: "POST",
             url: "app/functions.php",
             data: { post: $("#post").val(),category: $("#category").val()  },
@@ -230,7 +277,7 @@ $(document).ready(function(){
   });
 
   //submit search
-  $( ".SiteSearch" ).submit(function( e ) {
+  $(".SiteSearch").submit(function( e ) {
     e.preventDefault();
 
     App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  $("#siteSearch").val() );
@@ -248,7 +295,29 @@ $(document).ready(function(){
 
 
 
+  $.ajaxSetup({ cache: true });
+  $.getScript('//connect.facebook.net/en_UK/all.js', function(){
+    FB.init({appId: "823743447688023", status: true, cookie: true});
+    $(document.body).on('click',"a[data-share='FB']", function(){
+      console.log('facebook feed');
+        var obj = {
+            method: 'feed',
+            link: $(this).data( "posturl" ),
+            picture: 'http://fbrell.com/f8.jpg',
+            name: 'test Dialogs',
+            caption: 'blah',
+            description: $(this).data( "post" )
+          };
 
+        function callback(response) {
+          document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+        }
+
+          FB.ui(obj, callback);
+      }); 
+    
+
+  });
 });
 
 

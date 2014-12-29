@@ -58,11 +58,11 @@
 	================================================== -->
 	<div class="Container">
 		<main class="Grid Grid--withGutter Grid--alignCenter" id="viewPage" role="main">
-			<div class="Grid-cell u-lg-size8of12" id="pageView">
+			<div class="Grid-cell u-lg-size9of12" id="pageView">
 				<!-- Page Views Here -->
 			</div>
 			<aside 
-			class="SiteInfo Grid-cell u-lg-size4of12"
+			class="SiteInfo Grid-cell u-lg-size3of12"
 			id="siteNav" 
 			role="complementary">    
 			
@@ -116,10 +116,6 @@
 <footer class="SiteFooter" role="contentinfo">
 	<!-- Footer
 	================================================ -->
-	<div style="border:1px solid red">
-		
-<p class='posttofeed'>Post to Feed</p>
-	</div>
 </footer>
 
 <script src="/js/app-bundle.js"></script> 

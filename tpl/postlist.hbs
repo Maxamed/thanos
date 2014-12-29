@@ -1,43 +1,56 @@
-<section role="region" class="Posts u-columnsHalf u-md-columnsFull">
+<section role="region" class="Posts Posts--list u-md-columnsFull u-columnsHalf" aria-label="Latest Posts">
 {{#each this}}
-  <article class="Post" data-posturl="/#/post/{{id}}"> 
-    {{ username }} Said : 
-    <div class="Post-content">
-      {{{post}}}
-      <a href="/#/post/{{id}}" > ........ </a>
+  <article class="Post" aria-labeledby="postHeading{{id}}"> 
+    <heading class="Post-heading Arrange">
+      <h3 class="Post-title u-textNoWrap H5" id="postHeading{{id}}">{{ username }} Said:</h3>
+      <time 
+        class="Post-date u-textRight Arrange-sizeFit" 
+        datetime="{{dateFormat timestamp format="MMMM YYYY"}}">{{dateFormat timestamp format="LLLL"}}</time>
+    </heading>
+    <div class="Post-content u-posRelative">
+      <p aria-labelledby="postDate">{{{post}}}</p>
+      <div class="Post-comments u-posAbsolute">
+        <svg class="Icon Icon-comments Post-commentsCountIcon">
+          <use xlink:href="#Icon-comments" />
+        </svg>
+        <span class="Post-commentsCount">{{commcount}}<span class="u-hiddenVisually"> comments in this post</span></span>
+      </div>
     </div>
-    <span>Category: {{category}}</span><p>
+    <a href="/#/post/{{id}}" data-PostId="{{id}}" class="Post-link u-posAbsolute u-block">
+      <span class="u-hiddenVisually">View Entire Post</span>
+    </a>
+
     <footer class="Post-meta">
-      <ul class="Copy--small">
-        <li class="u-inline">
-        {{#if commcount}}
-          <svg class="Icon Icon-comments">
-            <use xlink:href="#Icon-comments" />
-          </svg>
-          {{commcount}}<span class="u-hiddenVisually"> comments in this post</span>
-        {{else}}
-          No Comments,<a class="PostId" href="" data-PostId="{{id}}"> add one</a>
-        {{/if}}
+      <ul class="u-alignMiddle Arrange">
+        <li class="Arrange-sizeFit">
+          <a href="#" class="Copy--small Tag Tag--default">{{category}}</a>
         </li>
-        <li class="u-inline">
-          <a href="#" data-posturl="thanos.pandora.dev/#/post/{{id}}" data-post="{{{post}}}" class="posttofeed">
+        <li class="Post-metaShareLinks Copy--small u-textRight">
+          <a href="#" 
+            data-share="FB"
+            data-posturl="thanos.pandora.dev/#/post/{{id}}" 
+            data-post="{{post}}">
             <svg class="Icon Icon-facebook">
               <use xlink:href="#Icon-facebook" />
             </svg>
             <span class="u-hiddenVisually">Share on Facebook</span>
           </a>
-        </li>
-        <li class="u-inline">
-          <a href="#">
+          <a href="#"
+            data-share="twitter"
+            data-posturl="thanos.pandora.dev/#/post/{{id}}" 
+            data-post="{{post}}">
             <svg class="Icon Icon-twitter">
               <use xlink:href="#Icon-twitter" />
             </svg>
             <span class="u-hiddenVisually">Share on Twitter</span>
           </a>
         </li>
+<<<<<<< HEAD
         <li class="u-inline">
         <time datetime="{{machinetimestamp}}">{{humantimestamp}}</time>
         </li>
+=======
+>>>>>>> 241c228b31b7d8f4ed8b53cd3d4bd37eeb13c2c2
       </ul>  
     </footer>
   </article>
@@ -45,8 +58,8 @@
 </section>
 <section role="region">
   <form action="app/functions.php" method="post">
-    <fieldset class="Panel Panel-outline">
-      <legend>Create New Post</legend>
+    <fieldset>
+      <legend id="createPostHeading" class="H3">Create New Post</legend>
       <input type="hidden" name="_METHOD" value="PUT">
               
       <label for="post" class="Input">
@@ -54,7 +67,7 @@
         <textarea cols="40" rows="8" name="post" id="post"></textarea>
       </label>
       <label for="select-choice" class="Input">
-        <san class="Input-label">Post Category</san>
+        <span class="Input-label">Post Category</span>
         <select name="category" id="category">
           <option value="FMYLIFE">F MY LIFE</option>
           <option value="stwrldprbl">First World Problems</option>

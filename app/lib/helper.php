@@ -13,7 +13,7 @@ function truncate($string,$length=200,$append="&hellip;") {
 // Convert to hastag function
 function convertHashtags($str){
     $regex = "/#+([a-zA-Z0-9_]+)/";
-    $str = preg_replace($regex, '<a href="functions.php?tag=$1">$0</a>', $str);
+    $str = preg_replace($regex, '<a href="functions.php?tag=$1" class="Post-hashTag">$0</a>', $str);
     return($str);
 }
 
