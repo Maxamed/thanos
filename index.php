@@ -119,7 +119,34 @@
 </footer>
 
 <script src="/js/app-bundle.js"></script> 
- 
+ <script type="text/javascript">
+  //facebook crap
+
+  $.ajaxSetup({ cache: true });
+  $.getScript('//connect.facebook.net/en_UK/all.js', function(){
+    
+      FB.init({appId: "823743447688023", status: true, cookie: true});
+      $('body').on('click','.posttofeed', function(){
+        console.log('facebook feed');
+          var obj = {
+              method: 'feed',
+              link: $(this).data( "posturl" ),
+              picture: 'http://fbrell.com/f8.jpg',
+              name: 'test Dialogs',
+              caption: 'blah',
+              description: $(this).data( "post" )
+            };
+
+          function callback(response) {
+            document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+          }
+
+            FB.ui(obj, callback);
+        });
+      
+
+    });
+ </script>
 <!-- End Document
 	================================================== -->
 </body>
