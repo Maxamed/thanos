@@ -80,7 +80,7 @@
   --base-colour-grey--18: #2e2e2e;
   --base-colour-grey--12: #1f1f1f;
   --base-colour-text: #1f1f1f;
-  --base-colour-inverse: #fafafa;
+  --base-colour-text--inverse: #fafafa;
 
   --base-link-color: var(--base-colour-alpha--accent);
   --base-link-color-hover: var(--base-colour-alpha);

@@ -33,7 +33,7 @@
 			</a>
 			<a class="Site-logo" href="">Thanos</a>
 			
-			<form action="" class="SiteSearch Grid Grid--withGutter" method="POST">
+			<form action="#" class="SiteSearch Grid Grid--withGutter" method="POST">
 				<fieldset class="FieldGroup FieldGroup--inline Grid-cell u-size6of12">
 					<legend class="u-hiddenVisually">Search for Posts</legend>
 					<ul class="Arrange Arrange--widthGutter">
@@ -106,13 +106,20 @@
 		</aside>
 	</main>
 </div>
-
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div><a href="https://twitter.com/dewalf" class="twitter-follow-button" data-show-count="false">Follow @dewalf</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <footer class="SiteFooter" role="contentinfo">
 	<!-- Footer
 	================================================ -->
 </footer>
 
 <script src="/js/app-bundle.js"></script> 
+ 
 <!-- End Document
 	================================================== -->
 </body>

@@ -41,7 +41,8 @@ if(isset($_POST['post']))
 
         $idx = $db->insert('users', $dataX);
       
-        
+           header ("Location: ../index.php");
+            exit; 
 
     } 
 
@@ -66,8 +67,7 @@ if(isset($_POST['commentSubmit']))
             $db->where("id", $t); 
             $db->update("posts",$commCount);
             
-            header ("Location: index.php");
-            exit;
+             
 }
  
 //Print Single Post

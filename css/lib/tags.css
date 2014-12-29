@@ -11,16 +11,11 @@
   z-index: 10;
 }
 
-/* Tags as Anchor */
-.Tag[href] {
-  color: inherit;
-  text-decoration: none;
-}
 
 /* Tag Themes
    ========================================================================== */
 .Tag--default {
-  background: var(--base-colour-grey);
+  background: var(--base-colour-delta);
   box-shadow: 0 0 var(--Tag-box-shadow-width) 0 var(--base-colour-grey);
 }
 .Tag--info {
@@ -39,3 +34,12 @@
   background: var(--base-colour-alertError);
   box-shadow: 0 0 var(--Tag-box-shadow-width) 0 var(--base-colour-alertError);
 }
+
+/* Tags as Anchor */ 
+.Tag[href],
+.Tag[href]:hover, 
+.Tag[href]:focus {
+  color: currentColor;
+  text-decoration: none;
+}
+

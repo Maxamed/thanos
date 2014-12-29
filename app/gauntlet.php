@@ -5,6 +5,9 @@ require_once("lib/helper.php");
 $db = new Mysqlidb();
 if(!$db) die("Database error");
 
+
+//print single post
+
 function sPost($id){
     $arrPosts =array();  
     $posts = array();
@@ -19,7 +22,8 @@ function sPost($id){
                 "id"        => $u['id'],
                 "username"  => $u['username'],
                 "post"      => $u['posts'],
-                "category"  => $u['category']
+                "category"  => $u['category'],
+                "timestamp"  => $u['createdat']
                 ),
         "comments"  => array()
     );
@@ -42,22 +46,27 @@ function sPost($id){
  
 }
 
+//print all posts
+
 function allPosts() {  
     global $db;
     $db->where ("status", true);
+    $db->orderBy("id","Desc");
     $posts = $db->get("posts");
     $allPosts = array();
 
     foreach ($posts as $u) {
+        
         $hashPost = convertHashtags($u['posts']);
         $post = truncate($hashPost); 
         $allPosts[] = array(
 
             "id" => $u['id'],
             "username" => $u['username'],
-            "comments" => $u['comments'],
+            "commcount" => $u['comments'],
             "post" => $post,
-            "category" => $u['category']
+            "category" => $u['category'],
+            "timestamp"  => $u['createdat']
 
 
             );
@@ -65,6 +74,8 @@ function allPosts() {
     }
     return $allPosts;
 }
+
+//print all comments
 
 function allComments($id) {
 
@@ -90,4 +101,48 @@ function allComments($id) {
     return $allComms;
 
 }
+
+// search
+
+ function Search($r){
+    $results = array();
+    $allPosts =array(); 
+    global $db;
+    $db->where("posts", Array ('LIKE' => '%'.$r.'%'));
+    $posts = $db->get("posts");
+    if ($db->count < 1) {
+         $results[] = array(
+                "error"        =>  "null",
+                "error_detail"  =>  "couldn't find any results"
+            ); 
+    }else { 
+
+
+        foreach ($posts as $u) {
+
+
+            $hashPost = convertHashtags($u['posts']);
+            $post = truncate($hashPost); 
+            $allPosts[] = array(
+
+                "id" => $u['id'],
+                "username" => $u['username'],
+                "commcount" => $u['comments'],
+                "post" => $post,
+                "category" => $u['category'],
+                "timestamp"  => $u['createdat']
+
+
+                );
+
+
+
+            }
+        }
+
+     return $allPosts;
+     
+ }
+ 
+
  ?>

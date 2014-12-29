@@ -1,0 +1,30 @@
+{{!-- Search Results Template --}}
+
+<section role="region" class="Posts SearchResults">
+  {{#if results.error}}
+  {{!-- Oops - we have an error --}}
+  <div class="Panel Panel-outline Panel--alertError">
+    Oh Shit!
+  </div>
+  {{else}}
+  {{!-- All is good - let's show some results --}}
+  <h2 class="SearchResults-title">Found {{resultsCount}} matching: <strong>"{{searchTerm}}"</strong></h2>
+    {{#each this}}
+    <article class="Post" aria-labeledby="postHeading{{id}}"> 
+    <h3 class="Post-title H5" id="postHeading{{id}}">{{ username }} Said:</h3>
+    <div class="Post-content">
+      <p>{{{post}}}</p>
+      <p class="Post-comments u-posAbsolute">
+        <svg class="Icon Icon-comments">
+          <use xlink:href="#Icon-comments" />
+        </svg>
+        <span class="Post-commentsCount">{{commcount}}<span class="u-hiddenVisually"> comments in this post</span></span>
+      </p>
+      <a href="/#/post/{{id}}" data-PostId="{{id}}" class="Post-link u-posAbsolute u-block">
+        <span class="u-hiddenVisually">View Entire Post</span>
+      </a>
+    </div>
+  </article>
+    {{/each}}
+  {{/if}}
+</section>

@@ -3255,6 +3255,11 @@ body > svg {
   box-shadow: inset 0 .0625rem 0.1875rem 0 #b8b8b8;
 }
 
+.Panel--alertError {
+  background: #e5524c;
+  border-color: #bc322d;
+}
+
 /* Borders and Shadows
    ========================================================================== */
 
@@ -3341,16 +3346,67 @@ body > svg {
   vertical-align: top;
 }
 
-.Post-title {
-  border-bottom: .0625rem solid #5c5c5c;
+/* Post Heading
+   ========================================================================== */
+
+.Post-heading {
+  border-bottom: .0625rem solid #7a7a7a;
 }
+
+.Post-title {
+  display: inline-block;
+  padding-bottom: 0.3125rem;
+  position: relative;
+}
+
+.Post-title:after {
+  background: currentColor;
+  bottom: -0.0625rem;
+  content: '';
+  display: block;
+  height: 0.125rem;
+  position: absolute;
+  width: 100%;
+}
+
+.Post-heading .Post-date {
+  font-size: 90%;
+  font-weight: normal;
+  color: #5c5c5c;
+}
+
+/* Post Content
+   ========================================================================== */
 
 .Post-content {
   margin-top: 0.75rem;
-  padding-right: 6em;
+  min-height: 3rem;
+  padding-right: 4em;
 }
 
+.Post-comments {
+  right: 0;
+  margin: 0;
+  text-align: center;
+  top: 0;
+  /* border: 6px solid #415b6f; */
+  background-clip: padding-box;
+  color: #415b6f;
+}
 
+.Post-commentsCountIcon {
+  font-size: 200%;
+}
+
+.Post-commentsCount {
+  color: #1f1f1f;
+  display: block;
+  line-height: 2.5;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 
 .Post-link {
   bottom: 0;
@@ -3366,14 +3422,15 @@ body > svg {
   position: relative;
 }
 
+.Post-metaShareLinks {
+  margin: 0;
+}
+
 /* ==========================================================================
    Post Listing Container
    ========================================================================== */
 
-.Posts {
-  background: #e6e6e6;
-  padding: 0 0.75rem 0.75rem;
-}
+
 
 /* ==========================================================================
    Post Inside of Listing
@@ -3422,18 +3479,11 @@ body > svg {
   z-index: 10;
 }
 
-/* Tags as Anchor */
-
-.Tag[href] {
-  color: inherit;
-  text-decoration: none;
-}
-
 /* Tag Themes
    ========================================================================== */
 
 .Tag--default {
-  background: #e6e6e6;
+  background: #be89d8;
   box-shadow: 0 0 .0625rem 0 #e6e6e6;
 }
 
@@ -3455,6 +3505,15 @@ body > svg {
 .Tag--error {
   background: #e5524c;
   box-shadow: 0 0 .0625rem 0 #e5524c;
+}
+
+/* Tags as Anchor */
+
+.Tag[href],
+.Tag[href]:hover,
+.Tag[href]:focus {
+  color: currentColor;
+  text-decoration: none;
 }
 
 /** @define Type */
@@ -3546,6 +3605,22 @@ small,
   font-size: 0.8125rem;
   line-height: 1.84615384615385;
 }
+
+/* Section Headings
+   ========================================================================== */
+
+/**
+ * Section headings for dividing sections of a page
+ *
+ * As a recommendation, it's best to use the correct heading level 
+ *
+ * @tag This is a tag named 'tag'
+ *
+ * <header class="Title">
+ *   <h2></h2>
+ * </header>
+ *
+ */
 
 /* Blockquote
    ========================================================================== */

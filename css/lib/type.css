@@ -70,6 +70,21 @@ small,
   line-height: 1.84615384615385;
 }
 
+/* Section Headings
+   ========================================================================== */
+/**
+ * Section headings for dividing sections of a page
+ *
+ * As a recommendation, it's best to use the correct heading level 
+ *
+ * @tag This is a tag named 'tag'
+ *
+ * <header class="Title">
+ *   <h2></h2>
+ * </header>
+ *
+ */
+ 
 
 /* Blockquote
    ========================================================================== */
