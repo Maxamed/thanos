@@ -17,7 +17,7 @@ function sPost($id){
     $db->where ("id", $t); 
     $u = $db->getOne("posts"); 
 
-    $dateee = date('F/j/Y',strtotime($u['createdat']));
+    $dateee = date('l jS \of F Y h:i:s A',strtotime($u['createdat']));
     $arrPosts[] = array(
         "posts" => array(
                 "id"        => $u['id'],
@@ -35,7 +35,7 @@ function sPost($id){
 
     foreach ($comments as $x) {
 
-        $datee = date('F/j/Y',strtotime($u['createdat']));
+        $datee = date('l jS \of F Y h:i:s A',strtotime($u['createdat']));
         $arrPosts['comments'][] = array( 
             "id"        => $x['id'], 
             "comment"   => $x['comment'],
@@ -61,7 +61,7 @@ function allPosts() {
 
     foreach ($posts as $u) {
         
-        $datee = date('F/j/Y',strtotime($u['createdat']));
+        $datee = date('l jS \of F Y h:i:s A',strtotime($u['createdat']));
 
         $hashPost = convertHashtags($u['posts']);
         $post = truncate($hashPost); 
@@ -94,12 +94,12 @@ function allComments($id) {
     $allComms = array();
 
     foreach ($comments as $u) {
-        $datee = date('F/j/Y',strtotime($u['createdat']));
+        $datee = date('l jS \of F Y h:i:s A',strtotime($u['createdat']));
 
         $allComms[] = array(
 
             "id" => $u['id'], 
-            "comment" => $u['comment']
+            "comment" => $u['comment'],
             "humantimestamp" => $datee,
             "machinetimestamp"  => $u['category']
 
@@ -129,7 +129,7 @@ function allComments($id) {
 
         foreach ($posts as $u) {
 
-        $datee = date('F/j/Y',strtotime($u['createdat']));
+        $datee = date('l jS \of F Y h:i:s A',strtotime($u['createdat']));
 
             $hashPost = convertHashtags($u['posts']);
             $post = truncate($hashPost); 
