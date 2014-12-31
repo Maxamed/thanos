@@ -73,13 +73,13 @@
         },
       },
       concat: {
-        app: {
-          src: ['<%= _globalConfig.jsDir %>lib/*.js','<%= _globalConfig.jsDir %>app.js'],
-          dest: '<%= _globalConfig.jsDir %>/app-bundle.js',
-        },
         vendor: {
           src: ['<%= _globalConfig.jsDir %>vendor/*.js'],
           dest: '<%= _globalConfig.jsDir %>vendor.js',
+        },
+        app: {
+          src: ['<%= _globalConfig.jsDir %>dev/app.js'],
+          dest: '<%= _globalConfig.jsDir %>app-bundle.js',
         },
 
       },
@@ -117,7 +117,7 @@
           tasks: ['handlebars']
         },
         js: {
-          files: ['<%= _globalConfig.jsDir %>*.js','<%= _globalConfig.jsDir %>**/*.js'],
+          files: ['<%= _globalConfig.jsDir %>vendor/*.js','<%= _globalConfig.jsDir %>dev/*.js'],
           tasks: ['concat']
         },
       },
