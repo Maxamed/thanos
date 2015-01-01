@@ -211,8 +211,7 @@ this["Handlebars"]["templates"]["singlePost"] = Handlebars.template({"1":functio
   getSinglePost = function( postID ) { $.when( $.ajax( singlePostURL+postID ) ).done(doSingleView); };
   getSearch     = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doSRPView); }
 
-  doAllView     = function(jsonObj){ 
-    console.log('fixing view')
+  doAllView     = function(jsonObj){  
     $viewContainer.empty();
     var template = Handlebars.templates.postlist(jsonObj);
     $viewContainer.html(template); 
@@ -233,7 +232,7 @@ this["Handlebars"]["templates"]["singlePost"] = Handlebars.template({"1":functio
 
 
   return {
-    getAllPosts   : function( reqURL ) { allPostsCall(reqURL);console.log('getting posts')},
+    getAllPosts   : function( reqURL ) { allPostsCall(reqURL);},
     getSinglePost : function(postID){ getSinglePost(postID);},
     searchPosts   : function(reqURL,searchTerm){ getSearch(reqURL,searchTerm);}
   };
@@ -254,7 +253,7 @@ $(document).ready(function(){
   $("#submitPost").click(function(e){
     e.preventDefault();
     $.ajax({type: "POST",
-            url: "app/functions.php",
+            url: "../app/functions.php",
             data: { post: $("#post").val(),category: $("#category").val()  },
             success:function(result){
               console.log('done'); // do nice animation
@@ -265,7 +264,7 @@ $(document).ready(function(){
   $("#submitComment").click(function(e){
       e.preventDefault();
     $.ajax({type: "POST",
-            url: "app/functions.php",
+            url: "../app/functions.php",
             data: { comment: $("#comment").val(),postid: $("#postid").val()  },
             success:function(result){
               console.log('done'); // do nice animation
