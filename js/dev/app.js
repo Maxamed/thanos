@@ -12,6 +12,7 @@
   getSearch     = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doSRPView); }
 
   doAllView     = function(jsonObj){ 
+    console.log('fixing view')
     $viewContainer.empty();
     var template = Handlebars.templates.postlist(jsonObj);
     $viewContainer.html(template); 
@@ -32,7 +33,7 @@
 
 
   return {
-    getAllPosts   : function( reqURL ) { allPostsCall(reqURL);},
+    getAllPosts   : function( reqURL ) { allPostsCall(reqURL);console.log('getting posts')},
     getSinglePost : function(postID){ getSinglePost(postID);},
     searchPosts   : function(reqURL,searchTerm){ getSearch(reqURL,searchTerm);}
   };

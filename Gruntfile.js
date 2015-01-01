@@ -78,7 +78,7 @@
           dest: '<%= _globalConfig.jsDir %>vendor.js',
         },
         app: {
-          src: ['<%= _globalConfig.jsDir %>dev/app.js'],
+          src: ['<%= _globalConfig.jsDir %>lib/*.js','<%= _globalConfig.jsDir %>dev/app.js'],
           dest: '<%= _globalConfig.jsDir %>app-bundle.js',
         },
 
@@ -117,7 +117,7 @@
           tasks: ['handlebars']
         },
         js: {
-          files: ['<%= _globalConfig.jsDir %>vendor/*.js','<%= _globalConfig.jsDir %>dev/*.js'],
+          files: ['<%= _globalConfig.jsDir %>vendor/*.js','<%= _globalConfig.jsDir %>dev/*.js','<%= _globalConfig.jsDir %>lib/*.js'],
           tasks: ['concat']
         },
       },
