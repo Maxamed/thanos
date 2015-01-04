@@ -25,7 +25,7 @@ function sPost($id){
                 "post"      => $u['posts'],
                 "category"  => $u['category'],
                 "humantimestamp" => $dateee,
-                "machinetimestamp"  => $u['category']
+                "machinetimestamp"  => $u['createdat']
                 ),
         "comments"  => array()
     );
@@ -40,7 +40,7 @@ function sPost($id){
             "id"        => $x['id'], 
             "comment"   => $x['comment'],
             "humantimestamp" => $datee,
-            "machinetimestamp"  => $u['category']
+            "machinetimestamp"  => $u['createdat']
         );
 
     }; 
@@ -73,7 +73,7 @@ function allPosts() {
             "post" => $post,
             "category" => $u['category'],
             "humantimestamp" => $datee,
-            "machinetimestamp"  => $u['category']
+            "machinetimestamp"  => $u['createdat']
 
 
             );
@@ -101,7 +101,7 @@ function allComments($id) {
             "id" => $u['id'], 
             "comment" => $u['comment'],
             "humantimestamp" => $datee,
-            "machinetimestamp"  => $u['category']
+            "machinetimestamp"  => $u['createdat']
 
 
             );
@@ -147,7 +147,7 @@ function allComments($id) {
                 "post" => $post,
                 "category" => $u['category'],
                 "humantimestamp" => $datee,
-                "machinetimestamp"  => $u['category']
+                "machinetimestamp"  => $u['createdat']
 
 
                 );
