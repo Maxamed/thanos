@@ -15,7 +15,7 @@
         </svg>
         <span class="Post-commentsCount">{{commcount}}<span class="u-hiddenVisually"> comments in this post</span></span>
       </div>
-    </div>
+    </div> 
     <a href="/#/post/{{id}}" data-PostId="{{id}}" class="Post-link u-posAbsolute u-block">
       <span class="u-hiddenVisually">View Entire Post</span>
     </a>
@@ -50,6 +50,9 @@
             </span>
           </a>
         </li>
+        <li class="u-inline">
+        <time datetime="{{machinetimestamp}}">{{humantimestamp}}</time>
+        </li> 
       </ul>  
     </footer>
   </article>
@@ -65,7 +68,7 @@
         <span class="Input-label">What's on Your Mind?</span>
         <textarea cols="40" rows="8" name="post" id="post"></textarea>
       </label>
-      <label for="select-choice" class="Input">
+      <label for="select-choice" class="Input"> 
         <span class="Input-label">Post Category</span>
         <select name="category" id="category">
           <option value="FMYLIFE">F MY LIFE</option>

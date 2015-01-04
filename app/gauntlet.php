@@ -1,7 +1,7 @@
 <?php
 require_once("MysqliDb.php");
 require_once("lib/helper.php");
-
+date_default_timezone_set('Europe/London');
 $db = new Mysqlidb();
 if(!$db) die("Database error");
 
@@ -17,13 +17,15 @@ function sPost($id){
     $db->where ("id", $t); 
     $u = $db->getOne("posts"); 
 
+    $dateee = date('d/m/Y H:i:s',strtotime($u['createdat']));
     $arrPosts[] = array(
         "posts" => array(
                 "id"        => $u['id'],
                 "username"  => $u['username'],
                 "post"      => $u['posts'],
                 "category"  => $u['category'],
-                "timestamp"  => $u['createdat']
+                "humantimestamp" => $dateee,
+                "machinetimestamp"  => $u['category']
                 ),
         "comments"  => array()
     );
@@ -33,10 +35,12 @@ function sPost($id){
 
     foreach ($comments as $x) {
 
+        $datee = date('d/m/Y H:i:s',strtotime($u['createdat']));
         $arrPosts['comments'][] = array( 
             "id"        => $x['id'], 
             "comment"   => $x['comment'],
-            "timestamp" => $x['timestamp']
+            "humantimestamp" => $datee,
+            "machinetimestamp"  => $u['category']
         );
 
     }; 
@@ -57,6 +61,8 @@ function allPosts() {
 
     foreach ($posts as $u) {
         
+        $datee = date('d/m/Y H:i:s',strtotime($u['createdat']));
+
         $hashPost = convertHashtags($u['posts']);
         $post = truncate($hashPost); 
         $allPosts[] = array(
@@ -66,7 +72,8 @@ function allPosts() {
             "commcount" => $u['comments'],
             "post" => $post,
             "category" => $u['category'],
-            "timestamp"  => $u['createdat']
+            "humantimestamp" => $datee,
+            "machinetimestamp"  => $u['category']
 
 
             );
@@ -87,12 +94,14 @@ function allComments($id) {
     $allComms = array();
 
     foreach ($comments as $u) {
+        $datee = date('d/m/Y H:i:s',strtotime($u['createdat']));
 
         $allComms[] = array(
 
             "id" => $u['id'], 
             "comment" => $u['comment'],
-            "timestamp" => $u['timestamp']
+            "humantimestamp" => $datee,
+            "machinetimestamp"  => $u['category']
 
 
             );
@@ -109,8 +118,7 @@ function allComments($id) {
     $allPosts =array(); 
     global $db;
     $db->where("posts", Array ('LIKE' => '%'.$r.'%'));
-    $posts = $db->get("posts");
-    if ($db->count < 1) {
+    if ($db->count = 0) {
          $results[] = array(
                 "error"        =>  "null",
                 "error_detail"  =>  "couldn't find any results"
@@ -118,19 +126,28 @@ function allComments($id) {
     }else { 
 
 
+        $posts = $db->get("posts");
+        $resultCount =  $db->count;
+        $allPosts[] = array(
+            "resultCount" => $resultCount,
+            "searchTerm" => $r,
+            "results" => array()
+        );
         foreach ($posts as $u) {
 
+            $datee = date('d/m/Y H:i:s',strtotime($u['createdat']));
 
             $hashPost = convertHashtags($u['posts']);
             $post = truncate($hashPost); 
-            $allPosts[] = array(
+            $allPosts['results'][] = array(
 
                 "id" => $u['id'],
                 "username" => $u['username'],
                 "commcount" => $u['comments'],
                 "post" => $post,
                 "category" => $u['category'],
-                "timestamp"  => $u['createdat']
+                "humantimestamp" => $datee,
+                "machinetimestamp"  => $u['category']
 
 
                 );

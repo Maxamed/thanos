@@ -11,7 +11,7 @@
   getSinglePost = function( postID ) { $.when( $.ajax( singlePostURL+postID ) ).done(doSingleView); };
   getSearch     = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doSRPView); }
 
-  doAllView     = function(jsonObj){ 
+  doAllView     = function(jsonObj){  
     $viewContainer.empty();
     var template = Handlebars.templates.postlist(jsonObj);
     $viewContainer.html(template); 
@@ -53,7 +53,7 @@ $(document).ready(function(){
   $("#submitPost").click(function(e){
     e.preventDefault();
     $.ajax({type: "POST",
-            url: "app/functions.php",
+            url: "../app/functions.php",
             data: { post: $("#post").val(),category: $("#category").val()  },
             success:function(result){
               console.log('done'); // do nice animation
@@ -64,28 +64,11 @@ $(document).ready(function(){
   $("#submitComment").click(function(e){
       e.preventDefault();
     $.ajax({type: "POST",
-            url: "app/functions.php",
+            url: "../app/functions.php",
             data: { comment: $("#comment").val(),postid: $("#postid").val()  },
             success:function(result){
               console.log('done'); // do nice animation
     }});
-  });
-
-  //submit search
-  $(".SiteSearch").submit(function( e ) {
-    e.preventDefault();
-
-    App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  $("#siteSearch").val() );
-
-    
-
-    $.ajax({type: "POST",
-            url: "http://thanos.pandora.dev/app/endpoints.php/posts/search/",
-            data: { post: $("#siteSearch").val() },
-            success:function(result){
-              console.log(result); // do nice animation
-    }});
-
   });
 
 
@@ -137,7 +120,11 @@ $(document).ready(function(){
     });
     app.get('#/post/:id', function() { 
         App.getSinglePost( this.params['id'] );
-      });
+    });
+    app.post('#/search', function() {   
+        App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  this.params['find_posts'] );
+        return false;
+    }); 
  
 })();
 

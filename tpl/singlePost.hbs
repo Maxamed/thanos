@@ -7,7 +7,7 @@
     <p><strong>Category:</strong> {{0.posts.category}}</p>
   </div>
   <footer class="Post-meta">
-    Posted on <time datetime="{{0.post.posts.timestamp}}">{{0.posts.date}}</time>.
+    Posted on <time datetime="{{0.posts.machinetimestamp}}">{{0.posts.humantimestamp}}</time>.
     <ul>
       <li>
         <a href="">
@@ -17,7 +17,7 @@
       </a></li>
       <li><a href="functions.php?SpamId={{0.posts.id}}">Report Spam</a></li>
     </ul>  
-  </footer>
+  </footer> 
 </article>
 <section role="region" class="Comments">
   <header class="Comments-header">
