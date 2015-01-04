@@ -5,7 +5,7 @@
       <h3 class="Post-title u-textNoWrap H5" id="postHeading{{id}}">{{ username }} Said:</h3>
       <time 
         class="Post-date u-textRight Arrange-sizeFit" 
-        datetime="{{dateFormat timestamp format="MMMM YYYY"}}">{{dateFormat timestamp format="LLLL"}}</time>
+        datetime="{{machinetimestamp}}">{{humantimestamp}}</time>
     </heading>
     <div class="Post-content u-posRelative">
       <p aria-labelledby="postDate">{{{post}}}</p>
@@ -50,9 +50,6 @@
             </span>
           </a>
         </li>
-        <li class="u-inline">
-        <time datetime="{{machinetimestamp}}">{{humantimestamp}}</time>
-        </li> 
       </ul>  
     </footer>
   </article>

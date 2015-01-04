@@ -93,13 +93,9 @@ this["Handlebars"]["templates"]["postlist"] = Handlebars.template({"1":function(
     + "\">"
     + escapeExpression(((helper = (helper = helpers.username || (depth0 != null ? depth0.username : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"username","hash":{},"data":data}) : helper)))
     + " Said:</h3>\n      <time \n        class=\"Post-date u-textRight Arrange-sizeFit\" \n        datetime=\""
-    + escapeExpression(((helpers.dateFormat || (depth0 && depth0.dateFormat) || helperMissing).call(depth0, (depth0 != null ? depth0.timestamp : depth0), {"name":"dateFormat","hash":{
-    'format': ("MMMM YYYY")
-  },"data":data})))
+    + escapeExpression(((helper = (helper = helpers.machinetimestamp || (depth0 != null ? depth0.machinetimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"machinetimestamp","hash":{},"data":data}) : helper)))
     + "\">"
-    + escapeExpression(((helpers.dateFormat || (depth0 && depth0.dateFormat) || helperMissing).call(depth0, (depth0 != null ? depth0.timestamp : depth0), {"name":"dateFormat","hash":{
-    'format': ("LLLL")
-  },"data":data})))
+    + escapeExpression(((helper = (helper = helpers.humantimestamp || (depth0 != null ? depth0.humantimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"humantimestamp","hash":{},"data":data}) : helper)))
     + "</time>\n    </heading>\n    <div class=\"Post-content u-posRelative\">\n      <p aria-labelledby=\"postDate\">";
   stack1 = ((helper = (helper = helpers.post || (depth0 != null ? depth0.post : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"post","hash":{},"data":data}) : helper));
   if (stack1 != null) { buffer += stack1; }
@@ -119,11 +115,7 @@ this["Handlebars"]["templates"]["postlist"] = Handlebars.template({"1":function(
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
     + "\" \n            data-post=\""
     + escapeExpression(((helper = (helper = helpers.post || (depth0 != null ? depth0.post : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"post","hash":{},"data":data}) : helper)))
-    + "\">\n            <span class=\"Button-content\">\n              <svg class=\"Icon Icon--sizeSm\">\n                <use xlink:href=\"#Icon-twitter\" />\n              </svg>\n              <span class=\"u-hiddenVisually\">Share on Twitter</span>\n            </span>\n          </a>\n        </li>\n        <li class=\"u-inline\">\n        <time datetime=\""
-    + escapeExpression(((helper = (helper = helpers.machinetimestamp || (depth0 != null ? depth0.machinetimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"machinetimestamp","hash":{},"data":data}) : helper)))
-    + "\">"
-    + escapeExpression(((helper = (helper = helpers.humantimestamp || (depth0 != null ? depth0.humantimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"humantimestamp","hash":{},"data":data}) : helper)))
-    + "</time>\n        </li> \n      </ul>  \n    </footer>\n  </article>\n";
+    + "\">\n            <span class=\"Button-content\">\n              <svg class=\"Icon Icon--sizeSm\">\n                <use xlink:href=\"#Icon-twitter\" />\n              </svg>\n              <span class=\"u-hiddenVisually\">Share on Twitter</span>\n            </span>\n          </a>\n        </li>\n      </ul>  \n    </footer>\n  </article>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var stack1, buffer = "<section role=\"region\" class=\"Posts Posts--list u-md-columnsFull u-columnsHalf\" aria-label=\"Latest Posts\">\n";
   stack1 = helpers.each.call(depth0, depth0, {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
