@@ -3,13 +3,15 @@
 :root {
   --Button-border-colour: currentColor;
   --Button-border-style: solid;
-  --Button-border-width: 0.0625rem; /* 1px */
+  --Button-border-width: calc(var(--custom-border-width) * 2); /* 1px */
+  --Button-border-width--raised: calc(var(--Button-border-width) * 2);
+  --Button-box-shadow: inset 0 0 0 var(--Button-border-width) var(--Button-border-colour);
+  --Button-box-shadow--raised: inset 0 -var(--Button-border-width--raised) var(--Button-border-colour);
   --Button-color: inherit;
   --Button-disabled-opacity: 0.6;
   --Button-font: inherit;
   --Button-padding: calc(var(--custom-gutter-width) / 4);
-  --Button-padding--bordered: calc(var(--custom-gutter-width) / 4 - var(--Button-border-width));
-  --Button-min-width: calc(var(--custom-gutter-width) * 1.5); /* 36px */
+  --Button-min-width: var(--custom-gutter-width); /* 24px */
   --Button-min-height: var(--Button-min-width);
   /* Colour Vars */
 }
@@ -30,29 +32,35 @@
  * </button>
  *
  * 1. Corrects inability to style clickable `input` types in iOS.
- * 2. Inherit text color from ancestor.
- * 3. Inherit font styles from ancestor.
- * 4. Normalize `line-height`. For `input`, it can't be changed from `normal` in Firefox 4+.
- * 5. Prevent button text from being selectable.
+ * 2. Ensures IE9 renders box-shadow
+ * 3. Inherit text color from ancestor.
+ * 4. Inherit font styles from ancestor.
+ * 5. Normalize `line-height`. For `input`, it can't be changed from `normal` in Firefox 4+.
+ * 6. Prevent button text from being selectable.
  *
  */
 .Button {
   -webkit-appearance: none; /* 1 */
   background: transparent;
-  color: var(--Button-color); /* 2 */
+  border-collapse: separate; /* 2 */
+  color: var(--Button-color); /* 3 */
   cursor: pointer;
   display: inline-block;
-  font: var(--Button-font); /* 3 */
-  line-height: normal; /* 4 */
+  font: var(--Button-font); /* 4 */
   margin: 0;
-  min-height: var(--Button-min-height);
-  min-width: var(--Button-min-width);
-  padding: var(--Button-padding);
+  text-decoration: none;
+  user-select: none; /* 6 */
+  white-space: nowrap; 
+}
+.Button-content {
+  color: var(--base-colour-text);
+  display: block;
+  line-height: 2.25; /* Fixes issue in Chrome where button is 1px taller when it includes an icon? */ 
+  min-height: calc(var(--Button-min-height) * 1.5);
+  min-width: calc(var(--Button-min-height) * 1.5);
+  padding: 0 calc(var(--Button-padding));
   position: relative;
   text-align: center;
-  text-decoration: none;
-  user-select: none; /* 5 */
-  white-space: nowrap; 
 }
 /**
  * Remove excess padding in Firefox
@@ -69,18 +77,108 @@
 
 
 /* Theme Colours
+   ========================================================================== */
+
+/* Primary Action Buttons*/
+.Button--themePrimary {
+  background: var(--base-colour-alpha);  
+  color: var(--base-colour-alpha--accent);
+}
+
+.Button--themeSecondary {
+  background: var(--base-colour-beta);  
+  color: var(--base-colour-beta--accent);
+}
+
+.Button--themeUtility {
+  background: var(--base-colour-grey--72);
+}
+
+/* Theme UI States
+   ========================================================================== */
+.Button:focus {
+  outline-color: currentColor;
+}
+.Button--themePrimary:hover,
+.Button--themePrimary:focus {
+  background: var(--base-colour-alpha--accentLight);
+  color: var(--base-colour-alpha);  
+}
+.Button--themePrimary:active {
+  background: var(--base-colour-alpha--accent);
+  color: var(--base-colour-alpha--accentDark);  
+}
+
+.Button--themeSecondary:hover,
+.Button--themeSecondary:focus {
+  background: var(--base-colour-beta--accentLight);
+  color: var(--base-colour-beta); 
+}
+.Button--themeSecondary:active {
+  background: var(--base-colour-beta--accent);
+  color: var(--base-colour-beta--accentDark);  
+}
+
+
+.Button--themeUtility:hover,
+.Button--themeUtility:focus {
+  
+}
+
+/* Outlines and Borders
+   ========================================================================== */ 
+.Button--outline {
+  box-shadow: var(--Button-box-shadow);
+}
+.Button--outlineRaised {
+  box-shadow: var(--Button-box-shadow--raised);
+}
+
+.Button--outlineRaised .Button-content {
+  margin-top: -calc(var(--Button-border-width) * 1.5);
+  padding-bottom: calc(var(--Button-border-width) * 1.5);
+}
+
+/* UI States */
+.Button--outlineRaised:active {
+  box-shadow: var(--Button-box-shadow)
+}
+.Button--outlineRaised:active .Button-content {
+  margin-top: 0;
+  padding-bottom: 0;
+}
+
+/* Button Sizes 
    ========================================================================== */   
+.Button--sizeSm .Button-content {
+  line-height: 1.5;
+  min-height: calc(var(--Button-min-height));
+  min-width: calc(var(--Button-min-height));
+  padding: 0 var(--Button-padding);
+}
+.Button--sizeLg .Button-content {
+  line-height: 3;
+  min-height: calc(var(--Button-min-height) * 1.5);
+  min-width: calc(var(--Button-min-height) * 1.5);
+  padding: 0 calc(var(--Button-padding) * 2);
+}
 
 /* Theme UI States
    ========================================================================== */
 
 
-/* Outlines and Borders
-   ========================================================================== */ 
-.Button-outline {
-  border-style: solid;
-  border-width: var(--Button-border-width);
-  padding: var(--Button-padding--bordered);
+
+/* ==========================================================================
+   Button Bar
+   ========================================================================== */
+.ButtonBar {
+  overflow: hidden; /* clipping in case of rounded corners */
 }
+.ButtonBar .Button + .Button {
+  margin-left: -calc(var(--Button-border-width) * 5); /* -5px */
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 
 

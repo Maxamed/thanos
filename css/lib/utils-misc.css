@@ -1,0 +1,31 @@
+
+/* ==========================================================================
+   Custom Global Utilities
+   ========================================================================== */
+
+/**
+ * Vertical centre elements using CSS Transforms, IE9+
+ *  http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+ *
+ * Notes: 
+ * 
+ * @1: Must be used with position utility: `u-posAbsolute` or `u-posRelative`;
+ * @2: To eliminate blurry artefacts, add `u-preserve3D` to parent element 
+ *
+ * Example:
+ *
+ * <div class="u-posRelative u-translateYCenter">
+ *   CONTENT
+ * </div>
+ *
+ */
+.u-translateYCenter {
+  postition: relative;
+  top: 50%;
+  transform: translateY(-50%)
+}
+
+/* Fixes bug when translating elements */
+.u-preserve3D {
+  transform-style: preserve-3d;
+}

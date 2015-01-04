@@ -31,3 +31,9 @@
 .u-shapeRounded {
   border-radius: var(--custom-border-radius)
 }
+.u-shapeRounded--left {
+  border-radius: var(--custom-border-radius) 0 0 var(--custom-border-radius);
+}
+.u-shapeRounded--right {
+  border-radius: 0 var(--custom-border-radius) var(--custom-border-radius) 0;
+}

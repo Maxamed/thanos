@@ -3,17 +3,29 @@
    Shadow Utils
    ========================================================================== */
 :root {
-  
-  --shadow-width: ;
-  --shadow-width--fine: ;
-  --shadow-width--heavy: ;
-  --shadow-blur-radius: ;
-  --shadow-blur-radius--medium: ;
-  --shadow-blur-radius--wide: ;
+  --shadow-colour: currentColor;
+  --shadow-width: var(--custom-border-width); /* 1px */
+  --shadow-width--medium: calc(var(--shadow-width) * 3); /* 3px */
+  --shadow-width--thick: calc(var(--shadow-width) * 9); /* 9px */
+  --shadow-offsetX: var(--shadow-width);
+  --shadow-offsetX--medium: calc(var(--shadow-width) * 3);
+  --shadow-offsetX--thick: calc(var(--shadow-width) * 9);
+  --shadow-offsetY:var(--shadow-width);
+  --shadow-offsetY--medium: calc(var(--shadow-width) * 3);
+  --shadow-offsetY--thick: calc(var(--shadow-width) * 9);
+  --shadow-blur-radius: var(--shadow-width);
+  --shadow-blur-radius--medium: calc(var(--shadow-width) * 3);
+  --shadow-blur-radius--thick: calc(var(--shadow-width) * 9);
+}
+
+/* Fix an issue with IE9 where it will not render
+     box-shadow unless you set `border-collapse: separate;` */
+[class*="u-shadow"] {
+  border-collapse: separate;
 }
 
 .u-shadow {
-  box-shadow: 
+
 }
 .u-shadow--medium {}
 .u-shadow--thick {}

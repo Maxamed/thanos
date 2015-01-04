@@ -454,14 +454,14 @@ html {
 }
 
 a {
-  color: #e35245;
+  color: hsla(17, 90%, 54%, 1.0);
   text-decoration: none;
 }
 
 a:hover,
 a:focus,
 a:active {
-  color: #ec5c67;
+  color: hsla(17, 90%, 60%, 1.0);
   text-decoration: underline;
 }
 
@@ -2947,7 +2947,7 @@ body {
 html {
   background: white;
   font: 100%/1.5 Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #1f1f1f;
+  color: #1e1f1f;
 }
 
 body {
@@ -2975,7 +2975,7 @@ body {
    ========================================================================== */
 
 .Site-banner {
-  background: #415b6f;
+  background: hsla(205, 42%, 24%, 1.0);
   margin: 0;
   padding: 0.75rem 0;
 }
@@ -3002,7 +3002,7 @@ body {
 
 :root {
   /* 1px */
-  /* 36px */
+  /* 24px */
   /* Colour Vars */
 }
 
@@ -3022,10 +3022,11 @@ body {
  * </button>
  *
  * 1. Corrects inability to style clickable `input` types in iOS.
- * 2. Inherit text color from ancestor.
- * 3. Inherit font styles from ancestor.
- * 4. Normalize `line-height`. For `input`, it can't be changed from `normal` in Firefox 4+.
- * 5. Prevent button text from being selectable.
+ * 2. Ensures IE9 renders box-shadow
+ * 3. Inherit text color from ancestor.
+ * 4. Inherit font styles from ancestor.
+ * 5. Normalize `line-height`. For `input`, it can't be changed from `normal` in Firefox 4+.
+ * 6. Prevent button text from being selectable.
  *
  */
 
@@ -3033,27 +3034,34 @@ body {
   -webkit-appearance: none;
   /* 1 */
   background: transparent;
-  color: inherit;
+  border-collapse: separate;
   /* 2 */
+  color: inherit;
+  /* 3 */
   cursor: pointer;
   display: inline-block;
   font: inherit;
-  /* 3 */
-  line-height: normal;
   /* 4 */
   margin: 0;
-  min-height: 2.25rem;
-  min-width: 2.25rem;
-  padding: 0.375rem;
-  position: relative;
-  text-align: center;
   text-decoration: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  /* 5 */
+  /* 6 */
   white-space: nowrap;
+}
+
+.Button-content {
+  color: #1e1f1f;
+  display: block;
+  line-height: 2.25;
+  /* Fixes issue in Chrome where button is 1px taller when it includes an icon? */
+  min-height: 2.25rem;
+  min-width: 2.25rem;
+  padding: 0 0.375rem;
+  position: relative;
+  text-align: center;
 }
 
 /**
@@ -3072,16 +3080,114 @@ body {
 /* Theme Colours
    ========================================================================== */
 
+/* Primary Action Buttons*/
+
+.Button--themePrimary {
+  background: hsla(17, 90%, 54%, 1.0);
+  color: hsla(17, 90%, 45%, 1.0);
+}
+
+.Button--themeSecondary {
+  background: hsla(190, 90%, 36%, 1.0);
+  color: hsla(190, 90%, 30%, 1.0);
+}
+
+.Button--themeUtility {
+  background: #b2b8b8;
+}
+
 /* Theme UI States
    ========================================================================== */
+
+.Button:focus {
+  outline-color: currentColor;
+}
+
+.Button--themePrimary:hover,
+.Button--themePrimary:focus {
+  background: hsla(17, 90%, 60%, 1.0);
+  color: hsla(17, 90%, 54%, 1.0);
+}
+
+.Button--themePrimary:active {
+  background: hsla(17, 90%, 45%, 1.0);
+  color: hsla(17, 90%, 36%, 1.0);
+}
+
+.Button--themeSecondary:hover,
+.Button--themeSecondary:focus {
+  background: hsla(190, 90%, 54%, 1.0);
+  color: hsla(190, 90%, 36%, 1.0);
+}
+
+.Button--themeSecondary:active {
+  background: hsla(190, 90%, 30%, 1.0);
+  color: hsla(190, 90%, 24%, 1.0);
+}
+
+
 
 /* Outlines and Borders
    ========================================================================== */
 
-.Button-outline {
-  border-style: solid;
-  border-width: 0.0625rem;
-  padding: 0.3125rem;
+.Button--outline {
+  box-shadow: inset 0 0 0 0.125rem currentColor;
+}
+
+.Button--outlineRaised {
+  box-shadow: inset 0 -0.25rem currentColor;
+}
+
+.Button--outlineRaised .Button-content {
+  margin-top: -0.1875rem;
+  padding-bottom: 0.1875rem;
+}
+
+/* UI States */
+
+.Button--outlineRaised:active {
+  box-shadow: inset 0 0 0 0.125rem currentColor;
+}
+
+.Button--outlineRaised:active .Button-content {
+  margin-top: 0;
+  padding-bottom: 0;
+}
+
+/* Button Sizes 
+   ========================================================================== */
+
+.Button--sizeSm .Button-content {
+  line-height: 1.5;
+  min-height: 1.5rem;
+  min-width: 1.5rem;
+  padding: 0 0.375rem;
+}
+
+.Button--sizeLg .Button-content {
+  line-height: 3;
+  min-height: 2.25rem;
+  min-width: 2.25rem;
+  padding: 0 0.75rem;
+}
+
+/* Theme UI States
+   ========================================================================== */
+
+/* ==========================================================================
+   Button Bar
+   ========================================================================== */
+
+.ButtonBar {
+  overflow: hidden;
+  /* clipping in case of rounded corners */
+}
+
+.ButtonBar .Button + .Button {
+  margin-left: -0.625rem;
+  /* -5px */
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 /** @define Form */
@@ -3089,19 +3195,60 @@ body {
 
 
 /* ==========================================================================
-   Form Definitions
+   Form Field Definitions
    ========================================================================== */
+
+/* Placeholder */
+
+::-webkit-input-placeholder {
+  color: #4b4d4d;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #4b4d4d;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #4b4d4d;
+}
+
+:-ms-input-placeholder {
+  color: #4b4d4d;
+}
 
 input:not([type="checkbox"]),
 input:not([type="radio"]),
 textarea,
 select {
+  background: #dfe6e6;
   box-sizing: border-box;
   border: .0625rem solid currentColor;
   line-height: 1.5;
   padding: 0.3125rem 0.6875rem;
   width: 100%;
 }
+
+/* UI States
+   ========================================================================== */
+
+input:not([type="checkbox"]):hover,
+input:not([type="radio"]):hover,
+textarea:hover,
+select:hover,
+input:not([type="checkbox"]):focus,
+input:not([type="radio"]):focus,
+textarea:focus,
+select:focus {
+  background: white;
+  color: hsla(17, 90%, 54%, 1.0);
+}
+
+/* Form Themes
+   ========================================================================== */
+
+
 
 /* Input Box Shapes
  * 
@@ -3182,7 +3329,7 @@ select {
  *
  * Usage:
  * 
- * <svg class="Icon Icon-iconName">
+ * <svg class="Icon">
  *   <use xlink:href="#Icon-NAMEOFICON" />
  * </svg>
  ============ */
@@ -3195,10 +3342,11 @@ body > svg {
 
 /* SVG-supporting Browsers  */
 
-.svg svg[class*="Icon"] {
+.svg .Icon {
   display: inline-block;
   fill: currentcolor;
   height: 1.5em;
+  position: relative;
   vertical-align: middle;
   width: 1.5em;
 }
@@ -3208,6 +3356,27 @@ body > svg {
 .no-svg svg {
   display: none;
   visibility: hidden;
+}
+
+/**
+ * These modifiers increase or decrease the width/height proportionately 
+ *   based on the parent element, or root.
+ *
+ * <svg class="Icon Icon--sizeX">
+ *   <use xlink:href="#Icon-NAMEOFICON" />
+ * </svg>
+ *
+ ============ */
+
+.svg .Icon--sizeSm {
+  height: 1em;
+  top: -.0625rem;
+  width: 1em;
+}
+
+.svg .Icon--sizeLg {
+  height: 3em;
+  width: 3em;
 }
 
 /** @define Panel */
@@ -3250,9 +3419,9 @@ body > svg {
    ========================================================================== */
 
 .Panel--well {
-  background: #e6e6e6;
-  border-color: #a8a8a8;
-  box-shadow: inset 0 .0625rem 0.1875rem 0 #b8b8b8;
+  background: #dfe6e6;
+  border-color: #a3a8a8;
+  box-shadow: inset 0 .0625rem 0.1875rem 0 #b2b8b8;
 }
 
 .Panel--alertError {
@@ -3264,17 +3433,17 @@ body > svg {
    ========================================================================== */
 
 .Panel--outline {
-  border-color: #d6d6d6;
+  border-color: #d0d6d6;
 }
 
 .Panel--outlineDashed {
-  border-color: #d6d6d6;
+  border-color: #d0d6d6;
   border-style: dashed;
 }
 
 .Panel--outlineRaised {
-  border-color: #d6d6d6;
-  box-shadow: 0 0.1875rem 0 0 #d6d6d6;
+  border-color: #d0d6d6;
+  box-shadow: 0 0.1875rem 0 0 #d0d6d6;
 }
 
 /* ==========================================================================
@@ -3350,7 +3519,7 @@ body > svg {
    ========================================================================== */
 
 .Post-heading {
-  border-bottom: .0625rem solid #7a7a7a;
+  border-bottom: .0625rem solid #787a7a;
 }
 
 .Post-title {
@@ -3372,7 +3541,7 @@ body > svg {
 .Post-heading .Post-date {
   font-size: 90%;
   font-weight: normal;
-  color: #5c5c5c;
+  color: #5a5c5c;
 }
 
 /* Post Content
@@ -3385,21 +3554,20 @@ body > svg {
 }
 
 .Post-comments {
+  color: #dfe6e6;
   right: 0;
   margin: 0;
   text-align: center;
   top: 0;
-  /* border: 6px solid #415b6f; */
   background-clip: padding-box;
-  color: #415b6f;
 }
 
 .Post-commentsCountIcon {
-  font-size: 200%;
+  stroke: hsla(190, 90%, 36%, 1.0);
 }
 
 .Post-commentsCount {
-  color: #1f1f1f;
+  color: hsla(190, 90%, 36%, 1.0);
   display: block;
   line-height: 2.5;
   margin: 0;
@@ -3448,7 +3616,7 @@ body > svg {
  */
 
 .Posts .Post {
-  border: .0625rem solid #b8b8b8;
+  border: .0625rem solid #b2b8b8;
   display: inline-block;
   /* [1] */
   margin-top: 0.75rem;
@@ -3459,9 +3627,10 @@ body > svg {
 /* UI States
    ========================================================================== */
 
-.Posts .Post:hover,
-.Post:focus {
-  background: #e6e6e6;
+.Post.is-interactive:hover,
+.Post.is-interactive:focus {
+  /*border-color: var(--base-colour-link);
+  box-shadow: inset 0 0 var(--custom-shadow-width) var(--custom-shadow-blur-radius--medium) var(--base-colour-alpha);*/
 }
 
 /* @media Rules 
@@ -3483,8 +3652,8 @@ body > svg {
    ========================================================================== */
 
 .Tag--default {
-  background: #be89d8;
-  box-shadow: 0 0 .0625rem 0 #e6e6e6;
+  background: #e6e1d0;
+  box-shadow: 0 0 .0625rem 0 #dfe6e6;
 }
 
 .Tag--info {
@@ -3622,17 +3791,19 @@ small,
  *
  */
 
+
+
 /* Blockquote
    ========================================================================== */
 
 .Quote {
-  border-left: 0.1875rem solid #415b6f;
+  border-left: 0.1875rem solid hsla(190, 90%, 36%, 1.0);
   margin: 1.5rem;
   padding-left: 2.0625rem;
 }
 
 .Quote-author {
-  color: #415b6f;
+  color: hsla(190, 90%, 36%, 1.0);
   font-style: normal;
   font-weight: bold;
   margin-top: 1.5rem;
@@ -3641,10 +3812,6 @@ small,
 .Quote-author:before {
   content: '-- ';
 }
-
-/* ==========================================================================
-   Custom Utilities
-   ========================================================================== */
 
 /* ==========================================================================
    CSS Columns
@@ -3747,14 +3914,59 @@ small,
 }
 
 /* ==========================================================================
+   Custom Global Utilities
+   ========================================================================== */
+
+/**
+ * Vertical centre elements using CSS Transforms, IE9+
+ *  http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+ *
+ * Notes: 
+ * 
+ * @1: Must be used with position utility: `u-posAbsolute` or `u-posRelative`;
+ * @2: To eliminate blurry artefacts, add `u-preserve3D` to parent element 
+ *
+ * Example:
+ *
+ * <div class="u-posRelative u-translateYCenter">
+ *   CONTENT
+ * </div>
+ *
+ */
+
+.u-translateYCenter {
+  postition: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Fixes bug when translating elements */
+
+.u-preserve3D {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+/* ==========================================================================
    Shadow Utils
    ========================================================================== */
 
-
-
-.u-shadow {
-  box-shadow: ;
+:root {
+  /* 1px */
+  /* 3px */
+  /* 9px */
 }
+
+/* Fix an issue with IE9 where it will not render
+     box-shadow unless you set `border-collapse: separate;` */
+
+[class*="u-shadow"] {
+  border-collapse: separate;
+}
+
+
 
 
 
@@ -3808,4 +4020,89 @@ small,
 
 .u-shapeRounded {
   border-radius: 0.375rem;
+}
+
+.u-shapeRounded--left {
+  border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.u-shapeRounded--right {
+  border-radius: 0 0.375rem 0.375rem 0;
+}
+
+/* ==========================================================================
+   Global UI States
+   ========================================================================== */
+
+/**
+ * Companion SuitCSS based on `utils-display` styles to change display based on mdia queries
+ *
+ * Note: is a duplicate of utils however, necessary as sometimes you want to hide elements based
+ *   screen size
+ */
+
+/* Small Screens (Phone) */
+
+@media (max-width: 30.75em) {
+  /* Hidden */
+
+  .u-sm-hidden {
+    display: none !important;
+  }
+
+  /* Invisible */
+
+  .u-sm-hiddenVisually {
+    position: absolute !important;
+    overflow: hidden !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+  }
+}
+
+/* Medium Screens (Tablet) */
+
+@media (max-width: 45em) {
+  /* Hidden */
+
+  .u-md-hidden {
+    display: none !important;
+  }
+
+  /* Invisible */
+
+  .u-md-hiddenVisually {
+    position: absolute !important;
+    overflow: hidden !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+  }
+}
+
+/* Large Screens (Desktop) */
+
+@media (min-width: 54em) {
+  /* Hidden */
+
+  .u-lg-hidden {
+    display: none !important;
+  }
+
+  /* Invisible */
+
+  .u-lg-hiddenVisually {
+    position: absolute !important;
+    overflow: hidden !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+  }
 }

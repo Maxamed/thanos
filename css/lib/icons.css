@@ -54,7 +54,7 @@
  *
  * Usage:
  * 
- * <svg class="Icon Icon-iconName">
+ * <svg class="Icon">
  *   <use xlink:href="#Icon-NAMEOFICON" />
  * </svg>
  ============ */
@@ -63,10 +63,11 @@
 body > svg {display: none;}
 
 /* SVG-supporting Browsers  */
-.svg svg[class*="Icon"] {
+.svg .Icon {
   display: inline-block;
   fill: currentcolor; 
   height: 1.5em;
+  position: relative;
   vertical-align: middle;
   width: 1.5em;
 }
@@ -76,3 +77,22 @@ body > svg {display: none;}
   visibility: hidden;
 }
 
+/**
+ * These modifiers increase or decrease the width/height proportionately 
+ *   based on the parent element, or root.
+ *
+ * <svg class="Icon Icon--sizeX">
+ *   <use xlink:href="#Icon-NAMEOFICON" />
+ * </svg>
+ *
+ ============ */
+.svg .Icon--sizeSm {
+  height: 1em;
+  top: -var(--custom-border-width);
+  width: 1em;
+}
+.svg .Icon--sizeLg {
+ height: 3em;
+ width: 3em;
+}
+ 

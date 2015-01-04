@@ -56,35 +56,44 @@
   /* Colours
      ========================================================================== */
   /*  Primary Colours */
-  --base-colour-alpha: #ec5c67;
-  --base-colour-alpha--accent: #e35245;
-  --base-colour-beta: #415b6f;
-  --base-colour-beta--accent: #324c5e;
-  --base-colour-gamma: #01c5ae;
-  --base-colour-gamma--accent: #00ab95;
-  --base-colour-delta: #be89d8;
-  --base-colour-delta--accent: #9d6eb4;
+  --base-colour-alpha: hsla(17, 90%, 54%, 1.0);
+  --base-colour-alpha--accent: hsla(17, 90%, 45%, 1.0);
+  --base-colour-alpha--accentLight: hsla(17, 90%, 60%, 1.0);
+  --base-colour-alpha--accentDark: hsla(17, 90%, 36%, 1.0);
+  --base-colour-beta: hsla(190, 90%, 36%, 1.0);
+  --base-colour-beta--accent: hsla(190, 90%, 30%, 1.0);
+  --base-colour-beta--accentLight: hsla(190, 90%, 54%, 1.0);
+  --base-colour-beta--accentDark: hsla(190, 90%, 24%, 1.0);
+  --base-colour-gamma: hsla(205, 42%, 24%, 1.0);
+  --base-colour-gamma--accent: hsla(205, 42%, 18%, 1.0);
+  --base-colour-gamma--accentLight: hsla(205, 42%, 33%, 1.0);
+  --base-colour-gamma--accentDark: hsla(205, 42%, 12%, 1.0);
+  --base-colour-delta: #e6e1d0;
+  --base-colour-delta--accent: #fffcf2;
+  --base-colour-delta--accentLight: #fffffe;
+  --base-colour-delta--accentDark: #c2bca5;
   /* Base Grey - increment the brightness by 6 */
-  --base-colour-grey: #e6e6e6;
-  --base-colour-grey--84: #d6d6d6;
-  --base-colour-grey--78: #c7c7c7;
-  --base-colour-grey--72: #b8b8b8;
-  --base-colour-grey--66: #a8a8a8;
-  --base-colour-grey--60: #999999;
-  --base-colour-grey--54: #8a8a8a;
-  --base-colour-grey--48: #7a7a7a;
-  --base-colour-grey--42: #6b6b6b;
-  --base-colour-grey--36: #5c5c5c;
-  --base-colour-grey--30: #4d4d4d;
-  --base-colour-grey--24: #3d3d3d;
-  --base-colour-grey--18: #2e2e2e;
-  --base-colour-grey--12: #1f1f1f;
-  --base-colour-text: #1f1f1f;
-  --base-colour-text--inverse: #fafafa;
+  --base-colour-grey: #dfe6e6;
+  --base-colour-grey--84: #d0d6d6;
+  --base-colour-grey--78: #c1c7c7;
+  --base-colour-grey--72: #b2b8b8;
+  --base-colour-grey--66: #a3a8a8;
+  --base-colour-grey--60: #949999;
+  --base-colour-grey--54: #868a8a;
+  --base-colour-grey--48: #787a7a;
+  --base-colour-grey--42: #696b6b;
+  --base-colour-grey--36: #5a5c5c;
+  --base-colour-grey--30: #4b4d4d;
+  --base-colour-grey--24: #3b3d3d;
+  --base-colour-grey--18: #2d2e2e;
+  --base-colour-grey--12: #1e1f1f;
+  --base-colour-text: var(--base-colour-grey--12);
+  --base-colour-text--inverse: #edf5f5;
 
-  --base-link-color: var(--base-colour-alpha--accent);
-  --base-link-color-hover: var(--base-colour-alpha);
+  --base-colour-link: var(--base-colour-alpha);
+  --base-colour-link--hover: var(--base-colour-alpha--accentLight);
 
+  
   --base-colour-alertInfo: #28bddd;
   --base-colour-alertInfo--accent: #00a8c8;
   --base-colour-alertWarn: #ffe89e;
@@ -102,7 +111,7 @@
   --custom-shadow-width--wide: var(--custom-border-width--thick);
   --custom-shadow-blur-radius: calc(var(--custom-border-width) * 3);
   --custom-shadow-blur-radius--medium: calc(var(--custom-shadow-blur-radius) * 4);
-  --custom-shadow-blur-radius--wide: calc(var(--custom-shadow-blur-radius--medium) * 2));
+  --custom-shadow-blur-radius--wide: calc(var(--custom-shadow-blur-radius--medium) * 2);
 
   /* SUITCSS Basics
     ========================================================================== */
@@ -117,6 +126,10 @@
   /* [SUIT] Grid Settings */
   --Grid-font-size: var(--custom-font-size);
   --Grid-gutter-size: var(--custom-gutter-width);
+
+  --base-link-color: var(--base-colour-link);
+  --base-link-color-hover: var(--base-colour-link--hover);
+  
 }
 
 /* ==========================================================================
@@ -165,7 +178,7 @@ body {
    Banner
    ========================================================================== */
 .Site-banner {
-  background: var(--base-colour-beta);
+  background: var(--base-colour-gamma);
   margin: 0;
   padding: calc(0.5 * var(--custom-gutter-width)) 0;
 }

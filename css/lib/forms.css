@@ -8,19 +8,53 @@
 }
 
 /* ==========================================================================
-   Form Definitions
+   Form Field Definitions
    ========================================================================== */
+
+/* Placeholder */
+::-webkit-input-placeholder {
+   color: var(--base-colour-grey--30);
+}
+:-moz-placeholder { /* Firefox 18- */
+   color: var(--base-colour-grey--30);  
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   color: var(--base-colour-grey--30);  
+}
+:-ms-input-placeholder {  
+   color: var(--base-colour-grey--30);  
+}
+
 input:not([type="checkbox"]),
 input:not([type="radio"]),
 textarea,
 select {
+  background: var(--base-colour-grey);
   box-sizing: border-box;
   border: var(--Form-border-width) solid currentColor;
   line-height: var(--custom-line-height);
   padding: var(--Form-padding-y) var(--Form-padding-x);
   width: 100%;
 }
+/* UI States
+   ========================================================================== */
+input:not([type="checkbox"]):hover,
+input:not([type="radio"]):hover,
+textarea:hover,
+select:hover,
+input:not([type="checkbox"]):focus,
+input:not([type="radio"]):focus,
+textarea:focus,
+select:focus {
+  background: white;  
+  color: var(--base-colour-alpha);
+}
 
+/* Form Themes
+   ========================================================================== */
+.Input--themeSecondary {
+
+}
 
 /* Input Box Shapes
  * 

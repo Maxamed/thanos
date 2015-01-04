@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Global UI States
+   ========================================================================== */
+
+/**
+ * Companion SuitCSS based on `utils-display` styles to change display based on mdia queries
+ *
+ * Note: is a duplicate of utils however, necessary as sometimes you want to hide elements based
+ *   screen size
+ */
+ 
+
+/* Small Screens (Phone) */
+@media (--sm-viewport) {
+
+  /* Hidden */ 
+  .u-sm-hidden {
+    display: none !important;
+  }
+  /* Invisible */
+  .u-sm-hiddenVisually {
+    position: absolute !important;
+    overflow: hidden !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important; 
+  }
+  
+}
+/* Medium Screens (Tablet) */
+@media (--md-viewport) {
+  
+  /* Hidden */ 
+  .u-md-hidden {
+    display: none !important;
+  }
+  /* Invisible */
+  .u-md-hiddenVisually {
+    position: absolute !important;
+    overflow: hidden !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important; 
+  }
+
+}
+
+/* Large Screens (Desktop) */
+@media (--lg-viewport) {
+  /* Hidden */ 
+  .u-lg-hidden {
+    display: none !important;
+  }
+  /* Invisible */
+  .u-lg-hiddenVisually {
+    position: absolute !important;
+    overflow: hidden !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important; 
+  }
+
+}

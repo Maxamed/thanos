@@ -24,7 +24,7 @@
 			<a href="#siteNav" aria-controls="siteNav" 
 				 aria-expanded="false" 
 				 aria-label="Toggle navigation" 
-				 class="Button Button-secondary" 
+				 class="Button u-lg-hidden" 
 				 role="button" 
 				 type="button">
 				<svg class="Icon">
@@ -43,10 +43,12 @@
 							</label>
 						</li>
 						<li class="Arrange-sizeFit">
-							<button type="submit" class="Button u-alignTop">
-								<svg class="Icon">
-									<use xlink:href="#Icon-search" />
-								</svg>
+							<button type="submit" class="Button Button--themeSecondary Button--outlineRaised u-shapeRounded--right u-alignTop">
+								<span class="Button-content">
+									<svg class="Icon">
+										<use xlink:href="#Icon-search" />
+									</svg>
+								</span>
 							</button>
 						</li>
 					</ul>
