@@ -1,0 +1,192 @@
+# Dump of table comments
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `comments`;
+
+CREATE TABLE `comments` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `postid` int(11) DEFAULT NULL,
+  `comment` longtext,
+  `timestamp` datetime DEFAULT NULL,
+  `remote_address` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+LOCK TABLES `comments` WRITE;
+/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+
+INSERT INTO `comments` (`id`, `postid`, `comment`, `timestamp`, `remote_address`)
+VALUES
+	(1,1,'testing 1','2014-12-17 14:30:45','127.0.0.1'),
+	(2,1,'BAAAAAAAAAA','2014-12-17 14:43:04','127.0.0.1'),
+	(3,2,'you not freak you are an idiot','2014-12-17 14:43:18','127.0.0.1'),
+	(4,1,'blah','2014-12-18 20:20:13','127.0.0.1'),
+	(5,5,'bullshit','2014-12-23 22:39:39','127.0.0.1'),
+	(6,4,'yeaaaah another','2014-12-27 00:17:09','127.0.0.1'),
+	(7,3,'ddddd','2014-12-27 00:41:31','127.0.0.1'),
+	(8,9,'testing with emerlad','2014-12-27 00:42:21','127.0.0.1'),
+	(9,10,'fuck you','2014-12-27 00:43:27','127.0.0.1'),
+	(10,8,'bleizzeeeyyy ','2014-12-27 00:43:57','127.0.0.1'),
+	(11,8,'kjkjkkjff','2015-01-01 00:07:42','127.0.0.1');
+
+/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table names
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `names`;
+
+CREATE TABLE `names` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` char(100) DEFAULT NULL,
+  `value` char(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+
+LOCK TABLES `names` WRITE;
+/*!40000 ALTER TABLE `names` DISABLE KEYS */;
+
+INSERT INTO `names` (`id`, `name`, `value`)
+VALUES
+	(1,'TURQUOISE','#1abc9c'),
+	(2,'EMERALD','#2ecc71'),
+	(3,'AMETHYST','#9b59b6'),
+	(4,'WET-ASPHALT','#34495e'),
+	(5,'GREEN-SEA','#16a085'),
+	(6,'NEPHRITIS','#27ae60'),
+	(7,'BELIZE-HOLE','#2980b9'),
+	(8,'WISTERIA','#8e44ad'),
+	(9,'MIDNIGHT-BLUE','#2c3e50'),
+	(10,'SUN-FLOWER','#f1c40f'),
+	(11,'CARROT','#e67e22'),
+	(12,'ALIZARIN','#e74c3c'),
+	(13,'CLOUDS','#ecf0f1'),
+	(14,'CONCRETE','#95a5a6'),
+	(15,'ORANGE','#f39c12'),
+	(16,'PUMPKIN','#d35400'),
+	(17,'POMEGRANATE','#c0392b'),
+	(18,'SILVER','#bdc3c7'),
+	(19,'ASBESTOS','#7f8c8d'),
+	(20,'RED','#FF0000'),
+	(21,'GREEN','#00FF00'),
+	(22,'BLUE','#000099'),
+	(23,'PURPLE','#CC0099'),
+	(24,'BROWN','#993300'),
+	(25,'PINK','#FF3399'),
+	(26,'aquamarine','#7fffd4'),
+	(27,'BlueViolet','#8a2be2'),
+	(28,'burlywood','#deb887'),
+	(29,'chocolate','#d2691e'),
+	(30,'DarkKhaki','#bdb76b'),
+	(31,'DarkSalmon','#e9967a');
+
+/*!40000 ALTER TABLE `names` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table posts
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `posts`;
+
+CREATE TABLE `posts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `posts` longtext,
+  `views` int(200) DEFAULT NULL,
+  `comments` int(100) DEFAULT '0',
+  `category` char(200) DEFAULT NULL,
+  `username` char(200) DEFAULT NULL,
+  `createdat` datetime DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `hashtag` longtext,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `posts` WRITE;
+/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+
+INSERT INTO `posts` (`id`, `posts`, `views`, `comments`, `category`, `username`, `createdat`, `status`, `hashtag`)
+VALUES
+	(1,'testing',NULL,3,'FMYLIFE','SUN-FLOWER','2014-12-17 14:30:29',1,''),
+	(2,'I\'m Superfreak, yeah baby #superFreak',NULL,1,'justcase','BLUE','2014-12-17 14:42:33',1,'superFreak'),
+	(3,'Adding another post #sexystuff yeaah hun',NULL,1,'FMYLIFE','SUN-FLOWER','2014-12-17 14:42:48',1,'sexystuff'),
+	(4,'eee',NULL,1,'FMYLIFE','WET-ASPHALT','2014-12-19 09:26:10',1,''),
+	(5,'ccccc',NULL,1,'FMYLIFE','NEPHRITIS','2014-12-21 20:34:13',1,''),
+	(6,'test ajax submit',NULL,0,NULL,'GREEN','2014-12-21 20:43:12',1,''),
+	(7,'dddddd',NULL,0,'FMYLIFE','WISTERIA','2014-12-21 20:44:06',1,''),
+	(8,'another test of ajax submit #test #ajax #submit',NULL,2,'FMYLIFE','BELIZE-HOLE','2014-12-21 20:44:39',1,'test,ajax,submit'),
+	(9,'another test of ajax  ',NULL,1,'stwrldprbl','EMERALD','2014-12-21 20:45:30',1,''),
+	(10,'blah this is annyoing',NULL,1,'stwrldprbl','TURQUOISE','2014-12-22 23:32:54',1,'');
+
+/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table spam
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `spam`;
+
+CREATE TABLE `spam` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `post_id` int(11) DEFAULT NULL,
+  `user_ip` varchar(200) DEFAULT NULL,
+  `timestamp` datetime DEFAULT NULL,
+  `comments` longtext,
+  `actioned` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+LOCK TABLES `spam` WRITE;
+/*!40000 ALTER TABLE `spam` DISABLE KEYS */;
+
+INSERT INTO `spam` (`id`, `post_id`, `user_ip`, `timestamp`, `comments`, `actioned`)
+VALUES
+	(1,1,'127.0.0.1','2014-12-18 20:20:21',NULL,NULL);
+
+/*!40000 ALTER TABLE `spam` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table users
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `remote_address` varchar(200) DEFAULT NULL,
+  `post_id` int(11) DEFAULT NULL,
+  `httpx_forward` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+
+INSERT INTO `users` (`id`, `remote_address`, `post_id`, `httpx_forward`)
+VALUES
+	(1,'127.0.0.1',1,NULL),
+	(2,'127.0.0.1',2,NULL),
+	(3,'127.0.0.1',3,NULL),
+	(4,'127.0.0.1',4,NULL),
+	(5,'127.0.0.1',5,NULL),
+	(6,'127.0.0.1',6,NULL),
+	(7,'127.0.0.1',7,NULL),
+	(8,'127.0.0.1',8,NULL),
+	(9,'127.0.0.1',9,NULL),
+	(10,'127.0.0.1',10,NULL);
+
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
