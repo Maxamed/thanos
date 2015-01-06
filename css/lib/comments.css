@@ -1,0 +1,38 @@
+/** @define Comments */
+:root {
+  --Comment-arrow-width: calc(var(--custom-gutter-width) / 1.5);
+  --Comment-background: white;
+  --Comment-border-colour: var(--base-colour-grey--66);
+  --Comment-border-style: solid;
+  --Comment-border-width: var(--custom-border-width--medium);
+  --Comment-border: var(--custom-border-width--medium) var(--Comment-border-style) var(--Comment-border-colour);
+  --Comment-padding: calc(var(--custom-gutter-width) / 2);
+  --Comment-offsetX: calc(var(--Comment-arrow-width) / 2 + var(--Comment-border-width));
+  --Comment-offsetY: calc(var(--Comment-arrow-width) / 2);
+}
+
+.Post-comment {
+  background: var(--Comment-background);
+  border: var(--Comment-border);
+  border-radius: var(--custom-border-radius);
+  margin-left: calc(var(--custom-gutter-width) * 2.5);
+  padding: var(--Comment-padding);
+  position: relative;
+}
+
+.csstransforms .Post-comment:before {
+  background: var(--Comment-background);
+  border: var(--Comment-border);
+  border-radius: var(--custom-border-radius);
+  border-width: 0 0 var(--Comment-border-width) var(--Comment-border-width);
+  content: '';
+  display: inline-block;
+  height: var(--Comment-arrow-width);
+  left: 0;
+  margin-left: -var(--Comment-offsetX);
+  position: absolute;
+  top: var(--Comment-offsetY);
+  transform: rotate(45Deg);
+  transform: rotateZ(45Deg);
+  width: var(--Comment-arrow-width);
+}

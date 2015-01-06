@@ -1,5 +1,5 @@
 /* Modernizr 2.8.3 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-boxshadow-flexbox-flexboxlegacy-multiplebgs-cssanimations-csscolumns-generatedcontent-csstransitions-svg-printshiv-mq-cssclasses-addtest-teststyles-testprop-testallprops-domprefixes-svg_filters
+ * Build: http://modernizr.com/download/#-boxshadow-flexbox-flexboxlegacy-multiplebgs-cssanimations-csscolumns-generatedcontent-csstransforms-csstransforms3d-csstransitions-svg-printshiv-mq-cssclasses-addtest-teststyles-testprop-testallprops-prefixes-domprefixes-svg_filters
  */
 ;
 
@@ -23,7 +23,13 @@ window.Modernizr = (function( window, document, undefined ) {
 
     smile = ':)',
 
-    toString = {}.toString,    omPrefixes = 'Webkit Moz O ms',
+    toString = {}.toString,
+
+    prefixes = ' -webkit- -moz- -o- -ms- '.split(' '),
+
+
+
+    omPrefixes = 'Webkit Moz O ms',
 
     cssomPrefixes = omPrefixes.split(' '),
 
@@ -232,6 +238,26 @@ window.Modernizr = (function( window, document, undefined ) {
     tests['csscolumns'] = function() {
         return testPropsAll('columnCount');
     };
+
+    tests['csstransforms'] = function() {
+        return !!testPropsAll('transform');
+    };
+
+
+    tests['csstransforms3d'] = function() {
+
+        var ret = !!testPropsAll('perspective');
+
+                        if ( ret && 'webkitPerspective' in docElement.style ) {
+
+                      injectElementWithStyles('@media (transform-3d),(-webkit-transform-3d){#modernizr{left:9px;position:absolute;height:3px;}}', function( node, rule ) {
+            ret = node.offsetLeft === 9 && node.offsetHeight === 3;
+          });
+        }
+        return ret;
+    };
+
+
     tests['csstransitions'] = function() {
         return testPropsAll('transition');
     };
@@ -295,6 +321,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     Modernizr._version      = version;
 
+    Modernizr._prefixes     = prefixes;
     Modernizr._domPrefixes  = domPrefixes;
     Modernizr._cssomPrefixes  = cssomPrefixes;
 

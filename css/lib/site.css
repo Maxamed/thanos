@@ -40,7 +40,7 @@
 
   /* Border Radius
     ========================================================================== */  
-  --custom-border-radius: calc(var(--custom-gutter-width) / 4);
+  --custom-border-radius: calc(var(--custom-gutter-width) / 6);
   /* http://stackoverflow.com/questions/18794947/capsule-shape-using-border-radius-without-a-set-width-or-height */
   --custom-border-radius--round: 20em; 
   --custom-border-radius--pill: var(--custom-border-radius--round);

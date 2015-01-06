@@ -1,59 +1,63 @@
-<section role="region" class="Posts Posts--list u-md-columnsFull u-columnsHalf" aria-label="Latest Posts">
-{{#each this}}
-  <article class="Post is-interactive" aria-labeledby="postHeading{{id}}"> 
-    <heading class="Post-heading Arrange">
-      <h3 class="Post-title u-textNoWrap H5" id="postHeading{{id}}">{{ username }} Said:</h3>
-      <time 
-        class="Post-date u-textRight Arrange-sizeFit" 
-        datetime="{{machinetimestamp}}">{{humantimestamp}}</time>
-    </heading>
-    <div class="Post-content u-posRelative">
-      <p aria-labelledby="postDate">{{{post}}}</p>
-      <div class="Post-comments u-posAbsolute">
-        <svg class="Icon Icon--sizeLg Post-commentsCountIcon">
-          <use xlink:href="#Icon-comments" />
-        </svg>
-        <span class="Post-commentsCount">{{commcount}}<span class="u-hiddenVisually"> comments in this post</span></span>
-      </div>
-    </div> 
-    <a href="/#/post/{{id}}" data-PostId="{{id}}" class="Post-link u-posAbsolute u-block">
-      <span class="u-hiddenVisually">View Entire Post</span>
-    </a>
-    <footer class="Post-meta">
-      <ul class="Arrange">
-        <li class="Arrange-sizeFill u-alignMiddle">
-          <a href="#" class="Copy--small Tag Tag--default">{{category}}</a>
-        </li>
-        <li class="Arrange-sizeFit ButtonBar Post-metaShareLinks u-textRight u-textNoWrap">
-          <a href="#" 
-            class="Button Button--sizeSm Button-outline u-shapeRounded--left" 
-            data-share="FB"
-            data-posturl="thanos.pandora.dev/#/post/{{id}}" 
-            data-post="{{post}}">
-            <span class="Button-content">
-              <svg class="Icon Icon--sizeSm">
-                <use xlink:href="#Icon-facebook" />
-              </svg>
-              <span class="u-hiddenVisually">Share on Facebook</span>
-            </span>
-          </a>
-          <a href="#"
-            class="Button Button--sizeSm Button-outline u-shapeRounded--right" 
-            data-share="twitter"
-            data-posturl="thanos.pandora.dev/#/post/{{id}}" 
-            data-post="{{post}}">
-            <span class="Button-content">
-              <svg class="Icon Icon--sizeSm">
-                <use xlink:href="#Icon-twitter" />
-              </svg>
-              <span class="u-hiddenVisually">Share on Twitter</span>
-            </span>
-          </a>
-        </li>
-      </ul>  
-    </footer>
-  </article>
-{{/each}}
+<section role="region" class="Posts Posts--list" aria-label="Latest Posts">
+  <ul class="Grid Grid--withGutter">
+  {{#each this}}
+    <li class="Grid-cell u-md-sizeFull u-size6of12">
+      <article class="Post is-interactive" aria-labeledby="postHeading{{id}}"> 
+        <heading class="Post-heading Arrange">
+          <h3 class="Post-title u-textNoWrap H5" id="postHeading{{id}}">{{ username }} Said:</h3>
+          <time 
+            class="Post-date u-textRight Arrange-sizeFit" 
+            datetime="{{machinetimestamp}}">{{humantimestamp}}</time>
+        </heading>
+        <div class="Post-content u-posRelative">
+          <p aria-labelledby="postDate">{{{post}}}</p>
+          <div class="Post-comments u-posAbsolute">
+            <svg class="Icon Icon--sizeLg Post-commentsCountIcon">
+              <use xlink:href="#Icon-comments" />
+            </svg>
+            <span class="Post-commentsCount">{{commcount}}<span class="u-hiddenVisually"> comments in this post</span></span>
+          </div>
+        </div> 
+        <a href="/#/post/{{id}}" data-PostId="{{id}}" class="Post-link u-posAbsolute u-block">
+          <span class="u-hiddenVisually">View Entire Post</span>
+        </a>
+        <footer class="Post-meta">
+          <ul class="Arrange">
+            <li class="Arrange-sizeFill u-alignMiddle">
+              <a href="#" class="Copy--small Tag Tag--default">{{category}}</a>
+            </li>
+            <li class="Arrange-sizeFit ButtonBar Post-metaShareLinks u-textRight u-textNoWrap">
+              <a href="#" 
+                class="Button Button--sizeSm Button-outline u-shapeRounded--left" 
+                data-share="FB"
+                data-posturl="thanos.pandora.dev/#/post/{{id}}" 
+                data-post="{{post}}">
+                <span class="Button-content">
+                  <svg class="Icon Icon--sizeSm">
+                    <use xlink:href="#Icon-facebook" />
+                  </svg>
+                  <span class="u-hiddenVisually">Share on Facebook</span>
+                </span>
+              </a>
+              <a href="#"
+                class="Button Button--sizeSm Button-outline u-shapeRounded--right" 
+                data-share="twitter"
+                data-posturl="thanos.pandora.dev/#/post/{{id}}" 
+                data-post="{{post}}">
+                <span class="Button-content">
+                  <svg class="Icon Icon--sizeSm">
+                    <use xlink:href="#Icon-twitter" />
+                  </svg>
+                  <span class="u-hiddenVisually">Share on Twitter</span>
+                </span>
+              </a>
+            </li>
+          </ul>  
+        </footer>
+      </article>
+    </li>
+  {{/each}}
+  </ul>
 </section>
 <section role="region">
   <form action="app/functions.php" method="post">
