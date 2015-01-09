@@ -189,7 +189,7 @@ this["Handlebars"]["templates"]["singlePost"] = Handlebars.template({"1":functio
     + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.machinetimestamp : stack1), depth0))
     + "\">"
     + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.humantimestamp : stack1), depth0))
-    + "</time>.\n    <ul>\n      <li>\n        <a href=\"\">\n          <svg class=\"Icon Icon-favorite\">\n            <use xlink:href=\"#Icon-favorite\" />\n          </svg>\n      </a></li>\n      <li><a href=\"functions.php?SpamId="
+    + "</time>.\n    <ul>\n      <li>\n        <a href=\"\">\n          <svg class=\"Icon Icon-favorite\">\n            <use xlink:href=\"#Icon-favorite\" />\n          </svg>\n      </a></li>\n      <li><a class='isSpam' href=\"#/isSpam/"
     + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.id : stack1), depth0))
     + "\">Report Spam</a></li>\n    </ul>  \n  </footer> \n</article>\n<section role=\"region\" class=\"Comments\">\n  <header class=\"Comments-header\">\n    <h3>Comments</h3>\n    <a href=\"\">Add Comment</a>\n  </header>\n";
   stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.comments : depth0), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
@@ -287,6 +287,7 @@ $(document).ready(function(){
     $(document).ready(function() {
         app.run('#/posts');
         app.run('#/post/:id');
+        app.run('#/isSpam/:id');
     });
 
     var app = Sammy.apps.body;
@@ -318,9 +319,6 @@ $(document).ready(function(){
 
     });
 
-
-
-
     app.get('#/posts', function(context) {
         console.log("You're in the Main route");
         App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
@@ -332,6 +330,15 @@ $(document).ready(function(){
         App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  this.params['find_posts'] );
         return false;
     }); 
+    app.get('#/isSpam/:id', function() { 
+          $.ajax({type: "POST",
+            url: "../app/functions.php",
+            data: { SpamId: this.params['id'] },
+            success:function(result){
+              console.log('result'); // do nice animation
+            }
+          });
+    });
 
     app.get(/.*/, function() {  
         App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");

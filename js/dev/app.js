@@ -87,6 +87,7 @@ $(document).ready(function(){
     $(document).ready(function() {
         app.run('#/posts');
         app.run('#/post/:id');
+        app.run('#/isSpam/:id');
     });
 
     var app = Sammy.apps.body;
@@ -118,9 +119,6 @@ $(document).ready(function(){
 
     });
 
-
-
-
     app.get('#/posts', function(context) {
         console.log("You're in the Main route");
         App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
@@ -132,6 +130,15 @@ $(document).ready(function(){
         App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  this.params['find_posts'] );
         return false;
     }); 
+    app.get('#/isSpam/:id', function() { 
+          $.ajax({type: "POST",
+            url: "../app/functions.php",
+            data: { SpamId: this.params['id'] },
+            success:function(result){
+              console.log('result'); // do nice animation
+            }
+          });
+    });
 
     app.get(/.*/, function() {  
         App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");

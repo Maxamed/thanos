@@ -24,6 +24,7 @@ function sPost($id){
                 "username"  => $u['username'],
                 "post"      => $u['posts'],
                 "category"  => $u['category'],
+                "spamCount" => $u['isSpam'],
                 "humantimestamp" => $dateee,
                 "machinetimestamp"  => $u['createdat']
                 ),
@@ -72,6 +73,7 @@ function allPosts() {
             "commcount" => $u['comments'],
             "post" => $post,
             "category" => $u['category'],
+            "spamCount" => $u['isSpam'],
             "humantimestamp" => $datee,
             "machinetimestamp"  => $u['createdat']
 
