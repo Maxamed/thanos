@@ -94,14 +94,14 @@ function allComments($id) {
     $allComms = array();
 
     foreach ($comments as $u) {
-        $datee = date('jS \of F Y h:i:s A',strtotime($u['createdat']));
+        $datee = date('jS \of F Y h:i:s A',strtotime($u['timestamp']));
 
         $allComms[] = array(
 
             "id" => $u['id'], 
             "comment" => $u['comment'],
             "humantimestamp" => $datee,
-            "machinetimestamp"  => $u['createdat']
+            "machinetimestamp"  => $u['timestamp']
 
 
             );

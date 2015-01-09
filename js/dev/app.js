@@ -132,6 +132,11 @@ $(document).ready(function(){
         App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  this.params['find_posts'] );
         return false;
     }); 
+
+    app.get(/.*/, function() {  
+        App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
+
+    });
  
 })();
 
