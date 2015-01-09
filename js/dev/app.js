@@ -100,7 +100,7 @@ $(document).ready(function(){
             url: "../app/functions.php",
             data: { post: this.params['post'],category: this.params['category'] },
             success:function(result){
-              console.log('done'); // do nice animation
+              App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
             }
           });
 
@@ -113,14 +113,13 @@ $(document).ready(function(){
             url: "../app/functions.php",
             data: { comment: this.params['comment'],postid: this.params['postid'] },
             success:function(result){
-              console.log('result'); // do nice animation
+              App.getSinglePost( result );
             }
           });
 
     });
 
     app.get('#/posts', function(context) {
-        console.log("You're in the Main route");
         App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
     });
     app.get('#/post/:id', function() { 
@@ -135,7 +134,7 @@ $(document).ready(function(){
             url: "../app/functions.php",
             data: { SpamId: this.params['id'] },
             success:function(result){
-              console.log('result'); // do nice animation
+              App.getSinglePost( result );
             }
           });
     });

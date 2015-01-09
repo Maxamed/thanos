@@ -67,7 +67,7 @@ if(isset($_POST['comment']))
             $db->where("id", $t); 
             $db->update("posts",$commCount);
             
-             
+            echo  $_POST['postid'];
 }
  
 //Print Single Post
@@ -183,7 +183,7 @@ if(isset($_POST['SpamId']))
         $t = intval($_POST['SpamId']);  
         $db->where("id", $t); 
         $db->update("posts",$spamCount);
-
+        echo $_POST['SpamId'];
     
 }
 // Truncate Posts
