@@ -49,29 +49,6 @@ $(document.body).on('click','.PostId',function(e){
 });
 
 $(document).ready(function(){
-  //submit post
-  $("#submitPost").click(function(e){
-    e.preventDefault();
-    $.ajax({type: "POST",
-            url: "../app/functions.php",
-            data: { post: $("#post").val(),category: $("#category").val()  },
-            success:function(result){
-              console.log('done'); // do nice animation
-    }});
-  });
-
-  //submit comment
-  $("#submitComment").click(function(e){
-      e.preventDefault();
-    $.ajax({type: "POST",
-            url: "../app/functions.php",
-            data: { comment: $("#comment").val(),postid: $("#postid").val()  },
-            success:function(result){
-              console.log('done'); // do nice animation
-    }});
-  });
-
-
 
   $.ajaxSetup({ cache: true });
   $.getScript('//connect.facebook.net/en_UK/all.js', function(){
@@ -114,6 +91,36 @@ $(document).ready(function(){
 
     var app = Sammy.apps.body;
  
+ 
+    //post story
+    app.post('#/gaunlet', function(context) {
+      
+      $.ajax({type: "POST",
+            url: "../app/functions.php",
+            data: { post: this.params['post'],category: this.params['category'] },
+            success:function(result){
+              console.log('done'); // do nice animation
+            }
+          });
+
+    });
+
+    //post comment
+    app.post('#/titan', function(context) { 
+
+      $.ajax({type: "POST",
+            url: "../app/functions.php",
+            data: { comment: this.params['comment'],postid: this.params['postid'] },
+            success:function(result){
+              console.log('result'); // do nice animation
+            }
+          });
+
+    });
+
+
+
+
     app.get('#/posts', function(context) {
         console.log("You're in the Main route");
         App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");

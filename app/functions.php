@@ -47,7 +47,7 @@ if(isset($_POST['post']))
     } 
 
 //submit comment
-if(isset($_POST['commentSubmit']))
+if(isset($_POST['comment']))
 { 
 
             $data = array(
