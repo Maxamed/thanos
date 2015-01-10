@@ -1,36 +1,32 @@
 ;var App = (function () {
 
   var singlePostURL = "http://thanos.pandora.dev/app/endpoints.php/post/"
-  ,$viewContainer = $('#pageView')
-  ,allPostsCall 
-  ,doSingleView
-  ,doAllView
-  ,getSinglePost;
+  , $viewContainer   = $('#pageView')
+  , allPostsCall 
+  , doSingleView
+  , doAllView
+  , getSinglePost;
   
-  allPostsCall  = function( req ) { $.when( $.ajax( req ) ).done(doAllView); };
-  getSinglePost = function( postID ) { $.when( $.ajax( singlePostURL+postID ) ).done(doSingleView); };
-  getSearch     = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doSRPView); }
+  allPostsCall    = function( req ) { $.when( $.ajax( req ) ).done(doAllView); };
+  getSinglePost   = function( postID ) { $.when( $.ajax( singlePostURL+postID ) ).done(doSingleView); };
+  getSearch       = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doSRPView); }
 
-  doAllView     = function(jsonObj){  
+  doAllView       = function(jsonObj){  
     $viewContainer.empty();
-    var template = Handlebars.templates.postlist(jsonObj);
+    var template  = Handlebars.templates.postlist(jsonObj);
     $viewContainer.html(template); 
   }
-  doSRPView     = function(jsonObj){
-    console.log(jsonObj)
+  doSRPView       = function(jsonObj){ 
     $viewContainer.empty();
-    var template = Handlebars.templates.searchResults(jsonObj);
+    var template  = Handlebars.templates.searchResults(jsonObj);
     $viewContainer.html(template);   
   }
-  doSingleView  = function(jsonObj){ 
-    console.log(jsonObj);
+  doSingleView    = function(jsonObj){ 
     $viewContainer.empty();
-    var template = Handlebars.templates.singlePost(jsonObj);
+    var template  = Handlebars.templates.singlePost(jsonObj);
     $viewContainer.html(template); console.log(template)
   }
  
-
-
   return {
     getAllPosts   : function( reqURL ) { allPostsCall(reqURL);},
     getSinglePost : function(postID){ getSinglePost(postID);},
@@ -41,12 +37,6 @@
 
 App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
 
-//view single post
-$(document.body).on('click','.PostId',function(e){ 
-  e.preventDefault();
-  App.getSinglePost( $(this).data("postid") );
-
-});
 
 $(document).ready(function(){
 
