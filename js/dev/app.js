@@ -37,37 +37,6 @@
 
 App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
 
-
-$(document).ready(function(){
-
-  $.ajaxSetup({ cache: true });
-  $.getScript('//connect.facebook.net/en_UK/all.js', function(){
-    FB.init({appId: "823743447688023", status: true, cookie: true});
-    $(document.body).on('click',"a[data-share='FB']", function(){
-      console.log('facebook feed');
-        var obj = {
-            method: 'feed',
-            link: $(this).data( "posturl" ),
-            picture: 'http://fbrell.com/f8.jpg',
-            name: 'test Dialogs',
-            caption: 'blah',
-            description: $(this).data( "post" )
-          };
-
-        function callback(response) {
-          document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
-        }
-
-          FB.ui(obj, callback);
-      }); 
-    
-
-  });
-});
-
-
-
-
 // handle routing
 
 (function() {
@@ -137,5 +106,35 @@ $(document).ready(function(){
 })();
 
 
+
+
+//ugly facebook crap
+
+$(document).ready(function(){
+
+  $.ajaxSetup({ cache: true });
+  $.getScript('//connect.facebook.net/en_UK/all.js', function(){
+    FB.init({appId: "823743447688023", status: true, cookie: true});
+    $(document.body).on('click',"a[data-share='FB']", function(){
+      console.log('facebook feed');
+        var obj = {
+            method: 'feed',
+            link: $(this).data( "posturl" ),
+            picture: 'http://fbrell.com/f8.jpg',
+            name: 'test Dialogs',
+            caption: 'blah',
+            description: $(this).data( "post" )
+          };
+
+        function callback(response) {
+          document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+        }
+
+          FB.ui(obj, callback);
+      }); 
+    
+
+  });
+});
 
 
