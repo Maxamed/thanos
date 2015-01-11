@@ -1,5 +1,5 @@
 <?php
-require_once("MysqliDb.php");
+require_once("lib/MysqliDb.php");
 require_once("lib/helper.php");
 date_default_timezone_set('Europe/London');
 $db = new Mysqlidb();
@@ -9,39 +9,39 @@ if(!$db) die("Database error");
 //print single post
 
 function sPost($id){
-    $arrPosts =array();  
-    $posts = array();
     global $db;
-    $t = intval($id);
+    $arrPosts   = array();  
+    $posts      = array();
+    $t          = intval($id);
 
     $db->where ("id", $t); 
     $u = $db->getOne("posts"); 
 
-    $dateee = date('jS \of F Y h:i:s A',strtotime($u['createdat']));
+    $dateee     = date('jS \of F Y h:i:s A',strtotime($u['createdat']));
     $arrPosts[] = array(
         "posts" => array(
-                "id"        => $u['id'],
-                "username"  => $u['username'],
-                "post"      => $u['posts'],
-                "category"  => $u['category'],
-                "spamCount" => $u['isSpam'],
-                "humantimestamp" => $dateee,
+                "id"                => $u['id'],
+                "username"          => $u['username'],
+                "post"              => $u['posts'],
+                "category"          => $u['category'],
+                "spamCount"         => $u['isSpam'],
+                "humantimestamp"    => $dateee,
                 "machinetimestamp"  => $u['createdat']
                 ),
         "comments"  => array()
     );
 
     $db->where ("postid", $t); 
-    $comments = $db->get("comments"); 
+    $comments   = $db->get("comments"); 
 
     foreach ($comments as $x) {
 
-        $datee = date('jS \of F Y h:i:s A',strtotime($u['createdat']));
+        $datee  = date('jS \of F Y h:i:s A',strtotime($u['createdat']));
         $arrPosts['comments'][] = array( 
-            "id"        => $x['id'], 
-            "comment"   => $x['comment'],
-            "humantimestamp" => $datee,
-            "machinetimestamp"  => $u['createdat']
+            "id"                =>  $x['id'], 
+            "comment"           =>  $x['comment'],
+            "humantimestamp"    =>  $datee,
+            "machinetimestamp"  =>  $u['createdat']
         );
 
     }; 

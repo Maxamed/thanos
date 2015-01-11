@@ -1,8 +1,8 @@
 <?php
 
 //This will be replaced by endpoints api, we might use it to write to API
-
-require_once("MysqliDb.php");
+ 
+require_once("lib/MysqliDb.php");
 
 
  // TODO move to class ^
