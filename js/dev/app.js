@@ -43,11 +43,9 @@ App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
  
     var app = Sammy('body');
  
-    $(document).ready(function() {
-        app.run('#/posts');
-        app.run('#/post/:id');
-        app.run('#/isSpam/:id');
-    });
+    app.run('#/posts');
+    app.run('#/post/:id');
+    app.run('#/isSpam/:id');
 
     var app = Sammy.apps.body;
  

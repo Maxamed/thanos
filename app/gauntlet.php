@@ -38,10 +38,10 @@ function sPost($id){
 
         $datee  = date('jS \of F Y h:i:s A',strtotime($u['createdat']));
         $arrPosts['comments'][] = array( 
-            "id"                =>  $x['id'], 
+            "comid"                =>  $x['id'], 
             "comment"           =>  $x['comment'],
-            "humantimestamp"    =>  $datee,
-            "machinetimestamp"  =>  $u['createdat']
+            "commhumantimestamp"    =>  $datee,
+            "commmachinetimestamp"  =>  $u['createdat']
         );
 
     }; 
@@ -59,10 +59,13 @@ function allPosts() {
     $db->orderBy("id","Desc");
     $posts = $db->get("posts");
     $allPosts = array();
+    $timeAgo = new TimeAgo();
 
     foreach ($posts as $u) {
         
-        $datee = date('jS \of F Y h:i:s A',strtotime($u['createdat']));
+        $datee =  $timeAgo->inWords($u['createdat']); 
+
+        //date('jS \of F Y h:i:s A',strtotime($u['createdat']));
 
         $hashPost = convertHashtags($u['posts']);
         $post = truncate($hashPost); 
@@ -102,8 +105,8 @@ function allComments($id) {
 
             "id" => $u['id'], 
             "comment" => $u['comment'],
-            "humantimestamp" => $datee,
-            "machinetimestamp"  => $u['timestamp']
+            "commhumantimestamp" => $datee,
+            "commmachinetimestamp"  => $u['timestamp']
 
 
             );
