@@ -4,11 +4,16 @@
   --Panel-background: #fff;
   --Panel-well-background: var(--base-colour-grey);
   --Panel-border-width: var(--custom-border-width); /* 2px */
-  --Panel-border-colour: var(--base-colour-grey--84);
+  --Panel-border-colour: var(--base-colour-grey--66);
   --Panel-border-style: solid;
+  --Panel-border: var(--Panel-border-width) var(--Panel-border-style) var(--Panel-border-colour);
   --Panel-border-radius: var(--custom-border-radius);
-  --Panel-border: var(--Panel-border-width) var(--Panel-border-style) transparent;
+  --Panel-box-shadow: inset 0 0 0 var(--custom-border-width) var(--Panel-border-colour);
+  --Panel-box-shadow--raised: inset 0 -var(--custom-border-width--raised) var(--Panel-border-colour);
   --Panel-padding: calc(var(--custom-gutter-width) / 2);
+  --Panel-padding--small: calc(var(--custom-gutter-width) / 4);
+  --Panel-padding--medium: var(--custom-gutter-width);
+  --Panel-padding--large: calc(var(--custom-gutter-width) * 2);
 }
 
 /* ==========================================================================
@@ -16,24 +21,79 @@
    ========================================================================== */
 .Panel {
   background: var(--Panel-background);
-  border: var(--Panel-border);
-  border-radius: var(--Panel-border-radius);
-  padding: 0 var(--Panel-padding);
   position: relative;
 }
+
+/* ==========================================================================
+   Panel Padding
+   ========================================================================== */
+
 /* Nomalise Padding */
-.Panel:before, 
-.Panel:after {
+.Panel-content:before, 
+.Panel-content:after {
   content: '';
   display: block;
   height: var(--Panel-border-width);
 }
-.Panel:before {
+
+/* Standard Padding */
+.Panel--withPadding .Panel-content {
+  padding: 0 var(--Panel-padding);
+}
+.Panel--withPadding .Panel-content:before {
   margin-bottom: calc(var(--Panel-padding) - var(--Panel-border-width));
 }
-.Panel:after {
+.Panel--withPadding .Panel-content:after {
   margin-top: calc(var(--Panel-padding) - var(--Panel-border-width));
 }
+/* Small Padding */
+.Panel--withPaddingSmall .Panel-content {
+  padding: 0 var(--Panel-padding--small);
+}
+.Panel--withPaddingSmall .Panel-content:before {
+  margin-bottom: calc(var(--Panel-padding--small) - var(--Panel-border-width));
+}
+.Panel--withPaddingSmall .Panel-content:after {
+  margin-top: calc(var(--Panel-padding--small) - var(--Panel-border-width));
+}
+
+/* Medium Padding */
+.Panel--withPaddingMedium .Panel-content {
+  padding: 0 var(--Panel-padding--medium);
+}
+.Panel--withPaddingMedium .Panel-content:before {
+  margin-bottom: calc(var(--Panel-padding--medium) - var(--Panel-border-width));
+}
+.Panel--withPaddingMedium .Panel-content:after {
+  margin-top: calc(var(--Panel-padding--medium) - var(--Panel-border-width));
+}
+/* Larger Padding */
+.Panel--withPaddingLarge .Panel-content {
+  padding: 0 var(--Panel-padding--large);
+}
+.Panel--withPaddingLarge .Panel-content:before {
+  margin-bottom: calc(var(--Panel-padding--large) - var(--Panel-border-width));
+}
+.Panel--withPaddingLarge .Panel-content:after {
+  margin-top: calc(var(--Panel-padding--large) - var(--Panel-border-width));
+}
+
+
+/* ==========================================================================
+   Panel Borders and Shadows
+   ========================================================================== */
+.Panel--rounded {
+  border-radius: var(--Panel-border-radius);
+}
+
+.Panel--withOutline {
+  box-shadow: var(--Panel-box-shadow);
+}
+.Panel--withOutlineRaised {
+  box-shadow: var(--Panel-box-shadow--raised);
+}
+
+
 
 /* ==========================================================================
    Panel Themes
@@ -57,39 +117,41 @@
   border-color: var(--Panel-border-colour);
   border-style: dashed;
 }
-.Panel--outlineRaised {
+.Panel--raised {
   border-color: var(--Panel-border-colour);
   box-shadow: 0 var(--custom-shadow-width--medium) 0 0 var(--Panel-border-colour);
 }
-
 
 /* ==========================================================================
    Panel Elements
    ========================================================================== */
 
-
+/* Global Class for all Panel elements */
+.Panel-content {
+  display: block;
+  margin: 0;
+  position: relative;
+}
+.Panel-content + .Panel-content {
+  border-top: var(--Panel-border);
+  margin: 0;
+}
 /* Panel Header
-========================================================================== */
+   ========================================================================== */
 .Panel-header {
-  margin-top: -var(--Panel-padding);
-  padding-bottom: var(--Panel-padding);
-  padding-top: var(--Panel-padding);
+  
 }
 
+/* Panel Body
+   ========================================================================== */
+.Panel-body {
+  margin-top: 0;
+  overflow-y: auto;
+}
 /* Panel Footer
    ========================================================================== */
 .Panel-footer {
-  margin-bottom: -var(--Panel-padding);
-  padding-bottom: var(--Panel-padding);
-  padding-top: var(--Panel-padding);
-}
-/* Extends header and footer to edge; makes it easier to apply backgrounds */
-.Panel-header,
-.Panel-footer {
-  margin-left: -var(--Panel-padding);
-  margin-right: -var(--Panel-padding);
-  padding-left: var(--Panel-padding);
-  padding-right: var(--Panel-padding);
+  
 }
 
 /**

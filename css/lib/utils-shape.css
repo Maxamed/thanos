@@ -31,9 +31,15 @@
 .u-shapeRounded {
   border-radius: var(--custom-border-radius)
 }
-.u-shapeRounded--left {
-  border-radius: var(--custom-border-radius) 0 0 var(--custom-border-radius);
+.u-shapeRounded--top {
+  border-radius: var(--custom-border-radius) var(--custom-border-radius) 0 0;
 }
 .u-shapeRounded--right {
   border-radius: 0 var(--custom-border-radius) var(--custom-border-radius) 0;
+}
+.u-shapeRounded--bottom {
+  border-radius: 0 0 var(--custom-border-radius) var(--custom-border-radius);
+}
+.u-shapeRounded--left {
+  border-radius: var(--custom-border-radius) 0 0 var(--custom-border-radius);
 }

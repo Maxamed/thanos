@@ -1,0 +1,121 @@
+/** @define */
+:root {
+  --Masonry-gutter-width: var(--custom-gutter-width);
+  --Masonry-rule-width: var(--custom-border-width);
+  --Masonry-rule-width--medium: var(--custom-border-width--medium);
+  --Masonry-rule-width--thick: var(--custom-border-width--thick);
+  --Masonry-rule-style: solid;
+  --Masonry-rule-colour: currentColor;
+}
+/* ==========================================================================
+   CSS Masonry Layout
+   ========================================================================== */
+
+/**
+ * Sets css-columns on the parent element
+ *
+ * Supports IE10+
+ *
+ * Example HTML:
+ *
+ * <ul class="Masonry Masonry--withGutter u-columnsHalf">
+ *   <li class="Masonry-cell"></li>
+ *   <li class="Masonry-cell"></li>
+ * </ul>
+ *
+ */
+ 
+/* Target all u-columns... */
+.Masonry:not(.Masonry--withGutter) {
+  column-gap: 0; 
+}
+/**
+ * Fixes bug where the children break across columns: 
+ *   http://trentwalton.com/2012/02/13/css-column-breaks/
+ * 1: Browsers that DO support `column-break-inside`
+ */
+.Masonry-cell {
+  -moz-column-break-inside: avoid; /* [1] */ 
+  -ms-column-break-inside: avoid; /* [1] */ 
+  -webkit-column-break-inside: avoid; /* [1] */ 
+  column-break-inside: avoid; /* [1] */ 
+}
+
+/* Span full width of columns */
+.Masonry-cell--spanAll {
+  -moz-column-span: all;
+  column-span: all;
+}
+/* Adds Gutter between columns*/
+.Masonry--withGutter {
+  column-gap: var(--custom-gutter-width); 
+}
+
+[class*="Masonry--bordered"] {
+  column-rule-color: var(--Masonry-rule-colour);
+  column-rule-style: var(--Masonry-rule-style);
+}
+.Masonry--bordered {
+  column-rule-width: var(--Masonry-rule-width);
+}
+.Masonry--borderedMedium {
+  column-rule-width: var(--Masonry-rule-width--medium);
+}
+.Masonry--borderedThick {
+  column-rule-width: var(--Masonry-rule-width--thick);
+}
+
+/*  */
+/* Columns Divisions
+   ========================================================================== */
+.u-columnsHalf {
+  column-count: 2;
+}
+.u-columnsThirds {
+  column-count: 3;  
+}
+.u-columnsFourths {
+  column-count: 4;
+}
+.u-columnsFifths {
+  column-count: 5;
+}
+
+.u-columnsSixths {
+  column-count: 6;
+}
+/**
+ * Firefox doesn't support column-span. For this, we reset the column-count to 1
+ *
+ */
+@supports (not ((column-span: all) or (-webkit-column-span: all))) {
+  [class*="u-columns"] {column-count: 1;}
+}
+
+/* ==========================================================================
+   Media Query Modifiers
+   ========================================================================== */
+@media (--sm-viewport) {
+  .u-sm-columnsFull {
+    column-count: auto;
+  }
+  .u-sm-columnsHalf {
+    column-count: 2;
+  }
+  .u-sm-columnsThirds {
+    column-count: 3;
+  }
+}
+
+@media (--md-viewport) {
+  .u-md-columnsFull {
+    column-count: 1;
+  }
+  .u-md-columnsHalf {
+    column-count: 2;
+  }
+  .u-md-columnsThirds {
+    column-count: 3;
+  }
+
+}

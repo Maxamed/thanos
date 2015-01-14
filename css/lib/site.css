@@ -37,6 +37,7 @@
   --custom-border-width: .0625rem;
   --custom-border-width--medium: calc(var(--custom-border-width) * 3);
   --custom-border-width--thick: calc(var(--custom-border-width) * 6);
+  --custom-border-width--raised: calc(var(--custom-border-width) * 2);
 
   /* Border Radius
     ========================================================================== */  
@@ -73,22 +74,22 @@
   --base-colour-delta--accentLight: #fffffe;
   --base-colour-delta--accentDark: #c2bca5;
   /* Base Grey - increment the brightness by 6 */
-  --base-colour-grey: #dfe6e6;
-  --base-colour-grey--84: #d0d6d6;
-  --base-colour-grey--78: #c1c7c7;
-  --base-colour-grey--72: #b2b8b8;
-  --base-colour-grey--66: #a3a8a8;
-  --base-colour-grey--60: #949999;
-  --base-colour-grey--54: #868a8a;
-  --base-colour-grey--48: #787a7a;
-  --base-colour-grey--42: #696b6b;
-  --base-colour-grey--36: #5a5c5c;
-  --base-colour-grey--30: #4b4d4d;
-  --base-colour-grey--24: #3b3d3d;
-  --base-colour-grey--18: #2d2e2e;
-  --base-colour-grey--12: #1e1f1f;
+  --base-colour-grey: hsla(190, 12%, 90%, 1.0);
+  --base-colour-grey--84: hsla(190, 6%, 84%, 1.0);
+  --base-colour-grey--78: hsla(190, 6%, 78%, 1.0);
+  --base-colour-grey--72: hsla(190, 6%, 72%, 1.0);
+  --base-colour-grey--66: hsla(190, 6%, 66%, 1.0);
+  --base-colour-grey--60: hsla(190, 6%, 60%, 1.0);
+  --base-colour-grey--54: hsla(190, 6%, 54%, 1.0);
+  --base-colour-grey--48: hsla(190, 6%, 48%, 1.0);
+  --base-colour-grey--42: hsla(190, 6%, 42%, 1.0);
+  --base-colour-grey--36: hsla(190, 6%, 36%, 1.0);
+  --base-colour-grey--30: hsla(190, 6%, 30%, 1.0);
+  --base-colour-grey--24: hsla(190, 6%, 24%, 1.0);
+  --base-colour-grey--18: hsla(190, 6%, 18%, 1.0);
+  --base-colour-grey--12: hsla(190, 6%, 12%, 1.0);
   --base-colour-text: var(--base-colour-grey--12);
-  --base-colour-text--inverse: #edf5f5;
+  --base-colour-text--inverse: hsla(190, 6%, 96%, 1.0);
 
   --base-colour-link: var(--base-colour-alpha);
   --base-colour-link--hover: var(--base-colour-alpha--accentLight);
@@ -151,9 +152,10 @@
 html, body {
   height: 100%; 
   height: 100vh;
+  min-height: 100%;
 }
 html {
-  background: white;
+  background: var(--base-colour-grey);
   font: 100%/var(--custom-line-height) var(--custom-font-stack);
   color: var(--base-colour-text);
 }
@@ -167,7 +169,7 @@ body {
   padding: 0 calc(0.5 * var(--custom-gutter-width));
 }
 /* Constrained to optimal line-length ~75 chars */
-.Container.is-Constrained {
+.Container.is-constrained {
   max-width: var(--custom-line-width);
 }
 .no-mediaqueries .Container {
@@ -178,7 +180,7 @@ body {
    Banner
    ========================================================================== */
 .Site-banner {
-  background: var(--base-colour-gamma);
+  background: var(--base-colour-beta--accent);
   margin: 0;
   padding: calc(0.5 * var(--custom-gutter-width)) 0;
 }

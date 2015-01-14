@@ -1,0 +1,182 @@
+/** @define LayoutFlex */
+:root {
+  --LayoutFlex-gutter-width: var(--custom-gutter-width);
+}
+
+
+/* ==========================================================================
+   Flex Parent
+   ========================================================================== */
+.LayoutFlex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+}
+
+/* Gutters
+   ========================================================================== */
+.LayoutFlex--withGutter {
+  margin: 0 calc(-0.5 * var(--LayoutFlex-gutter-width));
+}
+.LayoutFlex--withGutter > .LayoutFlex-cell {
+  padding: 0 calc(0.5 * var(--LayoutFlex-gutter-width));  
+}
+
+
+
+/* ==========================================================================
+   Flex Parent Modifiers
+   ========================================================================== */
+
+/* Orientation
+   ========================================================================== */
+.u-flexDirection--row {
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+.u-flexDirection--rowReverse {
+  -webkit-box-direction: reverse;
+  -moz-box-direction: reverse;
+  -webkit-box-orient: horizontal;
+  flex-direction: row-reverse;
+}
+.u-flexDirection--column {
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.u-flexDirection--columnReverse {
+  -webkit-box-direction: reverse;
+  -moz-box-direction: reverse;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  flex-direction: column-reverse;
+}
+
+/* Wrapping
+   ========================================================================== */
+.u-flex--wrap {
+
+}
+.u-flex--nowrap {
+
+}
+
+/* Justification
+   ========================================================================== */
+.u-flexJustify--start {
+  /* Legacy */
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  /* MS tweener */
+  -ms-flex-pack: start; 
+  /* Spec */
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+.u-flexJustify--end {
+  /* Legacy */
+  -webkit-box-pack: end;
+  -moz-box-pack: end;
+  /* MS tweener */
+  -ms-flex-pack: end; 
+  /* Spec */
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+
+}
+.u-flexJustify--center {
+  /* Legacy */
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  /* MS tweener */
+  -ms-flex-pack: center; 
+  /* Spec */
+  -webkit-justify-content: flex-center;
+  justify-content: flex-center;
+
+}
+
+/* Alignment (Non-Wrapped Cells)
+   ========================================================================== */
+.u-flexAlign--center {
+  box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.u-flexAlign--end {
+  box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+.u-flexAlign--stretch {
+  box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+/* Alignment (Wrapped Cells)
+   ========================================================================== */
+/*TODO: finish this section */
+
+/* ==========================================================================
+   Flex Cells
+   ========================================================================== */
+.LayoutFlex-cell {
+
+}
+
+/* ==========================================================================
+   Cell Modifiers
+   ========================================================================== */
+
+/* Alignment
+   ========================================================================== */
+.u-flexAlignSelf--center {
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+.u-flexAlignSelf--end {
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+}
+.u-flexAlignSelf--stretch {
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+}
+
+
+/**
+ * FF < 28 Fallback
+ *
+ * The first sentence of the long description starts here
+ *
+ * @tag This is a tag named 'tag'
+ *
+ * TODO: wraps after 80 chars, indent lines with 2 spaces
+ *
+ */ 
+@supports not (flex-wrap: wrap) {
+  .LayoutFlex { 
+    display: block; 
+  }
+  .LayoutFlex-cell {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+

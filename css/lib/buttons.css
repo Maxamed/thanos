@@ -3,7 +3,7 @@
 :root {
   --Button-border-colour: currentColor;
   --Button-border-style: solid;
-  --Button-border-width: calc(var(--custom-border-width) * 2); /* 1px */
+  --Button-border-width: var(--custom-border-width); /* 1px */
   --Button-border-width--raised: calc(var(--Button-border-width) * 2);
   --Button-box-shadow: inset 0 0 0 var(--Button-border-width) var(--Button-border-colour);
   --Button-box-shadow--raised: inset 0 -var(--Button-border-width--raised) var(--Button-border-colour);
@@ -42,6 +42,7 @@
 .Button {
   -webkit-appearance: none; /* 1 */
   background: transparent;
+  border: none;
   border-collapse: separate; /* 2 */
   color: var(--Button-color); /* 3 */
   cursor: pointer;
@@ -70,6 +71,22 @@
   padding: 0;
 }
 
+/* Button Sizes 
+   ========================================================================== */   
+.Button--sizeSm .Button-content {
+  line-height: 1.5;
+  min-height: calc(var(--Button-min-height));
+  min-width: calc(var(--Button-min-height));
+  padding-left: var(--Button-padding);
+  padding-right: var(--Button-padding);
+}
+.Button--sizeLg .Button-content {
+  line-height: 3;
+  min-height: calc(var(--Button-min-height) * 1.5);
+  min-width: calc(var(--Button-min-height) * 1.5);
+  padding-left: calc(var(--Button-padding) * 2);
+  padding-right: calc(var(--Button-padding) * 2);
+}
 
 /* ==========================================================================
    Button Theme Modifiers
@@ -82,16 +99,17 @@
 /* Primary Action Buttons*/
 .Button--themePrimary {
   background: var(--base-colour-alpha);  
-  color: var(--base-colour-alpha--accent);
+  color: var(--base-colour-alpha--accentDark);
 }
 
 .Button--themeSecondary {
   background: var(--base-colour-beta);  
-  color: var(--base-colour-beta--accent);
+  color: var(--base-colour-beta--accentDark);
 }
+.Button--themeSecondary .Button-content {color: var(--base-colour-grey--84);}
 
 .Button--themeUtility {
-  background: var(--base-colour-grey--72);
+  background: var(--base-colour-grey--84);
 }
 
 /* Theme UI States
@@ -102,7 +120,7 @@
 .Button--themePrimary:hover,
 .Button--themePrimary:focus {
   background: var(--base-colour-alpha--accentLight);
-  color: var(--base-colour-alpha);  
+  color: var(--base-colour-alpha--accent);  
 }
 .Button--themePrimary:active {
   background: var(--base-colour-alpha--accent);
@@ -112,7 +130,7 @@
 .Button--themeSecondary:hover,
 .Button--themeSecondary:focus {
   background: var(--base-colour-beta--accentLight);
-  color: var(--base-colour-beta); 
+  color: var(--base-colour-beta--accent); 
 }
 .Button--themeSecondary:active {
   background: var(--base-colour-beta--accent);
@@ -133,35 +151,18 @@
 .Button--outlineRaised {
   box-shadow: var(--Button-box-shadow--raised);
 }
-
-.Button--outlineRaised .Button-content {
-  margin-top: -calc(var(--Button-border-width) * 1.5);
-  padding-bottom: calc(var(--Button-border-width) * 1.5);
-}
+.Button--outlineRaised .Button-content {top: -var(--Button-border-width);}
 
 /* UI States */
 .Button--outlineRaised:active {
   box-shadow: var(--Button-box-shadow)
+
 }
 .Button--outlineRaised:active .Button-content {
   margin-top: 0;
   padding-bottom: 0;
 }
 
-/* Button Sizes 
-   ========================================================================== */   
-.Button--sizeSm .Button-content {
-  line-height: 1.5;
-  min-height: calc(var(--Button-min-height));
-  min-width: calc(var(--Button-min-height));
-  padding: 0 var(--Button-padding);
-}
-.Button--sizeLg .Button-content {
-  line-height: 3;
-  min-height: calc(var(--Button-min-height) * 1.5);
-  min-width: calc(var(--Button-min-height) * 1.5);
-  padding: 0 calc(var(--Button-padding) * 2);
-}
 
 /* Theme UI States
    ========================================================================== */
@@ -175,7 +176,7 @@
   overflow: hidden; /* clipping in case of rounded corners */
 }
 .ButtonBar .Button + .Button {
-  margin-left: -calc(var(--Button-border-width) * 5); /* -5px */
+  margin-left: -calc(var(--Button-border-width) * 4); /* -5px */
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }

@@ -1,0 +1,13 @@
+/** @define Loader */
+:root {
+
+}
+.Loader {
+  transition: all ;
+}
+
+.Loader--progress {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
