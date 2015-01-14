@@ -1,8 +1,8 @@
 <?php
 
 //This will be replaced by endpoints api, we might use it to write to API
-
-require_once("MysqliDb.php");
+ 
+require_once("lib/MysqliDb.php");
 
 
  // TODO move to class ^
@@ -47,7 +47,7 @@ if(isset($_POST['post']))
     } 
 
 //submit comment
-if(isset($_POST['commentSubmit']))
+if(isset($_POST['comment']))
 { 
 
             $data = array(
@@ -67,7 +67,7 @@ if(isset($_POST['commentSubmit']))
             $db->where("id", $t); 
             $db->update("posts",$commCount);
             
-             
+            echo  $_POST['postid'];
 }
  
 //Print Single Post
@@ -164,19 +164,26 @@ if(isset($_GET['tag'])){
 }
 //  Flag Spam
 
-if(isset($_GET['SpamId']))
+if(isset($_POST['SpamId']))
     { 
 
       $xSpam = array(
             'user_ip' => $_SERVER['REMOTE_ADDR'], 
-            'post_id' => $_GET['SpamId'], 
+            'post_id' => $_POST['SpamId'], 
             'timestamp' => $db->now()
         );
 
         $id = $db->insert("spam" , $xSpam);
-      
-       header ("Location: index.php");
-       exit;
+
+        $spamCount = array(
+                'isSpam' => $db->inc()   
+        );
+ 
+            
+        $t = intval($_POST['SpamId']);  
+        $db->where("id", $t); 
+        $db->update("posts",$spamCount);
+        echo $_POST['SpamId'];
     
 }
 // Truncate Posts

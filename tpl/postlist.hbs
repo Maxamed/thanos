@@ -1,103 +1,78 @@
-<section role="region" 
-  class="Masonry Masonry--withGutter u-columnsHalf u-md-columnsFull Posts Posts--list" 
-  aria-label="Latest Posts">
-  <h3 class="Masonry-cell Masonry-cell--spanAll">I am a Full-Width Span</h3>
-  {{#each this}}
-    <article class="Masonry-cell Post is-interactive Panel Panel-withPadding u-shapeRounded" aria-labeledby="postHeading{{id}}"> 
-      <heading class="Post-heading Arrange">
-        <h3 class="Post-title u-textNoWrap H5" id="postHeading{{id}}">{{ username }} Said:</h3>
-        <time 
-          class="Post-date u-textRight Arrange-sizeFit" 
-          datetime="{{machinetimestamp}}">{{humantimestamp}}</time>
-      </heading>
-      <div class="Post-content u-posRelative">
-        <p aria-labelledby="postDate">{{{post}}}</p>
-        <div class="Post-comments u-posAbsolute">
-          <svg class="Icon Icon--sizeLg Post-commentsCountIcon">
-            <use xlink:href="#Icon-comments" />
-          </svg>
-          <span class="Post-commentsCount">{{commcount}}<span class="u-hiddenVisually"> comments in this post</span></span>
-        </div>
-      </div> 
-      <a href="/#/post/{{id}}" data-PostId="{{id}}" class="Post-link u-posAbsolute u-block">
-        <span class="u-hiddenVisually">View Entire Post</span>
-      </a>
-      <footer class="Post-meta">
-        <ul class="Arrange">
-          <li class="Arrange-sizeFill u-alignMiddle">
-            <a href="#" class="Copy--small Tag Tag--default">{{category}}</a>
-          </li>
-          <li class="Arrange-sizeFit ButtonBar Post-metaShareLinks u-textRight u-textNoWrap">
-            <a href="#" 
-              class="Button Button--sizeSm Button--outlineRaised Button--themeUtility u-shapeRounded--left" 
-              data-share="FB"
-              data-posturl="thanos.pandora.dev/#/post/{{id}}" 
-              data-post="{{post}}">
-              <span class="Button-content">
-                <svg class="Icon Icon--sizeSm">
-                  <use xlink:href="#Icon-facebook" />
-                </svg>
-                <span class="u-hiddenVisually">Share on Facebook</span>
-              </span>
-            </a>
-            <a href="#"
-              class="Button Button--sizeSm Button--outlineRaised Button--themeUtility u-shapeRounded--right" 
-              data-share="twitter"
-              data-posturl="thanos.pandora.dev/#/post/{{id}}" 
-              data-post="{{post}}">
-              <span class="Button-content">
-                <svg class="Icon Icon--sizeSm">
-                  <use xlink:href="#Icon-twitter" />
-                </svg>
-                <span class="u-hiddenVisually">Share on Twitter</span>
-              </span>
-            </a>
-          </li>
-        </ul>  
-      </footer>
-    </article>
-  {{/each}}
-  </ul>
+<section role="region" class="Posts Posts--list u-md-columnsFull u-columnsHalf" aria-label="Latest Posts">
+{{#each this}}
+  <article class="Post" aria-labeledby="postHeading{{id}}"> 
+    <heading class="Post-heading Arrange">
+      <h3 class="Post-title u-textNoWrap H5" id="postHeading{{id}}">{{ username }} Said:</h3>
+      <time 
+        class="Post-date u-textRight Arrange-sizeFit" 
+        datetime="{{dateFormat timestamp format="MMMM YYYY"}}">{{dateFormat timestamp format="LLLL"}}</time>
+    </heading>
+    <div class="Post-content u-posRelative">
+      <p aria-labelledby="postDate">{{{post}}}</p>
+      <div class="Post-comments u-posAbsolute">
+        <svg class="Icon Icon-comments Post-commentsCountIcon">
+          <use xlink:href="#Icon-comments" />
+        </svg>
+        <span class="Post-commentsCount">{{commcount}}<span class="u-hiddenVisually"> comments in this post</span></span>
+      </div>
+    </div> 
+    <a href="/#/post/{{id}}" data-PostId="{{id}}" class="Post-link u-posAbsolute u-block">
+      <span class="u-hiddenVisually">View Entire Post</span>
+    </a>
+
+    <footer class="Post-meta">
+      <ul class="u-alignMiddle Arrange">
+        <li class="Arrange-sizeFit">
+          <a href="#" class="Copy--small Tag Tag--default">{{category}}</a>
+        </li>
+        <li class="Post-metaShareLinks Copy--small u-textRight">
+          <a href="#" 
+            data-share="FB"
+            data-posturl="thanos.pandora.dev/#/post/{{id}}" 
+            data-post="{{post}}">
+            <svg class="Icon Icon-facebook">
+              <use xlink:href="#Icon-facebook" />
+            </svg>
+            <span class="u-hiddenVisually">Share on Facebook</span>
+          </a>
+          <a href="#"
+            data-share="twitter"
+            data-posturl="thanos.pandora.dev/#/post/{{id}}" 
+            data-post="{{post}}">
+            <svg class="Icon Icon-twitter">
+              <use xlink:href="#Icon-twitter" />
+            </svg>
+            <span class="u-hiddenVisually">Share on Twitter</span>
+          </a>
+        </li>
+        <li class="u-inline">
+        <time datetime="{{machinetimestamp}}">{{humantimestamp}}</time>
+        </li> 
+      </ul>  
+    </footer>
+  </article> 
+{{/each}}
 </section>
-<section role="region" class="Panel Panel--withPaddingMedium u-posFixed u-shapeRounded--top">
-  <heading class="Panel-header Panel-content">
-    <h3 id="createPostHeading" class="Panel-title H5">Create New Post</h3>
-    <button type="button" class="Button">
-      <svg class="Icon Icon--sizeSm">
-        <use xlink:href="#Icon-remove" />
-      </svg>  
-    </button>
-  </heading>
-  <form action="app/functions.php" method="post" class="Panel-body">
-    <fieldset class="Panel-content">
-      <input type="hidden" name="_METHOD" value="PUT">
+<section role="region">
+  <form action="#/gaunlet" method="post">
+    <fieldset>
+      <legend id="createPostHeading" class="H3">Create New Post</legend> 
+              
       <label for="post" class="Input">
         <span class="Input-label">What's on Your Mind?</span>
-        <textarea name="post" id="post" class="Input-control Input-controlMultiline"></textarea>
+        <textarea cols="40" rows="8" name="post" id="post" required></textarea>
       </label>
-      <label for="checkbox1" class="Input">
-        <input type="checkbox" class="Input-control Input-checkbox" name="checkbox1" id="checkbox1">
-        <span class="Input-label">Custom Checkbox</span>
-      </label>
-      <label for="radio1" class="Input">
-        <input type="radio" class="Input-control Input-radio" name="radio1" id="radio1">
-        <span class="Input-label"></span>
-      </label>
-      <label for="category" class="Input Input-selectWrapper"> 
+      <label for="select-choice" class="Input"> 
         <span class="Input-label">Post Category</span>
-        <select name="category" id="category" class="Input-control Input-select">
-          <option value=""></option>
+        <select name="category" id="category">
           <option value="FMYLIFE">F MY LIFE</option>
           <option value="stwrldprbl">First World Problems</option>
           <option value="justcase">Just Because</option>
         </select>
       </label>
-    </fieldset>
-    <fieldset class="Panel-content">
-      <button type="submit" name="submit" id="submit" class="Button u-sm-sizeFull">
-        <span class="Button-content">Publish Post</span>
-      </button>
+      
+      <button type="submit" name="submit" id="submit" class="Button u-sm-sizeFull">Publish Post</button>
+      
     </fieldset>
   </form>
 </section>
-

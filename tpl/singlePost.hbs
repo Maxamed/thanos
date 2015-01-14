@@ -15,34 +15,32 @@
             <use xlink:href="#Icon-favorite" />
           </svg>
       </a></li>
-      <li><a href="functions.php?SpamId={{0.posts.id}}">Report Spam</a></li>
+      <li><a class='isSpam' href="#/isSpam/{{0.posts.id}}">Report Spam</a></li>
     </ul>  
   </footer> 
 </article>
 <section role="region" class="Comments">
   <header class="Comments-header">
     <h3>Comments</h3>
+    <a href="">Add Comment</a>
   </header>
   {{#each comments}}
-  <article class="Post-comment">
-    <svg class="Icon Post-commentUser u-posAbsolute">
+  <article class="Post-Comment">
+    <svg class="Icon Icon-person">
       <use xlink:href="#Icon-person" />
     </svg>
-   {{{comment}}} on <time datetime="{{machinetimestamp}}">{{humantimestamp}}</time>
-  </article>
+   {{{comment}}} on {{commhumantimestamp}}
+ </article>
 {{/each}}
 </section>
 <section role="region">
-  <form action="#" method="post" id='commentSubmit'>
+  <form action="#/titan" method="post" id='commentSubmit'>
     <fieldset>
       <legend>Add a Comment</legend>
-      <label for="comment" class="Input">
-        <span class="Input-label">Comment</span>
-        <textarea class="Input-control Input-textarea u-full-width" placeholder="Hi Dave …" name="comment" id="comment"></textarea>
-      </label>
+      <label for="exampleMessage">Comment</label>
+      <textarea class="u-full-width" placeholder="Hi Dave …" name="comment" required></textarea>
       <input type="hidden" name="postid" value="{{0.posts.id}}">
-      <button class="Button Button--outline Button--themePrimary u-shapeRounded u-sm-sizeFull" type="submit" id="submitComment"  name="commentSubmit">
-        <span class="Button-content">Submit Comment</span></button>
+      <input class="button-primary" type="submit" id="submitComment" value="Submit"  name="commentSubmit">
     </fieldset>
   </form>
 </section>

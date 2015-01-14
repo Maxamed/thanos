@@ -86,41 +86,49 @@ this["Handlebars"]["templates"]["postComment"] = Handlebars.template({"compiler"
 
 
 this["Handlebars"]["templates"]["postlist"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
-  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "    <article class=\"Masonry-cell Post is-interactive Panel Panel-withPadding u-shapeRounded\" aria-labeledby=\"postHeading"
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "  <article class=\"Post\" aria-labeledby=\"postHeading"
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
-    + "\"> \n      <heading class=\"Post-heading Arrange\">\n        <h3 class=\"Post-title u-textNoWrap H5\" id=\"postHeading"
+    + "\"> \n    <heading class=\"Post-heading Arrange\">\n      <h3 class=\"Post-title u-textNoWrap H5\" id=\"postHeading"
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
     + "\">"
     + escapeExpression(((helper = (helper = helpers.username || (depth0 != null ? depth0.username : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"username","hash":{},"data":data}) : helper)))
-    + " Said:</h3>\n        <time \n          class=\"Post-date u-textRight Arrange-sizeFit\" \n          datetime=\""
-    + escapeExpression(((helper = (helper = helpers.machinetimestamp || (depth0 != null ? depth0.machinetimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"machinetimestamp","hash":{},"data":data}) : helper)))
+    + " Said:</h3>\n      <time \n        class=\"Post-date u-textRight Arrange-sizeFit\" \n        datetime=\""
+    + escapeExpression(((helpers.dateFormat || (depth0 && depth0.dateFormat) || helperMissing).call(depth0, (depth0 != null ? depth0.timestamp : depth0), {"name":"dateFormat","hash":{
+    'format': ("MMMM YYYY")
+  },"data":data})))
     + "\">"
-    + escapeExpression(((helper = (helper = helpers.humantimestamp || (depth0 != null ? depth0.humantimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"humantimestamp","hash":{},"data":data}) : helper)))
-    + "</time>\n      </heading>\n      <div class=\"Post-content u-posRelative\">\n        <p aria-labelledby=\"postDate\">";
+    + escapeExpression(((helpers.dateFormat || (depth0 && depth0.dateFormat) || helperMissing).call(depth0, (depth0 != null ? depth0.timestamp : depth0), {"name":"dateFormat","hash":{
+    'format': ("LLLL")
+  },"data":data})))
+    + "</time>\n    </heading>\n    <div class=\"Post-content u-posRelative\">\n      <p aria-labelledby=\"postDate\">";
   stack1 = ((helper = (helper = helpers.post || (depth0 != null ? depth0.post : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"post","hash":{},"data":data}) : helper));
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "</p>\n        <div class=\"Post-comments u-posAbsolute\">\n          <svg class=\"Icon Icon--sizeLg Post-commentsCountIcon\">\n            <use xlink:href=\"#Icon-comments\" />\n          </svg>\n          <span class=\"Post-commentsCount\">"
+  return buffer + "</p>\n      <div class=\"Post-comments u-posAbsolute\">\n        <svg class=\"Icon Icon-comments Post-commentsCountIcon\">\n          <use xlink:href=\"#Icon-comments\" />\n        </svg>\n        <span class=\"Post-commentsCount\">"
     + escapeExpression(((helper = (helper = helpers.commcount || (depth0 != null ? depth0.commcount : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"commcount","hash":{},"data":data}) : helper)))
-    + "<span class=\"u-hiddenVisually\"> comments in this post</span></span>\n        </div>\n      </div> \n      <a href=\"/#/post/"
+    + "<span class=\"u-hiddenVisually\"> comments in this post</span></span>\n      </div>\n    </div> \n    <a href=\"/#/post/"
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
     + "\" data-PostId=\""
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
-    + "\" class=\"Post-link u-posAbsolute u-block\">\n        <span class=\"u-hiddenVisually\">View Entire Post</span>\n      </a>\n      <footer class=\"Post-meta\">\n        <ul class=\"Arrange\">\n          <li class=\"Arrange-sizeFill u-alignMiddle\">\n            <a href=\"#\" class=\"Copy--small Tag Tag--default\">"
+    + "\" class=\"Post-link u-posAbsolute u-block\">\n      <span class=\"u-hiddenVisually\">View Entire Post</span>\n    </a>\n\n    <footer class=\"Post-meta\">\n      <ul class=\"u-alignMiddle Arrange\">\n        <li class=\"Arrange-sizeFit\">\n          <a href=\"#\" class=\"Copy--small Tag Tag--default\">"
     + escapeExpression(((helper = (helper = helpers.category || (depth0 != null ? depth0.category : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"category","hash":{},"data":data}) : helper)))
-    + "</a>\n          </li>\n          <li class=\"Arrange-sizeFit ButtonBar Post-metaShareLinks u-textRight u-textNoWrap\">\n            <a href=\"#\" \n              class=\"Button Button--sizeSm Button--outlineRaised Button--themeUtility u-shapeRounded--left\" \n              data-share=\"FB\"\n              data-posturl=\"thanos.pandora.dev/#/post/"
+    + "</a>\n        </li>\n        <li class=\"Post-metaShareLinks Copy--small u-textRight\">\n          <a href=\"#\" \n            data-share=\"FB\"\n            data-posturl=\"thanos.pandora.dev/#/post/"
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
-    + "\" \n              data-post=\""
+    + "\" \n            data-post=\""
     + escapeExpression(((helper = (helper = helpers.post || (depth0 != null ? depth0.post : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"post","hash":{},"data":data}) : helper)))
-    + "\">\n              <span class=\"Button-content\">\n                <svg class=\"Icon Icon--sizeSm\">\n                  <use xlink:href=\"#Icon-facebook\" />\n                </svg>\n                <span class=\"u-hiddenVisually\">Share on Facebook</span>\n              </span>\n            </a>\n            <a href=\"#\"\n              class=\"Button Button--sizeSm Button--outlineRaised Button--themeUtility u-shapeRounded--right\" \n              data-share=\"twitter\"\n              data-posturl=\"thanos.pandora.dev/#/post/"
+    + "\">\n            <svg class=\"Icon Icon-facebook\">\n              <use xlink:href=\"#Icon-facebook\" />\n            </svg>\n            <span class=\"u-hiddenVisually\">Share on Facebook</span>\n          </a>\n          <a href=\"#\"\n            data-share=\"twitter\"\n            data-posturl=\"thanos.pandora.dev/#/post/"
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
-    + "\" \n              data-post=\""
+    + "\" \n            data-post=\""
     + escapeExpression(((helper = (helper = helpers.post || (depth0 != null ? depth0.post : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"post","hash":{},"data":data}) : helper)))
-    + "\">\n              <span class=\"Button-content\">\n                <svg class=\"Icon Icon--sizeSm\">\n                  <use xlink:href=\"#Icon-twitter\" />\n                </svg>\n                <span class=\"u-hiddenVisually\">Share on Twitter</span>\n              </span>\n            </a>\n          </li>\n        </ul>  \n      </footer>\n    </article>\n";
+    + "\">\n            <svg class=\"Icon Icon-twitter\">\n              <use xlink:href=\"#Icon-twitter\" />\n            </svg>\n            <span class=\"u-hiddenVisually\">Share on Twitter</span>\n          </a>\n        </li>\n        <li class=\"u-inline\">\n        <time datetime=\""
+    + escapeExpression(((helper = (helper = helpers.machinetimestamp || (depth0 != null ? depth0.machinetimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"machinetimestamp","hash":{},"data":data}) : helper)))
+    + "\">"
+    + escapeExpression(((helper = (helper = helpers.humantimestamp || (depth0 != null ? depth0.humantimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"humantimestamp","hash":{},"data":data}) : helper)))
+    + "</time>\n        </li> \n      </ul>  \n    </footer>\n  </article> \n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, buffer = "<section role=\"region\" \n  class=\"Masonry Masonry--withGutter u-columnsHalf u-md-columnsFull Posts Posts--list\" \n  aria-label=\"Latest Posts\">\n  <h3 class=\"Masonry-cell Masonry-cell--spanAll\">I am a Full-Width Span</h3>\n";
+  var stack1, buffer = "<section role=\"region\" class=\"Posts Posts--list u-md-columnsFull u-columnsHalf\" aria-label=\"Latest Posts\">\n";
   stack1 = helpers.each.call(depth0, depth0, {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "  </ul>\n</section>\n<section role=\"region\" class=\"Panel Panel--withPaddingMedium u-posFixed u-shapeRounded--top\">\n  <heading class=\"Panel-header Panel-content\">\n    <h3 id=\"createPostHeading\" class=\"Panel-title H5\">Create New Post</h3>\n    <button type=\"button\" class=\"Button\">\n      <svg class=\"Icon Icon--sizeSm\">\n        <use xlink:href=\"#Icon-remove\" />\n      </svg>  \n    </button>\n  </heading>\n  <form action=\"app/functions.php\" method=\"post\" class=\"Panel-body\">\n    <fieldset class=\"Panel-content\">\n      <input type=\"hidden\" name=\"_METHOD\" value=\"PUT\">\n      <label for=\"post\" class=\"Input\">\n        <span class=\"Input-label\">What's on Your Mind?</span>\n        <textarea name=\"post\" id=\"post\" class=\"Input-control Input-controlMultiline\"></textarea>\n      </label>\n      <label for=\"checkbox1\" class=\"Input\">\n        <input type=\"checkbox\" class=\"Input-control Input-checkbox\" name=\"checkbox1\" id=\"checkbox1\">\n        <span class=\"Input-label\">Custom Checkbox</span>\n      </label>\n      <label for=\"radio1\" class=\"Input\">\n        <input type=\"radio\" class=\"Input-control Input-radio\" name=\"radio1\" id=\"radio1\">\n        <span class=\"Input-label\"></span>\n      </label>\n      <label for=\"category\" class=\"Input Input-selectWrapper\"> \n        <span class=\"Input-label\">Post Category</span>\n        <select name=\"category\" id=\"category\" class=\"Input-control Input-select\">\n          <option value=\"\"></option>\n          <option value=\"FMYLIFE\">F MY LIFE</option>\n          <option value=\"stwrldprbl\">First World Problems</option>\n          <option value=\"justcase\">Just Because</option>\n        </select>\n      </label>\n    </fieldset>\n    <fieldset class=\"Panel-content\">\n      <button type=\"submit\" name=\"submit\" id=\"submit\" class=\"Button u-sm-sizeFull\">\n        <span class=\"Button-content\">Publish Post</span>\n      </button>\n    </fieldset>\n  </form>\n</section>\n\n";
+  return buffer + "</section>\n<section role=\"region\">\n  <form action=\"#/gaunlet\" method=\"post\">\n    <fieldset>\n      <legend id=\"createPostHeading\" class=\"H3\">Create New Post</legend> \n              \n      <label for=\"post\" class=\"Input\">\n        <span class=\"Input-label\">What's on Your Mind?</span>\n        <textarea cols=\"40\" rows=\"8\" name=\"post\" id=\"post\" required></textarea>\n      </label>\n      <label for=\"select-choice\" class=\"Input\"> \n        <span class=\"Input-label\">Post Category</span>\n        <select name=\"category\" id=\"category\">\n          <option value=\"FMYLIFE\">F MY LIFE</option>\n          <option value=\"stwrldprbl\">First World Problems</option>\n          <option value=\"justcase\">Just Because</option>\n        </select>\n      </label>\n      \n      <button type=\"submit\" name=\"submit\" id=\"submit\" class=\"Button u-sm-sizeFull\">Publish Post</button>\n      \n    </fieldset>\n  </form>\n</section>\n";
 },"useData":true});
 
 
@@ -163,14 +171,12 @@ this["Handlebars"]["templates"]["searchResults"] = Handlebars.template({"1":func
 
 
 this["Handlebars"]["templates"]["singlePost"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
-  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "  <article class=\"Post-comment\">\n    <svg class=\"Icon Post-commentUser u-posAbsolute\">\n      <use xlink:href=\"#Icon-person\" />\n    </svg>\n   ";
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "  <article class=\"Post-Comment\">\n    <svg class=\"Icon Icon-person\">\n      <use xlink:href=\"#Icon-person\" />\n    </svg>\n   ";
   stack1 = ((helper = (helper = helpers.comment || (depth0 != null ? depth0.comment : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"comment","hash":{},"data":data}) : helper));
   if (stack1 != null) { buffer += stack1; }
-  return buffer + " on <time datetime=\""
-    + escapeExpression(((helper = (helper = helpers.machinetimestamp || (depth0 != null ? depth0.machinetimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"machinetimestamp","hash":{},"data":data}) : helper)))
-    + "\">"
-    + escapeExpression(((helper = (helper = helpers.humantimestamp || (depth0 != null ? depth0.humantimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"humantimestamp","hash":{},"data":data}) : helper)))
-    + "</time>\n  </article>\n";
+  return buffer + " on "
+    + escapeExpression(((helper = (helper = helpers.commhumantimestamp || (depth0 != null ? depth0.commhumantimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"commhumantimestamp","hash":{},"data":data}) : helper)))
+    + "\n </article>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression, buffer = "<article class=\"Post\">\n  <header class=\"Post-header\">\n    <h2 class=\"Post-title H5\">"
     + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.username : stack1), depth0))
@@ -183,48 +189,44 @@ this["Handlebars"]["templates"]["singlePost"] = Handlebars.template({"1":functio
     + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.machinetimestamp : stack1), depth0))
     + "\">"
     + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.humantimestamp : stack1), depth0))
-    + "</time>.\n    <ul>\n      <li>\n        <a href=\"\">\n          <svg class=\"Icon Icon-favorite\">\n            <use xlink:href=\"#Icon-favorite\" />\n          </svg>\n      </a></li>\n      <li><a href=\"functions.php?SpamId="
+    + "</time>.\n    <ul>\n      <li>\n        <a href=\"\">\n          <svg class=\"Icon Icon-favorite\">\n            <use xlink:href=\"#Icon-favorite\" />\n          </svg>\n      </a></li>\n      <li><a class='isSpam' href=\"#/isSpam/"
     + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.id : stack1), depth0))
-    + "\">Report Spam</a></li>\n    </ul>  \n  </footer> \n</article>\n<section role=\"region\" class=\"Comments\">\n  <header class=\"Comments-header\">\n    <h3>Comments</h3>\n  </header>\n";
+    + "\">Report Spam</a></li>\n    </ul>  \n  </footer> \n</article>\n<section role=\"region\" class=\"Comments\">\n  <header class=\"Comments-header\">\n    <h3>Comments</h3>\n    <a href=\"\">Add Comment</a>\n  </header>\n";
   stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.comments : depth0), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "</section>\n<section role=\"region\">\n  <form action=\"#\" method=\"post\" id='commentSubmit'>\n    <fieldset>\n      <legend>Add a Comment</legend>\n      <label for=\"comment\" class=\"Input\">\n        <span class=\"Input-label\">Comment</span>\n        <textarea class=\"Input-control Input-textarea u-full-width\" placeholder=\"Hi Dave …\" name=\"comment\" id=\"comment\"></textarea>\n      </label>\n      <input type=\"hidden\" name=\"postid\" value=\""
+  return buffer + "</section>\n<section role=\"region\">\n  <form action=\"#/titan\" method=\"post\" id='commentSubmit'>\n    <fieldset>\n      <legend>Add a Comment</legend>\n      <label for=\"exampleMessage\">Comment</label>\n      <textarea class=\"u-full-width\" placeholder=\"Hi Dave …\" name=\"comment\" required></textarea>\n      <input type=\"hidden\" name=\"postid\" value=\""
     + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.id : stack1), depth0))
-    + "\">\n      <button class=\"Button Button--outline Button--themePrimary u-shapeRounded u-sm-sizeFull\" type=\"submit\" id=\"submitComment\"  name=\"commentSubmit\">\n        <span class=\"Button-content\">Submit Comment</span></button>\n    </fieldset>\n  </form>\n</section>";
+    + "\">\n      <input class=\"button-primary\" type=\"submit\" id=\"submitComment\" value=\"Submit\"  name=\"commentSubmit\">\n    </fieldset>\n  </form>\n</section>";
 },"useData":true});
 ;var App = (function () {
 
   var singlePostURL = "http://thanos.pandora.dev/app/endpoints.php/post/"
-  ,$viewContainer = $('#pageView')
-  ,allPostsCall 
-  ,doSingleView
-  ,doAllView
-  ,getSinglePost;
+  , $viewContainer   = $('#pageView')
+  , allPostsCall 
+  , doSingleView
+  , doAllView
+  , getSinglePost;
   
-  allPostsCall  = function( req ) { $.when( $.ajax( req ) ).done(doAllView); };
-  getSinglePost = function( postID ) { $.when( $.ajax( singlePostURL+postID ) ).done(doSingleView); };
-  getSearch     = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doSRPView); }
+  allPostsCall    = function( req ) { $.when( $.ajax( req ) ).done(doAllView); };
+  getSinglePost   = function( postID ) { $.when( $.ajax( singlePostURL+postID ) ).done(doSingleView); };
+  getSearch       = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doSRPView); }
 
-  doAllView     = function(jsonObj){  
+  doAllView       = function(jsonObj){  
     $viewContainer.empty();
-    var template = Handlebars.templates.postlist(jsonObj);
+    var template  = Handlebars.templates.postlist(jsonObj);
     $viewContainer.html(template); 
   }
-  doSRPView     = function(jsonObj){
-    console.log(jsonObj)
+  doSRPView       = function(jsonObj){ 
     $viewContainer.empty();
-    var template = Handlebars.templates.searchResults(jsonObj);
+    var template  = Handlebars.templates.searchResults(jsonObj);
     $viewContainer.html(template);   
   }
-  doSingleView  = function(jsonObj){ 
-    console.log(jsonObj);
+  doSingleView    = function(jsonObj){ 
     $viewContainer.empty();
-    var template = Handlebars.templates.singlePost(jsonObj);
+    var template  = Handlebars.templates.singlePost(jsonObj);
     $viewContainer.html(template); console.log(template)
   }
  
-
-
   return {
     getAllPosts   : function( reqURL ) { allPostsCall(reqURL);},
     getSinglePost : function(postID){ getSinglePost(postID);},
@@ -235,37 +237,78 @@ this["Handlebars"]["templates"]["singlePost"] = Handlebars.template({"1":functio
 
 App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
 
-//view single post
-$(document.body).on('click','.PostId',function(e){ 
-  e.preventDefault();
-  App.getSinglePost( $(this).data("postid") );
+// handle routing
 
-});
+(function() {
+ 
+    var app = Sammy('body');
+ 
+    app.run('#/posts');
+    app.run('#/post/:id');
+    app.run('#/isSpam/:id');
+
+    var app = Sammy.apps.body;
+ 
+ 
+    //post story
+    app.post('#/gaunlet', function(context) {
+      
+      $.ajax({type: "POST",
+            url: "../app/functions.php",
+            data: { post: this.params['post'],category: this.params['category'] },
+            success:function(result){
+              App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
+            }
+          });
+
+    });
+
+    //post comment
+    app.post('#/titan', function(context) { 
+
+      $.ajax({type: "POST",
+            url: "../app/functions.php",
+            data: { comment: this.params['comment'],postid: this.params['postid'] },
+            success:function(result){
+              App.getSinglePost( result );
+            }
+          });
+
+    });
+
+    app.get('#/posts', function(context) {
+        App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
+    });
+    app.get('#/post/:id', function() { 
+        App.getSinglePost( this.params['id'] );
+    });
+    app.post('#/search', function() {   
+        App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  this.params['find_posts'] );
+        return false;
+    }); 
+    app.get('#/isSpam/:id', function() { 
+          $.ajax({type: "POST",
+            url: "../app/functions.php",
+            data: { SpamId: this.params['id'] },
+            success:function(result){
+              App.getSinglePost( result );
+            }
+          });
+    });
+
+    app.get(/.*/, function() {  
+        App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
+
+    });
+ 
+})();
+
+
+
+
+//ugly facebook crap
 
 $(document).ready(function(){
-  //submit post
-  $("#submitPost").click(function(e){
-    e.preventDefault();
-    $.ajax({type: "POST",
-            url: "../app/functions.php",
-            data: { post: $("#post").val(),category: $("#category").val()  },
-            success:function(result){
-              console.log('done'); // do nice animation
-    }});
-  });
-
-  //submit comment
-  $("#submitComment").click(function(e){
-      e.preventDefault();
-    $.ajax({type: "POST",
-            url: "../app/functions.php",
-            data: { comment: $("#comment").val(),postid: $("#postid").val()  },
-            success:function(result){
-              console.log('done'); // do nice animation
-    }});
-  });
-
-
 
   $.ajaxSetup({ cache: true });
   $.getScript('//connect.facebook.net/en_UK/all.js', function(){
@@ -291,37 +334,5 @@ $(document).ready(function(){
 
   });
 });
-
-
-
-
-// handle routing
-
-(function() {
- 
-    var app = Sammy('body');
- 
-    $(document).ready(function() {
-        app.run('#/posts');
-        app.run('#/post/:id');
-    });
-
-    var app = Sammy.apps.body;
- 
-    app.get('#/posts', function(context) {
-        console.log("You're in the Main route");
-        App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
-    });
-    app.get('#/post/:id', function() { 
-        App.getSinglePost( this.params['id'] );
-    });
-    app.post('#/search', function() {   
-        App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  this.params['find_posts'] );
-        return false;
-    }); 
- 
-})();
-
-
 
 
