@@ -1,6 +1,7 @@
-<section role="region" class="Posts Posts--list u-md-columnsFull u-columnsHalf" aria-label="Latest Posts">
+<section role="region" class="Posts Masonry Masonry--withGutter u-md-columnsFull u-columnsHalf">
+  <h3 class="Masonry-cell Masonry-cell--spanAll">Latest Posts</h3>
 {{#each this}}
-  <article class="Post" aria-labeledby="postHeading{{id}}"> 
+  <article class="Post Masonry-cell" aria-labeledby="postHeading{{id}}"> 
     <heading class="Post-heading Arrange">
       <h3 class="Post-title u-textNoWrap H5" id="postHeading{{id}}">{{ username }} Said:</h3>
       <time 
