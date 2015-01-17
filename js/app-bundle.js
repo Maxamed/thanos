@@ -237,6 +237,17 @@ this["Handlebars"]["templates"]["singlePost"] = Handlebars.template({"1":functio
 
 App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
 
+//navigation
+$( "body" ).on( "click", ".toggleNav", function() {
+  
+   $( "body" ).toggleClass('is-active');
+});
+$( "body" ).on( "click", ".OffCanvas-overlay", function() {
+   $( "body" ).toggleClass('is-active');
+});
+
+
+ 
 // handle routing
 
 (function() {
