@@ -10,6 +10,9 @@
     </heading>
     <div class="Post-content u-posRelative">
       <p aria-labelledby="postDate">{{{post}}}</p>
+      {{#if 0.posts.image}}
+        <img src='{{0.posts.image}}'> 
+      {{/if}}
       <div class="Post-comments u-posAbsolute">
         <svg class="Icon Icon-comments Post-commentsCountIcon">
           <use xlink:href="#Icon-comments" />

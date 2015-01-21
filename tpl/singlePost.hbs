@@ -5,6 +5,9 @@
   <div class="Post-content">
     {{{0.posts.post}}}
     <p><strong>Category:</strong> {{0.posts.category}}</p>
+    {{#if 0.posts.image}}
+      <img src='{{0.posts.image}}'> 
+    {{/if}}
   </div>
   <footer class="Post-meta">
     Posted on <time datetime="{{0.posts.machinetimestamp}}">{{0.posts.humantimestamp}}</time>.
