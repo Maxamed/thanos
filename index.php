@@ -24,7 +24,7 @@
 			<a href="#siteNav" aria-controls="siteNav" 
 				aria-expanded="false" 
 				aria-label="Toggle Navigation" 
-				class="Button" 
+				class="Button toggleNav" 
 				role="button" 
 				type="button">
 				<svg class="Icon">

@@ -12,17 +12,21 @@ function sPost($id){
     global $db;
     $arrPosts   = array();  
     $posts      = array();
-    $t          = intval($id);
-
+    $t          = intval($id); 
     $db->where ("id", $t); 
     $u = $db->getOne("posts"); 
 
     $dateee     = date('jS \of F Y h:i:s A',strtotime($u['createdat']));
+
+
+    preg_match('#(www\.|https?://)?[a-z0-9]+\.[a-z0-9]{2,4}\S*#i', $u['posts'], $matches);
+    $cleanPost =  preg_replace('|https?://www\.[a-z\.0-9]+|i', '', $u['posts']);
+ // "image"             => $matches[0],
     $arrPosts[] = array(
         "posts" => array(
                 "id"                => $u['id'],
                 "username"          => $u['username'],
-                "post"              => $u['posts'],
+                "post"              => $cleanPost ,
                 "category"          => $u['category'],
                 "spamCount"         => $u['isSpam'],
                 "humantimestamp"    => $dateee,
@@ -66,7 +70,7 @@ function allPosts() {
         $datee =  $timeAgo->inWords($u['createdat']); 
 
         //date('jS \of F Y h:i:s A',strtotime($u['createdat']));
-
+        preg_match('#(www\.|https?://)?[a-z0-9]+\.[a-z0-9]{2,4}\S*#i', $u['posts'], $matches);
         $hashPost = convertHashtags($u['posts']);
         $post = truncate($hashPost); 
         $allPosts[] = array(
@@ -74,7 +78,7 @@ function allPosts() {
             "id" => $u['id'],
             "username" => $u['username'],
             "commcount" => $u['comments'],
-            "post" => $post,
+            "post" => $post, 
             "category" => $u['category'],
             "spamCount" => $u['isSpam'],
             "humantimestamp" => $datee,

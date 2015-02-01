@@ -20,7 +20,6 @@ if(isset($_POST['post']))
         $usr = rand(1, 31);
         $db->where ("id", $usr); 
         $u = $db->getOne("names"); 
-
         $data = array(
             'posts' => $_POST['post'], 
             'hashtag'=> gethashtags($_POST['post']),
