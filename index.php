@@ -108,6 +108,63 @@
 		<main class="Grid Grid--withGutter Grid--alignCenter" id="viewPage" role="main">
 			<div class="Grid-cell u-sm-sizeFull u-md-size10of12 u-size8of12" id="pageView">
 				<!-- Page Views Here -->
+
+				<!-- Category List -->
+				<section>
+					<header>
+						<h2>Latest Posts</h2>
+					</header>
+
+					<!-- Each Block of Posts by category -->
+					<section>
+						<h3>Category Name</h3>
+						<ul class="Panel Panel--withPadding ">
+							<li class="Panel-body Panel-content LayoutFlex LayoutFlex--withGutter">
+								<strong class="LayoutFlex-cell">User Name</strong>
+								<span class="u-textTruncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime sint error at explicabo ducimus eum consequuntur, ut mollitia voluptate vero facilis provident. Tenetur, atque reiciendis nobis a dolorum, quos error.</span>
+								<time 
+					        datetime="{{machinetimestamp}}">
+					        <span class="u-hiddenVisually LayoutFlex-cell">Posted on:</span>20 minutes ago</time>
+					        <svg class="Icon">
+					          <use xlink:href="#Icon-comments" />
+					        </svg>
+					        <a href="" class="Panel-link"><span class="u-hiddenVisually">Got ot postname</span></a>
+							</li>
+							<li class="Panel-body Panel-content LayoutFlex LayoutFlex--withGutter">
+								<strong class="LayoutFlex-cell">User Name</strong>
+								<span class="u-textTruncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime sint error at explicabo ducimus eum consequuntur, ut mollitia voluptate vero facilis provident. Tenetur, atque reiciendis nobis a dolorum, quos error.</span>
+								<time 
+					        datetime="{{machinetimestamp}}">
+					        <span class="u-hiddenVisually LayoutFlex-cell">Posted on:</span>20 minutes ago</time>
+					        <svg class="Icon">
+					          <use xlink:href="#Icon-comments" />
+					        </svg>
+					        <a href="" class="Panel-link"><span class="u-hiddenVisually">Got ot postname</span></a>
+							</li>
+							<li class="Panel-body Panel-content LayoutFlex LayoutFlex--withGutter">
+								<strong class="LayoutFlex-cell">User Name</strong>
+								<span class="u-textTruncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime sint error at explicabo ducimus eum consequuntur, ut mollitia voluptate vero facilis provident. Tenetur, atque reiciendis nobis a dolorum, quos error.</span>
+								<time 
+					        datetime="{{machinetimestamp}}">
+					        <span class="u-hiddenVisually LayoutFlex-cell">Posted on:</span>20 minutes ago</time>
+					        <svg class="Icon">
+					          <use xlink:href="#Icon-comments" />
+					        </svg>
+					        <a href="" class="Panel-link"><span class="u-hiddenVisually">Got ot postname</span></a>
+							</li>
+						</ul>
+						<article>
+							
+						</article>
+						<article>
+							
+						</article>
+					</section>
+
+				</section>
+				<section>
+					<h3>Category 2name</h3>
+				</section>
 			</div>
 		</main>
 	</div>

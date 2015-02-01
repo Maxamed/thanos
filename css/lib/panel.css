@@ -170,7 +170,8 @@
   
 }
 
-.Panel-body + .Panel-footer {
+.Panel-body + .Panel-footer,
+.Panel-body + .Panel-body {
   border-top: var(--Panel-border);
   margin: 0;
 }
@@ -198,6 +199,7 @@
   display: block;
   height: 100%;
   left: 0;
+  margin: 0;
   position: absolute;
   right: 0;
   top: 0;

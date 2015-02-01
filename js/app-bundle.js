@@ -181,9 +181,9 @@ this["Handlebars"]["templates"]["singlePost"] = Handlebars.template({"1":functio
     + escapeExpression(((helper = (helper = helpers.commhumantimestamp || (depth0 != null ? depth0.commhumantimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"commhumantimestamp","hash":{},"data":data}) : helper)))
     + "\n </article>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression, buffer = "<article class=\"Post\">\n  <header class=\"Post-header\">\n    <h2 class=\"Post-title H5\">"
+  var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression, buffer = "<article class=\"Panel Panel--withPaddingSm\">\n  <header class=\"Panel-header Panel-content\">\n    <h2 class=\"Post-title H5\">"
     + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.username : stack1), depth0))
-    + " Said:</h2>\n  </header>\n  <div class=\"Post-content\">\n    ";
+    + " Said:</h2>\n  </header>\n  <div class=\"Panel-body Panel-content\">\n    ";
   stack1 = lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.post : stack1), depth0);
   if (stack1 != null) { buffer += stack1; }
   buffer += "\n    <p><strong>Category:</strong> "
@@ -191,18 +191,12 @@ this["Handlebars"]["templates"]["singlePost"] = Handlebars.template({"1":functio
     + "</p>\n";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.image : stack1), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  buffer += "  </div>\n  <footer class=\"Post-meta\">\n    Posted on <time datetime=\""
-    + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.machinetimestamp : stack1), depth0))
-    + "\">"
-    + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.humantimestamp : stack1), depth0))
-    + "</time>.\n    <ul>\n      <li>\n        <a href=\"\">\n          <svg class=\"Icon Icon-favorite\">\n            <use xlink:href=\"#Icon-favorite\" />\n          </svg>\n      </a></li>\n      <li><a class='isSpam' href=\"#/isSpam/"
+  buffer += "  </div>\n  <footer class=\"Panel-footer Panel-content\">\n    <form action=\"#/titan\" method=\"post\" id='commentSubmit' class=\"Arrange Arrange--withGutter\">\n      <fieldset class=\"Arrange-sizeFill\">    \n        <label for=\"\" class=\"Input\">\n          <span class=\"Input-label u-hiddenVisually\">Add Comment</span>\n          <textarea class=\"Input-control Input-controlMultiline\" placeholder=\"Comment\" name=\"comment\" required></textarea>\n        </label>\n        <input type=\"hidden\" name=\"postid\" value=\""
     + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.id : stack1), depth0))
-    + "\">Report Spam</a></li>\n    </ul>  \n  </footer> \n</article>\n<section role=\"region\" class=\"Comments\">\n  <header class=\"Comments-header\">\n    <h3>Comments</h3>\n    <a href=\"\">Add Comment</a>\n  </header>\n";
+    + "\">\n      </fieldset>\n      <fieldeset class=\"Arrange-sizeFit\">\n        <button class=\"Button\" type=\"submit\" name=\"commentSubmit\" id=\"submitComment\">\n          <span class=\"Button-content\" aria-label=\"Publish Comment\">\n           <svg class=\"Icon\">\n             <use xlink:href=\"#Icon-add\" />\n           </svg> \n          </span>\n        </button>\n      </fieldeset>\n  </form>  \n  </footer> \n</article>\n<section role=\"region\" class=\"Comments\">\n  <header class=\"Comments-header\">\n    <h3>Comments</h3>\n    <a href=\"\">Add Comment</a>\n  </header>\n";
   stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.comments : depth0), {"name":"each","hash":{},"fn":this.program(3, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "</section>\n<section role=\"region\" class=\"Sheet Sheet--posBottomRight Panel Panel--withPadding\">\n  <form action=\"#/titan\" method=\"post\" id='commentSubmit'>\n    <fieldset>\n      <legend>Add a Comment</legend>\n      <label for=\"exampleMessage\">Comment</label>\n      <textarea class=\"u-full-width\" placeholder=\"Hi Dave …\" name=\"comment\" required></textarea>\n      <input type=\"hidden\" name=\"postid\" value=\""
-    + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0['0'] : depth0)) != null ? stack1.posts : stack1)) != null ? stack1.id : stack1), depth0))
-    + "\">\n      <input class=\"button-primary\" type=\"submit\" id=\"submitComment\" value=\"Submit\"  name=\"commentSubmit\">\n    </fieldset>\n  </form>\n</section>";
+  return buffer + "</section>\n";
 },"useData":true});
 ;var App = (function () {
 

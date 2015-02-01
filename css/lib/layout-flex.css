@@ -21,10 +21,10 @@
 
 /* Gutters
    ========================================================================== */
-.LayoutFlex--withGutter {
+/*.LayoutFlex--withGutter {
   margin: 0 calc(-0.5 * var(--LayoutFlex-gutter-width));
 }
-.LayoutFlex--withGutter > .LayoutFlex-cell {
+*/.LayoutFlex--withGutter > .LayoutFlex-cell {
   padding: 0 calc(0.5 * var(--LayoutFlex-gutter-width));  
 }
 

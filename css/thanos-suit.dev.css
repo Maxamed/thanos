@@ -3513,9 +3513,10 @@ body > svg {
 /* Gutters
    ========================================================================== */
 
-.LayoutFlex--withGutter {
-  margin: 0 -0.75rem;
+/*.LayoutFlex--withGutter {
+  margin: 0 calc(-0.5 * var(--LayoutFlex-gutter-width));
 }
+*/
 
 .LayoutFlex--withGutter > .LayoutFlex-cell {
   padding: 0 0.75rem;
@@ -4123,7 +4124,8 @@ body > svg {
 
 
 
-.Panel-body + .Panel-footer {
+.Panel-body + .Panel-footer,
+.Panel-body + .Panel-body {
   border-top: .0625rem solid hsla(190, 6%, 78%, 1.0);
   margin: 0;
 }
@@ -4152,6 +4154,7 @@ body > svg {
   display: block;
   height: 100%;
   left: 0;
+  margin: 0;
   position: absolute;
   right: 0;
   top: 0;

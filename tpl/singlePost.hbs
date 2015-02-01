@@ -1,16 +1,16 @@
-<article class="Post">
-  <header class="Post-header">
+<article class="Panel Panel--withPaddingSm">
+  <header class="Panel-header Panel-content">
     <h2 class="Post-title H5">{{0.posts.username}} Said:</h2>
   </header>
-  <div class="Post-content">
+  <div class="Panel-body Panel-content">
     {{{0.posts.post}}}
     <p><strong>Category:</strong> {{0.posts.category}}</p>
     {{#if 0.posts.image}}
       <img src='{{0.posts.image}}'> 
     {{/if}}
   </div>
-  <footer class="Post-meta">
-    Posted on <time datetime="{{0.posts.machinetimestamp}}">{{0.posts.humantimestamp}}</time>.
+  <footer class="Panel-footer Panel-content">
+    {{!-- Posted on <time datetime="{{0.posts.machinetimestamp}}">{{0.posts.humantimestamp}}</time>.
     <ul>
       <li>
         <a href="">
@@ -19,7 +19,25 @@
           </svg>
       </a></li>
       <li><a class='isSpam' href="#/isSpam/{{0.posts.id}}">Report Spam</a></li>
-    </ul>  
+    </ul> --}}
+    <form action="#/titan" method="post" id='commentSubmit' class="Arrange Arrange--withGutter">
+      <fieldset class="Arrange-sizeFill">    
+        <label for="" class="Input">
+          <span class="Input-label u-hiddenVisually">Add Comment</span>
+          <textarea class="Input-control Input-controlMultiline" placeholder="Comment" name="comment" required></textarea>
+        </label>
+        <input type="hidden" name="postid" value="{{0.posts.id}}">
+      </fieldset>
+      <fieldeset class="Arrange-sizeFit">
+        <button class="Button" type="submit" name="commentSubmit" id="submitComment">
+          <span class="Button-content" aria-label="Publish Comment">
+           <svg class="Icon">
+             <use xlink:href="#Icon-add" />
+           </svg> 
+          </span>
+        </button>
+      </fieldeset>
+  </form>  
   </footer> 
 </article>
 <section role="region" class="Comments">
@@ -35,15 +53,4 @@
    {{{comment}}} on {{commhumantimestamp}}
  </article>
 {{/each}}
-</section>
-<section role="region" class="Sheet Sheet--posBottomRight Panel Panel--withPadding">
-  <form action="#/titan" method="post" id='commentSubmit'>
-    <fieldset>
-      <legend>Add a Comment</legend>
-      <label for="exampleMessage">Comment</label>
-      <textarea class="u-full-width" placeholder="Hi Dave …" name="comment" required></textarea>
-      <input type="hidden" name="postid" value="{{0.posts.id}}">
-      <input class="button-primary" type="submit" id="submitComment" value="Submit"  name="commentSubmit">
-    </fieldset>
-  </form>
 </section>
