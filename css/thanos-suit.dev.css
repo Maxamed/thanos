@@ -974,7 +974,7 @@ ul {
  * Supports: 2, 4, 5, 6, 8, 10, 12 section
  */
 
-@media (max-width: 45em) {
+@media (min-width: 30.75em) and (max-width: 45em) {
   .u-md-afterNone {
     margin-left: 0 !important;
   }
@@ -1466,7 +1466,7 @@ ul {
  * Supports: 2, 3, 4, 5, 6, 8, 10, 12 section
  */
 
-@media (max-width: 45em) {
+@media (min-width: 30.75em) and (max-width: 45em) {
   .u-md-beforeNone {
     margin-left: 0 !important;
   }
@@ -2100,7 +2100,7 @@ ul {
  * Size: breakpoint 2 (medium)
  */
 
-@media (max-width: 45em) {
+@media (min-width: 30.75em) and (max-width: 45em) {
   /**
    * Make an element shrink wrap its content.
    */
@@ -2906,6 +2906,16 @@ ul {
     ========================================================================== */
   /* Colours
      ========================================================================== */
+  /* For White/Light backgrounds */
+  /* Prmary text colour */
+  /* Secondary Text and Icons */
+  /* Used for Disabled and Hint text */
+  /* Dividers */
+  /* For Black/Dark backgrounds */
+  /* Primary Colours */
+  /* Primary Colour */
+  /* Secondary Colours */
+  /* Secondary Colour */
   /*  Primary Colours */
   /* Base Grey - increment the brightness by 6 */
   /* Shadows
@@ -2941,7 +2951,6 @@ ul {
 html,
 body {
   height: 100%;
-  height: 100vh;
   min-height: 100%;
 }
 
@@ -3662,6 +3671,23 @@ body > svg {
   }
 }
 
+/** @define List */
+
+
+
+
+
+
+
+/* List Modifiers
+   ========================================================================== */
+
+
+
+
+
+
+
 /** @define Loader */
 
 
@@ -3839,7 +3865,7 @@ body > svg {
   }
 }
 
-@media (max-width: 45em) {
+@media (min-width: 30.75em) and (max-width: 45em) {
   .u-md-columnsFull {
     -webkit-column-count: 1;
     -moz-column-count: 1;
@@ -3926,6 +3952,25 @@ body > svg {
   position: relative;
 }
 
+/* Adjacent Panel Spacing
+   ========================================================================== */
+
+.Panel + .Panel {
+  margin-top: 0.75rem;
+}
+
+.Panel--withSpaceSm + .Panel {
+  margin-top: 0.375rem;
+}
+
+.Panel--withSpaceMd + .Panel {
+  margin-top: 1.5rem;
+}
+
+.Panel--withSpaceLg + .Panel {
+  margin-top: 3rem;
+}
+
 /* ==========================================================================
    Panel Padding
    ========================================================================== */
@@ -3955,43 +4000,43 @@ body > svg {
 
 /* Small Padding */
 
-.Panel--withPaddingSmall .Panel-content {
+.Panel--withPaddingSm .Panel-content {
   padding: 0 0.375rem;
 }
 
-.Panel--withPaddingSmall .Panel-content:before {
+.Panel--withPaddingSm .Panel-content:before {
   margin-bottom: 0.3125rem;
 }
 
-.Panel--withPaddingSmall .Panel-content:after {
+.Panel--withPaddingSm .Panel-content:after {
   margin-top: 0.3125rem;
 }
 
 /* Medium Padding */
 
-.Panel--withPaddingMedium .Panel-content {
+.Panel--withPaddingMd .Panel-content {
   padding: 0 1.5rem;
 }
 
-.Panel--withPaddingMedium .Panel-content:before {
+.Panel--withPaddingMd .Panel-content:before {
   margin-bottom: 1.4375rem;
 }
 
-.Panel--withPaddingMedium .Panel-content:after {
+.Panel--withPaddingMd .Panel-content:after {
   margin-top: 1.4375rem;
 }
 
 /* Larger Padding */
 
-.Panel--withPaddingLarge .Panel-content {
+.Panel--withPaddingLg .Panel-content {
   padding: 0 3rem;
 }
 
-.Panel--withPaddingLarge .Panel-content:before {
+.Panel--withPaddingLg .Panel-content:before {
   margin-bottom: 2.9375rem;
 }
 
-.Panel--withPaddingLarge .Panel-content:after {
+.Panel--withPaddingLg .Panel-content:after {
   margin-top: 2.9375rem;
 }
 
@@ -4004,24 +4049,24 @@ body > svg {
 }
 
 .Panel--withOutline {
-  box-shadow: inset 0 0 0 .0625rem hsla(190, 6%, 66%, 1.0);
+  box-shadow: inset 0 0 0 .0625rem hsla(190, 6%, 78%, 1.0);
 }
 
 .Panel--withOutlineRaised {
-  box-shadow: inset 0 -0.125rem hsla(190, 6%, 66%, 1.0);
+  box-shadow: inset 0 -0.125rem hsla(190, 6%, 78%, 1.0);
 }
 
 /* ==========================================================================
    Panel Themes
    ========================================================================== */
 
-.Panel--well {
+.Panel--themeWell {
   background: hsla(190, 12%, 90%, 1.0);
   border-color: hsla(190, 6%, 66%, 1.0);
   box-shadow: inset 0 .0625rem 0.1875rem 0 hsla(190, 6%, 72%, 1.0);
 }
 
-.Panel--alertError {
+.Panel--themeAlert {
   background: #e5524c;
   border-color: #bc322d;
 }
@@ -4030,17 +4075,17 @@ body > svg {
    ========================================================================== */
 
 .Panel--outline {
-  border-color: hsla(190, 6%, 66%, 1.0);
+  border-color: hsla(190, 6%, 78%, 1.0);
 }
 
 .Panel--outlineDashed {
-  border-color: hsla(190, 6%, 66%, 1.0);
+  border-color: hsla(190, 6%, 78%, 1.0);
   border-style: dashed;
 }
 
 .Panel--raised {
-  border-color: hsla(190, 6%, 66%, 1.0);
-  box-shadow: 0 0.1875rem 0 0 hsla(190, 6%, 66%, 1.0);
+  border-color: hsla(190, 6%, 78%, 1.0);
+  box-shadow: 0 0.1875rem 0 0 hsla(190, 6%, 78%, 1.0);
 }
 
 /* ==========================================================================
@@ -4050,14 +4095,8 @@ body > svg {
 /* Global Class for all Panel elements */
 
 .Panel-content {
-  display: block;
-  margin: 0;
+  margin-top: 0;
   position: relative;
-}
-
-.Panel-content + .Panel-content {
-  border-top: .0625rem solid hsla(190, 6%, 66%, 1.0);
-  margin: 0;
 }
 
 /* Panel Header
@@ -4065,18 +4104,36 @@ body > svg {
 
 
 
+.Panel-title {
+  margin: 0;
+}
+
+.Panel-titleSub {
+  display: block;
+  margin: 0;
+}
+
 /* Panel Body
    ========================================================================== */
 
-.Panel-body {
-  margin-top: 0;
-  overflow-y: auto;
-}
+
 
 /* Panel Footer
    ========================================================================== */
 
 
+
+.Panel-body + .Panel-footer {
+  border-top: .0625rem solid hsla(190, 6%, 78%, 1.0);
+  margin: 0;
+}
+
+/* Panel Content Modifiers
+   ========================================================================== */
+
+.Panel-content.is-scrollable {
+  overflow-y: auto;
+}
 
 /**
  * Panel Link
@@ -4119,7 +4176,7 @@ body > svg {
    ========================================================================== */
 
 .Post-heading {
-  border-bottom: .0625rem solid hsla(190, 6%, 48%, 1.0);
+  /* border-bottom: var(--custom-border-width) solid var(--base-colour-grey--48); */
 }
 
 .Post-title {
@@ -4128,20 +4185,22 @@ body > svg {
   position: relative;
 }
 
-.Post-title:after {
+/*.Post-title:after {
   background: currentColor;
-  bottom: -0.0625rem;
+  bottom: -calc(var(--custom-border-width));
   content: '';
   display: block;
-  height: 0.125rem;
+  height: calc(var(--custom-border-width) * 2);
   position: absolute;
   width: 100%;
 }
+*/
 
-.Post-heading .Post-date {
+/*.Post-heading .Post-date {
   font-weight: normal;
-  color: hsla(190, 6%, 36%, 1.0);
+  color: var(--base-colour-grey--36);
 }
+*/
 
 /* Post Content
    ========================================================================== */
@@ -4234,6 +4293,22 @@ body > svg {
 
 /* @media Rules 
    ========================================================================== */
+
+/** @define Sheet */
+
+
+
+
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media () {
+
+}
 
 /** @define Tag */
 
@@ -4576,7 +4651,7 @@ small,
 
 /* Medium Screens (Tablet) */
 
-@media (max-width: 45em) {
+@media (min-width: 30.75em) and (max-width: 45em) {
   /* Hidden */
 
   .u-md-hidden {

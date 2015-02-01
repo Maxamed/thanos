@@ -32,7 +32,7 @@
 				</svg>  
 			</a>
 			<a class="Site-logo" href="">Thanos</a>
-			<form action="#/search" class="SiteSearch Panel Panel--withPaddingSmall Panel--raised u-shapeRounded" method="POST">
+			<form action="#/search" class="SiteSearch Panel Panel--withPaddingSm Panel--raised u-shapeRounded" method="POST">
 				<fieldset class="FieldGroup FieldGroup--inline Panel-content">
 					<legend class="u-hiddenVisually">Search for Posts</legend>
 					<ul class="Arrange Arrange--widthGutter">
@@ -60,11 +60,11 @@
 		</div>
 	</header>
 	<aside 
-		class="Panel Panel--withPaddingMedium OffCanvas-panel u-posFixed u-size3of12 u-md-size8of12 u-sm-size10of12"
+		class="Panel Panel--withPaddingMd OffCanvas-panel u-posFixed u-size3of12 u-md-size8of12 u-sm-size10of12"
 		id="siteNav" 
 		role="complementary">    
 
-		<nav class="SiteNav Panel-content" role="nav">
+		<nav class="SiteNav Panel-content is-scrollable" role="nav">
 			<dl class="SiteNav-groups">
 				<dt class="SiteNav-categoryTitle">All Shouts</dt>
 				<dd class="SiteNav-categoryList">
@@ -106,11 +106,12 @@
 	================================================== -->
 	<div class="Container">
 		<main class="Grid Grid--withGutter Grid--alignCenter" id="viewPage" role="main">
-			<div class="Grid-cell" id="pageView">
+			<div class="Grid-cell u-sm-sizeFull u-md-size10of12 u-size8of12" id="pageView">
 				<!-- Page Views Here -->
 			</div>
 		</main>
 	</div>
+	<footer class="SiteFooter" role="contentinfo">
 	<div
 		class="fb-like"
 		data-share="true"
@@ -118,7 +119,6 @@
 		data-show-faces="true">
 	</div><a href="https://twitter.com/dewalf" class="twitter-follow-button" data-show-count="false">Follow @dewalf</a>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-	<footer class="SiteFooter" role="contentinfo">
 		<!-- Footer
 		================================================ -->
 	</footer>

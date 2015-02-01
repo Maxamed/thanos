@@ -4,7 +4,7 @@
   --Panel-background: #fff;
   --Panel-well-background: var(--base-colour-grey);
   --Panel-border-width: var(--custom-border-width); /* 2px */
-  --Panel-border-colour: var(--base-colour-grey--66);
+  --Panel-border-colour: var(--base-colour-grey--78);
   --Panel-border-style: solid;
   --Panel-border: var(--Panel-border-width) var(--Panel-border-style) var(--Panel-border-colour);
   --Panel-border-radius: var(--custom-border-radius);
@@ -23,6 +23,21 @@
   background: var(--Panel-background);
   position: relative;
 }
+
+/* Adjacent Panel Spacing
+   ========================================================================== */
+.Panel + .Panel {
+  margin-top: var(--Panel-padding);  
+}
+.Panel--withSpaceSm + .Panel {
+  margin-top: var(--Panel-padding--small);
+} 
+.Panel--withSpaceMd + .Panel {
+  margin-top: var(--Panel-padding--medium);
+} 
+.Panel--withSpaceLg + .Panel {
+  margin-top: var(--Panel-padding--large);
+} 
 
 /* ==========================================================================
    Panel Padding
@@ -47,34 +62,34 @@
   margin-top: calc(var(--Panel-padding) - var(--Panel-border-width));
 }
 /* Small Padding */
-.Panel--withPaddingSmall .Panel-content {
+.Panel--withPaddingSm .Panel-content {
   padding: 0 var(--Panel-padding--small);
 }
-.Panel--withPaddingSmall .Panel-content:before {
+.Panel--withPaddingSm .Panel-content:before {
   margin-bottom: calc(var(--Panel-padding--small) - var(--Panel-border-width));
 }
-.Panel--withPaddingSmall .Panel-content:after {
+.Panel--withPaddingSm .Panel-content:after {
   margin-top: calc(var(--Panel-padding--small) - var(--Panel-border-width));
 }
 
 /* Medium Padding */
-.Panel--withPaddingMedium .Panel-content {
+.Panel--withPaddingMd .Panel-content {
   padding: 0 var(--Panel-padding--medium);
 }
-.Panel--withPaddingMedium .Panel-content:before {
+.Panel--withPaddingMd .Panel-content:before {
   margin-bottom: calc(var(--Panel-padding--medium) - var(--Panel-border-width));
 }
-.Panel--withPaddingMedium .Panel-content:after {
+.Panel--withPaddingMd .Panel-content:after {
   margin-top: calc(var(--Panel-padding--medium) - var(--Panel-border-width));
 }
 /* Larger Padding */
-.Panel--withPaddingLarge .Panel-content {
+.Panel--withPaddingLg .Panel-content {
   padding: 0 var(--Panel-padding--large);
 }
-.Panel--withPaddingLarge .Panel-content:before {
+.Panel--withPaddingLg .Panel-content:before {
   margin-bottom: calc(var(--Panel-padding--large) - var(--Panel-border-width));
 }
-.Panel--withPaddingLarge .Panel-content:after {
+.Panel--withPaddingLg .Panel-content:after {
   margin-top: calc(var(--Panel-padding--large) - var(--Panel-border-width));
 }
 
@@ -98,12 +113,12 @@
 /* ==========================================================================
    Panel Themes
    ========================================================================== */
-.Panel--well {
+.Panel--themeWell {
   background: var(--Panel-well-background);
   border-color: var(--base-colour-grey--66);
   box-shadow: inset 0 var(--custom-shadow-width) var(--custom-shadow-blur-radius) 0 var(--base-colour-grey--72);
 }
-.Panel--alertError {
+.Panel--themeAlert {
   background: var(--base-colour-alertError);
   border-color: var(--base-colour-alertError--accent);
 }
@@ -128,31 +143,44 @@
 
 /* Global Class for all Panel elements */
 .Panel-content {
-  display: block;
-  margin: 0;
+  margin-top: 0;
   position: relative;
-}
-.Panel-content + .Panel-content {
-  border-top: var(--Panel-border);
-  margin: 0;
 }
 /* Panel Header
    ========================================================================== */
 .Panel-header {
   
 }
+.Panel-title {
+  margin: 0;
+}
+.Panel-titleSub {
+  display: block;
+  margin: 0;    
+}
 
 /* Panel Body
    ========================================================================== */
 .Panel-body {
-  margin-top: 0;
-  overflow-y: auto;
+  
 }
 /* Panel Footer
    ========================================================================== */
 .Panel-footer {
   
 }
+
+.Panel-body + .Panel-footer {
+  border-top: var(--Panel-border);
+  margin: 0;
+}
+
+/* Panel Content Modifiers
+   ========================================================================== */
+.Panel-content.is-scrollable {
+  overflow-y: auto;
+}
+
 
 /**
  * Panel Link

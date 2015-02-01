@@ -15,14 +15,14 @@
 /* Post Heading
    ========================================================================== */
 .Post-heading {
-  border-bottom: var(--custom-border-width) solid var(--base-colour-grey--48);
+  /* border-bottom: var(--custom-border-width) solid var(--base-colour-grey--48); */
 }
 .Post-title {
   display: inline-block;
   /*padding-bottom: calc(var(--custom-gutter-width) / 4 - var(--custom-border-width));*/
   position: relative;
 }
-.Post-title:after {
+/*.Post-title:after {
   background: currentColor;
   bottom: -calc(var(--custom-border-width));
   content: '';
@@ -31,10 +31,12 @@
   position: absolute;
   width: 100%;
 }
-.Post-heading .Post-date {
+*/
+/*.Post-heading .Post-date {
   font-weight: normal;
   color: var(--base-colour-grey--36);
 }
+*/
 /* Post Content
    ========================================================================== */
 .Post-content {

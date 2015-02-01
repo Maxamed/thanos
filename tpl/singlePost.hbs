@@ -25,7 +25,7 @@
     <a href="">Add Comment</a>
   </header>
   {{#each comments}}
-  <article class="Post-Comment">
+  <article class="Panel">
     <svg class="Icon Icon-person">
       <use xlink:href="#Icon-person" />
     </svg>
@@ -33,7 +33,7 @@
  </article>
 {{/each}}
 </section>
-<section role="region">
+<section role="region" class="Sheet Sheet--posBottomRight Panel Panel--withPadding">
   <form action="#/titan" method="post" id='commentSubmit'>
     <fieldset>
       <legend>Add a Comment</legend>

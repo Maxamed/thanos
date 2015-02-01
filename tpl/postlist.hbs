@@ -1,27 +1,31 @@
-<section role="region" class="Posts Masonry Masonry--withGutter u-md-columnsFull u-columnsHalf">
-  <h3 class="Masonry-cell Masonry-cell--spanAll">Latest Posts</h3>
+<section role="region" class="Posts">
+  <header class="PageTitle">
+    <h3 class="PageTitle-heading">Latest Posts</h3>
+  </header>
 {{#each this}}
-  <article class="Post Masonry-cell" aria-labeledby="postHeading{{id}}"> 
-    <heading class="Post-heading Arrange">
+  <article class="Panel Panel--withPadding u-shapeRounded" aria-labeledby="postHeading{{id}}"> 
+    <header class="Panel-content Panel-heading">
       <h3 class="Post-title u-textNoWrap H5" id="postHeading{{id}}">{{ username }} Said:</h3>
       <time 
-        class="Post-date u-textRight Arrange-sizeFit" 
-        datetime="{{dateFormat timestamp format="MMMM YYYY"}}">{{dateFormat timestamp format="LLLL"}}</time>
-    </heading>
-    <div class="Post-content u-posRelative">
+        class="Post-date Copy--small" 
+        datetime="{{machinetimestamp}}"
+        id="postDate">
+        <span class="u-hiddenVisually">Posted:</span>{{humantimestamp}}
+      </time>
+    </header>
+    <div class="Panel-content Panel-body u-posRelative">
       <p aria-labelledby="postDate">{{{post}}}</p>
-      <div class="Post-comments u-posAbsolute">
+      <div class="Post-content u-posAbsolute">
         <svg class="Icon Icon-comments Post-commentsCountIcon">
           <use xlink:href="#Icon-comments" />
         </svg>
         <span class="Post-commentsCount">{{commcount}}<span class="u-hiddenVisually"> comments in this post</span></span>
       </div>
-    </div> 
-    <a href="/#/post/{{id}}" data-PostId="{{id}}" class="Post-link u-posAbsolute u-block">
-      <span class="u-hiddenVisually">View Entire Post</span>
-    </a>
-
-    <footer class="Post-meta">
+      <a href="/#/post/{{id}}" data-PostId="{{id}}" class="Post-link u-posAbsolute u-block">
+        <span class="u-hiddenVisually">View Entire Post</span>
+      </a>
+    </div>
+    <footer class="Panel-content Panel-footer">
       <ul class="u-alignMiddle Arrange">
         <li class="Arrange-sizeFit">
           <a href="#" class="Copy--small Tag Tag--default">{{category}}</a>
@@ -46,15 +50,12 @@
             <span class="u-hiddenVisually">Share on Twitter</span>
           </a>
         </li>
-        <li class="u-inline">
-        <time datetime="{{machinetimestamp}}">{{humantimestamp}}</time>
-        </li> 
       </ul>  
     </footer>
   </article> 
 {{/each}}
 </section>
-<section role="region">
+<section role="region" class="Sheet Sheet--postionBottomRight Panel">
   <form action="#/gaunlet" method="post">
     <fieldset>
       <legend id="createPostHeading" class="H3">Create New Post</legend> 
