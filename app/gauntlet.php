@@ -55,6 +55,34 @@ function sPost($id){
  
 }
 
+//print single category
+
+function categoryPosts($id){
+
+    global $db;
+    $arrPosts   = array();   
+    $t          = intval($id); 
+    $db->where ("category", $t); 
+    $u = $db->getOne("posts"); 
+
+    $dateee     = date('jS \of F Y h:i:s A',strtotime($u['createdat']));
+
+ 
+    $arrPosts[] = array( 
+                "id"                => $u['id'],
+                "username"          => $u['username'],
+                "post"              => $u['posts'] ,
+                "category"          => $u['category'],
+                "spamCount"         => $u['isSpam'],
+                "humantimestamp"    => $dateee,
+                "machinetimestamp"  => $u['createdat']
+                );
+    return $arrPosts;
+
+
+
+}
+
 //print all posts
 
 function allPosts() {  

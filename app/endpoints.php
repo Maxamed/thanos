@@ -34,6 +34,12 @@ $app->get("/post/:id/comments", function ($id) use ($app) {
     echo json_encode($s);
 });
 
+// view category
+$app->get("/category/:id", function ($id) use ($app) {
+    $s = categoryPosts($id); 
+    $app->response()->header("Content-Type", "application/json");
+    echo json_encode($s);
+});
  
 
 
