@@ -79,9 +79,40 @@ Handlebars.registerHelper('dateFormat', function(context, block) {
 this["Handlebars"] = this["Handlebars"] || {};
 this["Handlebars"]["templates"] = this["Handlebars"]["templates"] || {};
 
-this["Handlebars"]["templates"]["categoryIndex"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  return "";
-},"useData":true});
+this["Handlebars"]["templates"]["categoryIndex"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "              <li class=\"Panel-body Panel-content LayoutFlex LayoutFlex--withGutter\">\n                <strong class=\"LayoutFlex-cell\" id=\"postHeading"
+    + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
+    + "\">"
+    + escapeExpression(((helper = (helper = helpers.username || (depth0 != null ? depth0.username : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"username","hash":{},"data":data}) : helper)))
+    + " </strong>\n                <span class=\"u-textTruncate\">";
+  stack1 = ((helper = (helper = helpers.post || (depth0 != null ? depth0.post : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"post","hash":{},"data":data}) : helper));
+  if (stack1 != null) { buffer += stack1; }
+  return buffer + "</span>\n                <time   datetime=\""
+    + escapeExpression(((helper = (helper = helpers.machinetimestamp || (depth0 != null ? depth0.machinetimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"machinetimestamp","hash":{},"data":data}) : helper)))
+    + "\">\n                  <span class=\"u-hiddenVisually LayoutFlex-cell\">Posted </span>"
+    + escapeExpression(((helper = (helper = helpers.humantimestamp || (depth0 != null ? depth0.humantimestamp : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"humantimestamp","hash":{},"data":data}) : helper)))
+    + "</time>\n                  <svg class=\"Icon\">\n                    <use xlink:href=\"#Icon-comments\" />\n                  </svg>\n                  <a href=\"\" class=\"Panel-link\"><span class=\"u-hiddenVisually\">Got ot postname</span></a>\n              </li>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var stack1, buffer = "        <section>\n          <header>\n            <h2>Latest Posts</h2>\n          </header>\n          <!-- Each Block of Posts by category -->\n          <section>\n            <h3>Category 1</h3> <a href=\"#/category/1\">Link to posts in category 1</a>\n            <ul class=\"Panel Panel--withPadding \">\n";
+  stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.cat1 : depth0), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  buffer += "            </ul>\n          </section> \n        <!-- Each Block of Posts by category -->\n\n        <!-- Each Block of Posts by category -->\n          <section>\n            <h3>Category 2</h3><a href=\"#/category/2\">Link to posts in category 2</a>\n            <ul class=\"Panel Panel--withPadding \">\n";
+  stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.cat2 : depth0), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  buffer += "            </ul>\n          </section>\n        <!-- Each Block of Posts by category -->\n\n                <!-- Each Block of Posts by category -->\n          <section>\n            <h3>Category 3</h3><a href=\"#/category/3\">Link to posts in category 3</a>\n            <ul class=\"Panel Panel--withPadding \">\n";
+  stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.cat3 : depth0), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  buffer += "            </ul>\n          </section>\n        <!-- Each Block of Posts by category -->\n\n\n        </section>\n \n</section>\n";
+  stack1 = this.invokePartial(partials.compose, '', 'compose', depth0, undefined, helpers, partials, data);
+  if (stack1 != null) { buffer += stack1; }
+  return buffer;
+},"usePartial":true,"useData":true});
+
+
+
+this["Handlebars"]["templates"]["compose"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  return "<section role=\"region\" class=\"Sheet Sheet--postionBottomRight Panel\">\n  <form action=\"#/gaunlet\" method=\"post\">\n    <fieldset>\n      <legend id=\"createPostHeading\" class=\"H3\">Create New Post</legend> \n              \n      <label for=\"post\" class=\"Input\">\n        <span class=\"Input-label\">What's on Your Mind?</span>\n        <textarea cols=\"40\" rows=\"8\" name=\"post\" id=\"post\" required></textarea>\n      </label>\n      <label for=\"select-choice\" class=\"Input\"> \n        <span class=\"Input-label\">Post Category</span>\n        <select name=\"category\" id=\"category\">\n          <option value=\"1\">F MY LIFE</option>\n          <option value=\"2\">First World Problems</option>\n          <option value=\"3\">Just Because</option>\n        </select>\n      </label>\n      \n      <button type=\"submit\" name=\"submit\" id=\"submit\" class=\"Button u-sm-sizeFull\">Publish Post</button>\n      \n    </fieldset>\n  </form>\n</section>";
+  },"useData":true});
 
 
 
@@ -123,10 +154,10 @@ this["Handlebars"]["templates"]["postlist"] = Handlebars.template({"1":function(
     + escapeExpression(((helper = (helper = helpers.post || (depth0 != null ? depth0.post : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"post","hash":{},"data":data}) : helper)))
     + "\">\n            <svg class=\"Icon Icon-twitter\">\n              <use xlink:href=\"#Icon-twitter\" />\n            </svg>\n            <span class=\"u-hiddenVisually\">Share on Twitter</span>\n          </a>\n        </li>\n      </ul>  \n    </footer>\n  </article> \n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, buffer = "<section role=\"region\" class=\"Posts\">\n  <header class=\"PageTitle\">\n    <h3 class=\"PageTitle-heading\">Latest Posts</h3>\n  </header>\n";
+  var stack1, buffer = "<section role=\"region\" class=\"Posts\">\n  <header class=\"PageTitle\">\n    <h3 class=\"PageTitle-heading\">List category 1</h3>\n  </header>\n";
   stack1 = helpers.each.call(depth0, depth0, {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "</section>\n<section role=\"region\" class=\"Sheet Sheet--postionBottomRight Panel\">\n  <form action=\"#/gaunlet\" method=\"post\">\n    <fieldset>\n      <legend id=\"createPostHeading\" class=\"H3\">Create New Post</legend> \n              \n      <label for=\"post\" class=\"Input\">\n        <span class=\"Input-label\">What's on Your Mind?</span>\n        <textarea cols=\"40\" rows=\"8\" name=\"post\" id=\"post\" required></textarea>\n      </label>\n      <label for=\"select-choice\" class=\"Input\"> \n        <span class=\"Input-label\">Post Category</span>\n        <select name=\"category\" id=\"category\">\n          <option value=\"1\">F MY LIFE</option>\n          <option value=\"2\">First World Problems</option>\n          <option value=\"3\">Just Because</option>\n        </select>\n      </label>\n      \n      <button type=\"submit\" name=\"submit\" id=\"submit\" class=\"Button u-sm-sizeFull\">Publish Post</button>\n      \n    </fieldset>\n  </form>\n</section>\n";
+  return buffer + "</section> \n";
 },"useData":true});
 
 
@@ -199,7 +230,7 @@ this["Handlebars"]["templates"]["singlePost"] = Handlebars.template({"1":functio
   return buffer + "</section>\n";
 },"useData":true});
 ;var App = (function () {
-
+Handlebars.partials = Handlebars.templates;
   var singlePostURL = "http://thanos.pandora.dev/app/endpoints.php/post/"
   , $viewContainer   = $('#pageView')
   , allPostsCall 
@@ -209,13 +240,24 @@ this["Handlebars"]["templates"]["singlePost"] = Handlebars.template({"1":functio
   
   allPostsCall    = function( req ) { $.when( $.ajax( req ) ).done(doAllView); };
   getSinglePost   = function( postID ) { $.when( $.ajax( singlePostURL+postID ) ).done(doSingleView); };
-  getSearch       = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doSRPView); }
+  getSearch       = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doSRPView); };
+  getCategoryView = function(reqURL,CatID){  
+        $.when( $.ajax( reqURL+CatID ) ).done( doCatList);  
+      }
 
   doAllView       = function(jsonObj){  
+    $viewContainer.empty();
+    var template  = Handlebars.templates.categoryIndex(jsonObj);
+    $viewContainer.html(template); 
+  }
+
+  doCatList       = function(jsonObj){  
+    console.log(jsonObj);
     $viewContainer.empty();
     var template  = Handlebars.templates.postlist(jsonObj);
     $viewContainer.html(template); 
   }
+
   doSRPView       = function(jsonObj){ 
     $viewContainer.empty();
     var template  = Handlebars.templates.searchResults(jsonObj);
@@ -228,17 +270,18 @@ this["Handlebars"]["templates"]["singlePost"] = Handlebars.template({"1":functio
   }
  
   return {
-    getAllPosts   : function( reqURL ) { allPostsCall(reqURL);},
-    getSinglePost : function(postID){ getSinglePost(postID);},
-    searchPosts   : function(reqURL,searchTerm){ getSearch(reqURL,searchTerm);}
+    getAllPosts     : function( reqURL ) { allPostsCall(reqURL);},
+    getSinglePost   : function(postID){ getSinglePost(postID);},
+    searchPosts     : function(reqURL,searchTerm){ getSearch(reqURL,searchTerm);},
+    getCategoryList : function(reqURL,CatID){ getCategoryView(reqURL,CatID);  }
   };
  
 })();
 
-App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
+App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/categories");
 
 //navigation
-$( "body" ).on( "click", ".toggleNav", function() {
+$( "body" ).on( "click", ".toggleNav", function() { 
   
    $( "body" ).toggleClass('is-active');
 });
@@ -256,7 +299,8 @@ $( "body" ).on( "click", ".OffCanvas-overlay", function() {
  
     app.run('#/posts');
     app.run('#/post/:id');
-    app.run('#/isSpam/:id');
+    app.run('#/isSpam/:id'); 
+    app.run('#/category/:id'); 
 
     var app = Sammy.apps.body;
  
@@ -268,7 +312,7 @@ $( "body" ).on( "click", ".OffCanvas-overlay", function() {
             url: "../app/functions.php",
             data: { post: this.params['post'],category: this.params['category'] },
             success:function(result){
-              App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
+              App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/categories");
             }
           });
 
@@ -288,11 +332,16 @@ $( "body" ).on( "click", ".OffCanvas-overlay", function() {
     });
 
     app.get('#/posts', function(context) {
-        App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
+        App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/categories");
     });
     app.get('#/post/:id', function() { 
         App.getSinglePost( this.params['id'] );
     });
+    app.get('#/category/:id', function() { 
+        App.getCategoryList( "http://thanos.pandora.dev/app/endpoints.php/category/",this.params['id'] );  
+    });
+
+
     app.post('#/search', function() {   
         App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  this.params['find_posts'] );
         return false;
@@ -308,7 +357,7 @@ $( "body" ).on( "click", ".OffCanvas-overlay", function() {
     });
 
     app.get(/.*/, function() {  
-        App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
+        App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/categories");
 
     });
  

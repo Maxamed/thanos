@@ -13,6 +13,13 @@ $app->get("/posts", function () use ($app) {
     echo json_encode($posts);
 });
 
+// view view all posts split by category
+$app->get("/categories", function () use ($app) {
+    $s = categories(); 
+    $app->response()->header("Content-Type", "application/json");
+    echo json_encode($s);
+});
+
 //view single post
 $app->get("/post/:id", function ($id) use ($app) {
     $s = sPost($id); 
@@ -40,6 +47,7 @@ $app->get("/category/:id", function ($id) use ($app) {
     $app->response()->header("Content-Type", "application/json");
     echo json_encode($s);
 });
+
  
 
 

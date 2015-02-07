@@ -63,20 +63,24 @@ function categoryPosts($id){
     $arrPosts   = array();   
     $t          = intval($id); 
     $db->where ("category", $t); 
-    $u = $db->getOne("posts"); 
+    $posts = $db->get("posts"); 
 
-    $dateee     = date('jS \of F Y h:i:s A',strtotime($u['createdat']));
+    foreach ($posts as $u) {
 
- 
-    $arrPosts[] = array( 
-                "id"                => $u['id'],
-                "username"          => $u['username'],
-                "post"              => $u['posts'] ,
-                "category"          => $u['category'],
-                "spamCount"         => $u['isSpam'],
-                "humantimestamp"    => $dateee,
-                "machinetimestamp"  => $u['createdat']
-                );
+        $dateee     = date('jS \of F Y h:i:s A',strtotime($u['createdat']));
+
+     
+        $arrPosts[] = array( 
+                    "id"                => $u['id'],
+                    "username"          => $u['username'],
+                    "post"              => $u['posts'] ,
+                    "category"          => $u['category'],
+                    "spamCount"         => $u['isSpam'],
+                    "humantimestamp"    => $dateee,
+                    "machinetimestamp"  => $u['createdat']
+                    );
+
+    }
     return $arrPosts;
 
 
@@ -117,6 +121,89 @@ function allPosts() {
 
     }
     return $allPosts;
+}
+
+
+//print all posts sorted by catgeory [for homepage]
+function categories(){
+
+    global $db;
+    
+    $cat1 = array();
+    $cat2 = array();
+    $cat3 = array();
+    $allPosts = array(
+            "cat1"  => array(),
+            "cat2"  => array(),
+            "cat3"  => array()        
+
+    );
+
+
+
+    $db->where ("category", 1); 
+    $cat1posts = $db->get("posts");
+
+    $timeAgo = new TimeAgo();
+
+    foreach ($cat1posts as $u) {
+        
+        $datee =  $timeAgo->inWords($u['createdat']); 
+        $hashPost = convertHashtags($u['posts']);
+
+        $allPosts['cat1'][] = array( 
+                    "id"                => $u['id'],
+                    "username"          => $u['username'],
+                    "post"              =>  $u['posts'] ,
+                    "category"          => $u['category'],
+                    "spamCount"         => $u['isSpam'],
+                    "humantimestamp"    => $datee,
+                    "machinetimestamp"  => $u['createdat'] 
+        );
+
+    }
+
+    $db->where ("category", 2); 
+    $cat2posts = $db->get("posts");
+    foreach ($cat2posts as $x) {
+        
+        $datee =  $timeAgo->inWords($x['createdat']);  
+        $hashPost = convertHashtags($x['posts']);
+
+        $allPosts['cat2'][] = array( 
+                    "id"                => $x['id'],
+                    "username"          => $x['username'],
+                    "post"              => $x['posts'] ,
+                    "category"          => $x['category'],
+                    "spamCount"         => $x['isSpam'],
+                    "humantimestamp"    => $datee,
+                    "machinetimestamp"  => $x['createdat'] 
+        );
+
+    }
+    $db->where ("category", 3); 
+    $cat3posts = $db->get("posts");
+
+    foreach ($cat3posts as $w) {
+        
+        $datee =  $timeAgo->inWords($w['createdat']);  
+        $hashPost = convertHashtags($w['posts']);
+
+        $allPosts['cat3'][] = array( 
+                    "id"                => $w['id'],
+                    "username"          => $w['username'],
+                    "post"              => $w['posts'] ,
+                    "category"          => $w['category'],
+                    "spamCount"         => $w['isSpam'],
+                    "humantimestamp"    => $datee,
+                    "machinetimestamp"  => $w['createdat'] 
+        );
+
+    }
+
+
+    return $allPosts;
+
 }
 
 //print all comments

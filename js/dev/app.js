@@ -1,5 +1,5 @@
 ;var App = (function () {
-
+Handlebars.partials = Handlebars.templates;
   var singlePostURL = "http://thanos.pandora.dev/app/endpoints.php/post/"
   , $viewContainer   = $('#pageView')
   , allPostsCall 
@@ -9,13 +9,24 @@
   
   allPostsCall    = function( req ) { $.when( $.ajax( req ) ).done(doAllView); };
   getSinglePost   = function( postID ) { $.when( $.ajax( singlePostURL+postID ) ).done(doSingleView); };
-  getSearch       = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doSRPView); }
+  getSearch       = function(reqURL,searchTerm){ $.when( $.ajax( reqURL+searchTerm ) ).done(doSRPView); };
+  getCategoryView = function(reqURL,CatID){  
+        $.when( $.ajax( reqURL+CatID ) ).done( doCatList);  
+      }
 
   doAllView       = function(jsonObj){  
+    $viewContainer.empty();
+    var template  = Handlebars.templates.categoryIndex(jsonObj);
+    $viewContainer.html(template); 
+  }
+
+  doCatList       = function(jsonObj){  
+    console.log(jsonObj);
     $viewContainer.empty();
     var template  = Handlebars.templates.postlist(jsonObj);
     $viewContainer.html(template); 
   }
+
   doSRPView       = function(jsonObj){ 
     $viewContainer.empty();
     var template  = Handlebars.templates.searchResults(jsonObj);
@@ -28,17 +39,18 @@
   }
  
   return {
-    getAllPosts   : function( reqURL ) { allPostsCall(reqURL);},
-    getSinglePost : function(postID){ getSinglePost(postID);},
-    searchPosts   : function(reqURL,searchTerm){ getSearch(reqURL,searchTerm);}
+    getAllPosts     : function( reqURL ) { allPostsCall(reqURL);},
+    getSinglePost   : function(postID){ getSinglePost(postID);},
+    searchPosts     : function(reqURL,searchTerm){ getSearch(reqURL,searchTerm);},
+    getCategoryList : function(reqURL,CatID){ getCategoryView(reqURL,CatID);  }
   };
  
 })();
 
-App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
+App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/categories");
 
 //navigation
-$( "body" ).on( "click", ".toggleNav", function() {
+$( "body" ).on( "click", ".toggleNav", function() { 
   
    $( "body" ).toggleClass('is-active');
 });
@@ -56,7 +68,8 @@ $( "body" ).on( "click", ".OffCanvas-overlay", function() {
  
     app.run('#/posts');
     app.run('#/post/:id');
-    app.run('#/isSpam/:id');
+    app.run('#/isSpam/:id'); 
+    app.run('#/category/:id'); 
 
     var app = Sammy.apps.body;
  
@@ -68,7 +81,7 @@ $( "body" ).on( "click", ".OffCanvas-overlay", function() {
             url: "../app/functions.php",
             data: { post: this.params['post'],category: this.params['category'] },
             success:function(result){
-              App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
+              App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/categories");
             }
           });
 
@@ -88,11 +101,16 @@ $( "body" ).on( "click", ".OffCanvas-overlay", function() {
     });
 
     app.get('#/posts', function(context) {
-        App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
+        App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/categories");
     });
     app.get('#/post/:id', function() { 
         App.getSinglePost( this.params['id'] );
     });
+    app.get('#/category/:id', function() { 
+        App.getCategoryList( "http://thanos.pandora.dev/app/endpoints.php/category/",this.params['id'] );  
+    });
+
+
     app.post('#/search', function() {   
         App.searchPosts("http://thanos.pandora.dev/app/endpoints.php/posts/search/",  this.params['find_posts'] );
         return false;
@@ -108,7 +126,7 @@ $( "body" ).on( "click", ".OffCanvas-overlay", function() {
     });
 
     app.get(/.*/, function() {  
-        App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/posts");
+        App.getAllPosts("http://thanos.pandora.dev/app/endpoints.php/categories");
 
     });
  

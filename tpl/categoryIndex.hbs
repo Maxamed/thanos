@@ -1,0 +1,69 @@
+        <section>
+          <header>
+            <h2>Latest Posts</h2>
+          </header>
+          <!-- Each Block of Posts by category -->
+          <section>
+            <h3>Category 1</h3> <a href="#/category/1">Link to posts in category 1</a>
+            <ul class="Panel Panel--withPadding ">
+            {{#each cat1}}
+              <li class="Panel-body Panel-content LayoutFlex LayoutFlex--withGutter">
+                <strong class="LayoutFlex-cell" id="postHeading{{id}}">{{ username }} </strong>
+                <span class="u-textTruncate">{{{post}}}</span>
+                <time   datetime="{{machinetimestamp}}">
+                  <span class="u-hiddenVisually LayoutFlex-cell">Posted </span>{{humantimestamp}}</time>
+                  <svg class="Icon">
+                    <use xlink:href="#Icon-comments" />
+                  </svg>
+                  <a href="" class="Panel-link"><span class="u-hiddenVisually">Got ot postname</span></a>
+              </li>
+            {{/each}}
+            </ul>
+          </section> 
+        <!-- Each Block of Posts by category -->
+
+        <!-- Each Block of Posts by category -->
+          <section>
+            <h3>Category 2</h3><a href="#/category/2">Link to posts in category 2</a>
+            <ul class="Panel Panel--withPadding ">
+            {{#each cat2}}
+              <li class="Panel-body Panel-content LayoutFlex LayoutFlex--withGutter">
+                <strong class="LayoutFlex-cell" id="postHeading{{id}}">{{ username }} </strong>
+                <span class="u-textTruncate">{{{post}}}</span>
+                <time   datetime="{{machinetimestamp}}">
+                  <span class="u-hiddenVisually LayoutFlex-cell">Posted </span>{{humantimestamp}}</time>
+                  <svg class="Icon">
+                    <use xlink:href="#Icon-comments" />
+                  </svg>
+                  <a href="" class="Panel-link"><span class="u-hiddenVisually">Got ot postname</span></a>
+              </li>
+            {{/each}}
+            </ul>
+          </section>
+        <!-- Each Block of Posts by category -->
+
+                <!-- Each Block of Posts by category -->
+          <section>
+            <h3>Category 3</h3><a href="#/category/3">Link to posts in category 3</a>
+            <ul class="Panel Panel--withPadding ">
+            {{#each cat3}}
+              <li class="Panel-body Panel-content LayoutFlex LayoutFlex--withGutter">
+                <strong class="LayoutFlex-cell" id="postHeading{{id}}">{{ username }} </strong>
+                <span class="u-textTruncate">{{{post}}}</span>
+                <time   datetime="{{machinetimestamp}}">
+                  <span class="u-hiddenVisually LayoutFlex-cell">Posted </span>{{humantimestamp}}</time>
+                  <svg class="Icon">
+                    <use xlink:href="#Icon-comments" />
+                  </svg>
+                  <a href="" class="Panel-link"><span class="u-hiddenVisually">Got ot postname</span></a>
+              </li>
+            {{/each}}
+            </ul>
+          </section>
+        <!-- Each Block of Posts by category -->
+
+
+        </section>
+ 
+</section>
+{{>compose}}

@@ -1,8 +1,8 @@
 <section role="region" class="Posts">
   <header class="PageTitle">
-    <h3 class="PageTitle-heading">Latest Posts</h3>
+    <h3 class="PageTitle-heading">List category 1</h3>
   </header>
-{{#each this}}
+{{#each this}} 
   <article class="Panel Panel--withPadding u-shapeRounded" aria-labeledby="postHeading{{id}}"> 
     <header class="Panel-content Panel-heading">
       <h3 class="Post-title u-textNoWrap H5" id="postHeading{{id}}">{{ username }} Said:</h3>
@@ -54,27 +54,4 @@
     </footer>
   </article> 
 {{/each}}
-</section>
-<section role="region" class="Sheet Sheet--postionBottomRight Panel">
-  <form action="#/gaunlet" method="post">
-    <fieldset>
-      <legend id="createPostHeading" class="H3">Create New Post</legend> 
-              
-      <label for="post" class="Input">
-        <span class="Input-label">What's on Your Mind?</span>
-        <textarea cols="40" rows="8" name="post" id="post" required></textarea>
-      </label>
-      <label for="select-choice" class="Input"> 
-        <span class="Input-label">Post Category</span>
-        <select name="category" id="category">
-          <option value="1">F MY LIFE</option>
-          <option value="2">First World Problems</option>
-          <option value="3">Just Because</option>
-        </select>
-      </label>
-      
-      <button type="submit" name="submit" id="submit" class="Button u-sm-sizeFull">Publish Post</button>
-      
-    </fieldset>
-  </form>
-</section>
+</section> 
